@@ -1,0 +1,25 @@
+import re
+
+f = open('output.txt','r+')
+g = open('likes.txt','w')
+g.close()
+g = open('likes.txt','a')
+a = []
+
+for l in f:
+	if "content=\"Like\"class=\"UFILikeLink\"" in l:
+		a.append(l)
+
+for item in a:
+	z = item.replace("content=\"Like\"class=\"UFILikeLink\"","")
+	zz = z.replace("id=\"","")
+	zzz = zz.replace("\">","")[:-1]
+	x1 = "sel.mouse_move(\"id="+zzz+"\")\n"
+	x2 = "sel.click(\"id="+zzz+"\")\n"
+	x3 = "time.sleep(5)\n"
+	g.write(x1)
+	g.write(x2)
+	g.write(x3)
+
+g.close()
+f.close()

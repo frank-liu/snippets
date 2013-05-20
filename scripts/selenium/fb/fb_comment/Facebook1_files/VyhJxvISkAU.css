@@ -1,0 +1,122 @@
+/*1364911512,178142509*/
+
+._4ng{outline:0;position:relative}
+._4o9{border:1px solid rgba(0, 0, 0, .2)}
+._4nh{bottom:40px;position:absolute;width:100%}
+._4ni{position:relative;text-align:center}
+._4nj{bottom:0;left:0;position:absolute;right:0;top:0}
+._4n8{border:1px solid rgba(0, 0, 0, .45);border-bottom-color:#666;box-shadow:0 3px 3px rgba(0, 0, 0, .1);margin:0 auto;position:relative;text-align:left;zoom:1}
+._4s-, ._4nb{max-width:340px}
+._4s_{display:inline-block}
+._4n9{bottom:-17px;height:17px;left:50%;margin-left:-7px;position:absolute}
+._4na ._4n9{bottom:-7px;height:9px;margin-left:-8px}
+._4nb{top:-7px;min-width:250px}
+._4t0{height:81px;overflow:hidden}
+._54c{float:left;height:81px;margin-left:3px;width:81px}
+._54c:first-child{margin:0}
+._4n7{background-position:50% 50%;background-repeat:no-repeat;height:81px;width:81px}
+._54d{left:5px;top:5px}
+._4t1{background:#eaeaea;height:7px;overflow:hidden;text-align:center;width:100%}
+._4t2{background:#fff;padding:0 3px;position:relative;text-transform:uppercase;top:-4px;white-space:nowrap}
+._4np{overflow:hidden}
+._4sy ._4np{max-height:2.66em}
+._4sz ._4np{max-height:3.99em}
+._uq6 + div, ._3q_3 + div{margin-top:15px}
+._uq6 + ._3q_3{margin-top:10px}
+._4lh ._uq6{margin:0 0 15px}
+._4lh ._uq6 + div, ._4lh ._3q_3 + div, ._4lh ._uq6 + ._3q_3{margin-top:0}
+.ogProfileMapContainer{position:relative;margin:0 -15px}
+.ogProfileMapContainer .ogProfileMap{margin:0 3px;overflow:hidden}
+.timelineReportContainer .ogProfileMapContainer{margin-bottom:-14px}
+.timelineReportContainer .ogProfileLastUnit .ogProfileMapContainer{margin-bottom:-12px}
+.ogStreamMapContainer{overflow:visible;position:relative;width:376px}
+.map_header{height:46px;overflow:hidden}
+.map_header_cell{white-space:nowrap}
+.map_header_cell .map_header_big .number span{font-size:24px;color:#666}
+.map_header_cell .map_header_big .unit{font-size:16px}
+.map_header_cell.bigunits .map_header_small{min-width:120px}
+.map_header_cell.bigunits .map_header_small span.number{font-size:20px;font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;color:#af6682}
+.map_header_separator{border-left:1px solid #e9e9e9;height:40px;margin-left:6px;margin-right:6px}
+.preview .ogProfileMapContainer{overflow:hidden;margin:0 -10px}
+.singleUnitPreview .ogProfileMapContainer{overflow:hidden}
+._12b{max-width:200px}
+.fbOpenGraphAddAppSingleButton, .fbOpenGraphAddAppReportButton{border-color:#858fb9;margin:4px}
+.timelineReportSmallHeader .fbOpenGraphAddAppSingleButton, .timelineReportSmallHeader .fbOpenGraphAddAppReportButton{margin-top:-2px}
+.hideNewOGAppStorySelector{border-color:#858fb9;left:-50000px;opacity:0;position:relative;-moz-transition:opacity .25s ease}
+.hideNewOGAppStorySelector:active, .hideNewOGAppStorySelector:focus, .timelineUnitContainer:hover .hideNewOGAppStorySelector{left:auto;opacity:1}
+.fbOpenGraphNewAppUnit{background-color:#f0f0f0;margin:-12px}
+.fbOpenGraphNewAppUnit .timelineReportHeader{border-bottom-width:0;margin:0;padding:0}
+.ogProfileReport .timelineReportHeader .fbOpenGraphAddAppReportButton{display:none}
+.ogProfileReport .primaryHeader .timelineReportHeader .fbOpenGraphAddAppReportButton{display:block}
+.ogProfileReport .timelineReportHeader:hover .fbOpenGraphAddAppReportButton{display:block}
+._4oa{margin:7px 0 -15px -12px;width:403px}
+._4lh ._4oa{margin-left:-9px;margin-top:0;width:504px}
+.ogAggregation ul, .ogAggregation li, .ogProfileReport ul, .ogProfileReport li, .layoutSelector li, .layoutSelector ul{list-style-type:none}
+.ogAppTab .timelineFullWidthReport{border:1px solid #c4cde0;border-bottom-width:2px;border-radius:3px}
+.ogAppTab .fbTimelineOneColumn .topBorder, .ogAppTab .fbTimelineOneColumn .bottomBorder{display:none}
+.ogAppTab .timelineFullWidthReport{padding:0}
+.ogAppTab .timelineFullWidthReport .timelineReportHeader{margin:3px}
+.timelineFullWidthReport .timelineReportContent{margin-top:-3px}
+.ogAppTab .timelineReportHeader .title{font-size:15px;line-height:inherit;max-width:600px;padding-right:10px;vertical-align:bottom}
+.ogAppTab .primaryHeader .title{line-height:16px}
+.ogAppTab .noContentUnit{padding:13px 15px;border-top:1px solid #e5e5e5}
+.ogAppTab .fbTimelineCapsule .noContentUnit{width:394px}
+.ogAppTab .timelineReportContainer .fbTimelineTwoColumn .timelineUnitContainer{margin-bottom:2px;width:390px}
+.ogAppTab .timelineFullWidthReport .fbTimelineTwoColumn[data-side="l"] .timelineUnitContainer{margin-right:0}
+.ogAppTab .timelineFullWidthReport .fbTimelineTwoColumn[data-side="r"] .timelineUnitContainer{margin-left:0}
+.ogAppTab .timelineReportContainer .lastCapsule{margin:0}
+.ogAppTab .noContentUnit.fullWidth{text-align:center}
+.ogAppTab .noContentUnit .ogProfilePhoto{width:80px;height:80px}
+.ogAppTab .noContentUnit.fullWidth .ogProfilePhoto{margin-right:auto;margin-left:auto}
+.ogAppTab .noContentUnit .ogProfileTitle{color:#acacac}
+.ogProfileBigPhoto .userContentWrapper{padding-left:15px;padding-right:15px}
+.ogProfileBigPhoto .photoWrap{margin-bottom:3px}
+.ogProfileEditMessageArea{height:14px;width:100%}
+.ogProfileTitle{font-weight:bold}
+.ogProfileList .listItem{border-bottom:thin solid #e2e2e2}
+.ogProfileList .lastItem{border-bottom:0;padding-bottom:0}
+.ogProfileList .caption{float:right}
+.ogProfileList .imageContainer{height:50px;overflow:hidden;width:50px}
+.ogProfileList .imageContainer .innerImage{display:inline;width:50px}
+.ogProfileList .ogSeeMoreLink{display:inline-block;padding:0 0 0 60px}
+.ogProfileHistogramList .listItem{border-bottom:0}
+.ogProfileHistogramList .ogListImage{border-right:1px solid #fff}
+.ogProfileHistogramList .ogListText{padding-left:7px}
+.ogProfileGallery .caption{word-wrap:break-word}
+.ogProfileGallery .imageContainer{overflow:hidden;text-align:center;vertical-align:middle}
+.ogProfileList .imageContainer{height:50px;width:50px}
+.ogProfileList .timelineAudienceSelector{margin-top:-3px}
+.ogProfileGallery .imageContainer{height:87px;width:87px}
+.ogProfileGallery .caption, .ogProfileGallery .innerImage, .ogProfileGallery .music_art_large{width:87px}
+.ogProfileGallery .galleryLink{font-weight:bold}
+.ogProfilePoster .imageContainer{height:90px;overflow:hidden;width:90px}
+.ogProfilePoster .innerImage{width:90px}
+.ogProfilePoster .displayBlock{color:gray;max-height:400px;overflow:hidden}
+.ogProfilePoster .short{font-size:13px;font-weight:bold}
+.ogProfilePoster .long{font-size:11px}
+.ogProfilePoster .title_block{margin-bottom:3px}
+.ogProfileTable table{width:100%;table-layout:fixed;word-wrap:break-word}
+.ogProfileTable td{border-top:1px solid #e5e5e5;border-bottom:1px solid #e5e5e5}
+.ogProfileTable .even{background:#f2f2f2}
+.ogProfileTable .even, .ogProfileTable .odd{padding-top:2px;padding-bottom:2px}
+.ogProfileTable .header{color:#3b5998;border-top:none;padding-bottom:2px}
+.ogProfileTable a{font-weight:bold}
+.ogTableItem{margin-bottom:3px;margin-top:3px}
+.fbTimelineCapsule .ogAggregation{background:#fff;border-radius:0 !important}
+.ogActionPermalink{float:right;opacity:0}
+.ogActionPermalink:hover{opacity:1}
+.ogFeedbackIcon{float:left;height:16px;margin:-1px 7px 0 0;width:16px}
+.ogAppTab .ogProfileNumber .bigNumber, .ogAppTab .ogProfileNumber .ogProfileNumberUnits{color:#6278ae}
+.ogAppTab .fbTimelineOneColumn .ogProfileList, .ogAppTab .fbTimelineOneColumn .ogProfileNumber, .ogAppTab .fbTimelineOneColumn .ogProfilePoster, .ogAppTab .fbTimelineOneColumn .ogProfileGallery{margin-left:3px}
+.ogAppTab .timelineReportContainer .timelineUnitContainer .aboveUnitContent{margin-bottom:10px}
+.ogAppTab .fbTimelineOneColumn .fbTimelineCapsule .timelineUnitContainer .ogProfileHeader{padding:5px 15px}
+.ogAppTab .fbTimelineOneColumn .spinePointer{display:none}
+.ogAppTab #all_time .fbTimelineOneColumn{margin-bottom:0}
+.ogSpikeUnitHeader .ogTimelineUnitActor{font-size:13px;margin-bottom:2px}
+.ogUnitWrapper{margin-top:15px}
+.ogProfileReport .ogUnitWraper{margin-top:0}
+.ogUnitWrapperBottomMargin{margin-bottom:15px}
+.ogProfileReport .ogUnitWrapper{margin:0 -3px}
+.ogAppTab .ogUnitWrapper .ogSpikeUnit{margin-bottom:-15px}
+
+#bootloader_CNULE { height: 42px; }

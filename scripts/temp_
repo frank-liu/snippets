@@ -1,0 +1,28 @@
+from selenium import selenium
+import unittest, time, re
+
+class temp_(unittest.TestCase):
+    def setUp(self):
+        self.verificationErrors = []
+        self.selenium = selenium("localhost", 4444, "*chrome", "https://www.facebook.com/")
+        self.selenium.start()
+    
+    def test_temp_(self):
+        sel = self.selenium
+        for i in range(60):
+            try:
+                if "Like" == sel.get_text("id=.reactRoot[0]"): break
+            except: pass
+            time.sleep(1)
+        else: self.fail("time out")
+        sel.open("\\posts\\adfa")
+        sel.click(".reactRoot[13].[1][3].0.[1].0.0.[0].[1].0.[1].0")
+        sel.highlight(".reactRoot[13].[1][3].0.[1].0.0.[0].[1].0.[1].0")
+        sel.wait_for_page_to_load("30000")
+    
+    def tearDown(self):
+        self.selenium.stop()
+        self.assertEqual([], self.verificationErrors)
+
+if __name__ == "__main__":
+    unittest.main()

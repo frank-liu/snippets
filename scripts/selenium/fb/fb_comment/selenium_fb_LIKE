@@ -1,0 +1,571 @@
+from selenium import selenium
+import unittest, time, re
+
+
+class selenium_fb_comment(unittest.TestCase):
+    def setUp(self):
+        self.verificationErrors = []
+        self.selenium = selenium("localhost", 4444, "*chrome", "https://www.facebook.com/")
+        self.selenium.start()
+    
+    def test_selenium_fb_comment(self):
+        sel = self.selenium
+        sel.open("/")
+        sel.type("id=email", "james.a.munsch@gmail.com")
+        sel.type("id=pass", "Drtisdrt??")
+        sel.click("id=u_0_4")
+        sel.wait_for_page_to_load("30000")
+
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("andrew.prassas/posts/587773064568500")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("mothers.moorhead/posts/452368018172222")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("orangedubs/posts/165041503654797")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("mothers.moorhead/posts/146671442174410")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("orangedubs/posts/177736452379400")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("andrew.prassas/posts/449308725143967")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("andrew.prassas/posts/433432240077056")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("andrew.prassas/posts/144602225718456")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("andrew.prassas/posts/379672062147272")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("andrew.prassas/posts/369807226464040")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("andrew.prassas/posts/295361033927565")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("andrew.prassas/posts/242885365855077")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("andrew.prassas/posts/601338643212548")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("andrew.prassas/posts/367775330007593")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("andrew.prassas/posts/507331409330896")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("andrew.prassas/posts/148593915316441")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("andrew.prassas/posts/622822917731205")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("andrew.prassas/posts/438425316246648")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("andrew.prassas/posts/113654152165426")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("andrew.prassas/posts/353955601383215")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("andrew.prassas/posts/133191966867549")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("andrew.prassas/posts/507231899313263")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("andrew.prassas/posts/506395809396421")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("andrew.prassas/posts/614379775258084")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("andrew.prassas/posts/522534484455012")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("andrew.prassas/posts/602908486388995")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("andrew.prassas/posts/141857185995322")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("andrew.prassas/posts/573554206001584")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("sonar.nazarian/posts/147118405465909")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("null.entry/posts/10152688549185694")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("john.wanninger.56/posts/10101130848782079")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("nathan.hills/posts/466286166778051")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("mara.jacobson.5/posts/10200976832689199")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("sherry.wells.1656/posts/529388867100511")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("AdamCaptainDelicious/posts/554374377916243")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("jayinee.basu/posts/10200493577755704")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("Justine.Roy4/posts/10152711223700790")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("ricardo.paniagua.54/posts/146385545540071")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+        try:
+            for i in range(30):
+                try:
+                    if sel.is_text_present("Like"): break
+                except: pass
+                time.sleep(1)
+            else: self.fail("time out")
+            sel.open("mark.murphy.505/posts/170568749767586")
+            sel.mouse_move("id=.reactRoot[0]")
+            sel.click("id=.reactRoot[0]")
+            time.sleep(5)
+        except Exception, err:
+            print Exception, err
+            pass
+    
+    def tearDown(self):
+        self.selenium.stop()
+        self.assertEqual([], self.verificationErrors)
+
+if __name__ == "__main__":
+    unittest.main()

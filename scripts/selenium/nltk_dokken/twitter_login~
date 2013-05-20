@@ -1,0 +1,30 @@
+from selenium import selenium
+import unittest, time, re
+
+class twitter_login(unittest.TestCase):
+    def setUp(self):
+        self.verificationErrors = []
+        self.selenium = selenium("localhost", 4444, "*chrome", "https://twitter.com/")
+        self.selenium.start()
+    
+    def test_twitter_login(self):
+        sel = self.selenium
+        sel.click("css=label.placeholder")
+        sel.wait_for_page_to_load("30000")
+        sel.type("id=signin-email", "james.a.munsch@gmail.com")
+        sel.type("id=signin-password", "Drtisdrt??")
+        sel.click("xpath=(//button[@type='submit'])[3]")
+        sel.wait_for_page_to_load("30000")
+        sel.click("css=#user-dropdown-toggle > span.new-wrapper")
+        sel.mouse_move("id=global-new-tweet-button")
+        sel.click("id=global-new-tweet-button")
+        sel.mouse_move("id=tweet-box-global")
+        sel.click("id=tweet-box-global")
+        sel.type("id=tweet-box-global", "sample sample derp")
+    
+    def tearDown(self):
+        self.selenium.stop()
+        self.assertEqual([], self.verificationErrors)
+
+if __name__ == "__main__":
+    unittest.main()

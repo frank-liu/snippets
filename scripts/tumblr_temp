@@ -1,0 +1,4537 @@
+ 
+
+
+
+<div id="container">
+<div id="header_container">
+<div id="header">
+
+<h1 id="logo" class="logo "><a href="/dashboard" class="logo_anchor">Tumblr</a></h1>
+
+
+
+<div id="tabs_outter_container">
+<div class="tab_bar" id="user_tools">
+
+<div class="tab iconic " id="home_button">
+<a href="/dashboard"><span>Dashboard</span></a>
+<span class="tab_notice new_post_notice_container" id="new_post_notice_container" style="display:none"><span class="tab_notice_value">0</span><span class="tab_notice_nipple"></span></span>
+<div class="selection_nipple"></div>
+</div>
+
+<div class="tab iconic "id="inbox_button">
+<a href="/inbox" >Inbox</a>
+<div class="tab_notice inbox_notice_container" style="display:none">
+<span class="tab_notice_value">0</span>
+<span class="tab_notice_nipple"></span>
+</div>
+<div class="selection_nipple"></div>
+</div>
+
+
+<div class="tab iconic"id="help_button">
+<a href="/help" >Help</a>
+<div class="selection_nipple white"></div>
+</div>
+
+
+<div class="tab iconic" id="preferences_button">
+<a href="https://www.tumblr.com/settings" >Preferences</a>
+<div class="selection_nipple white"></div>
+</div>
+
+
+<div class="tab iconic" id="logout_button">
+<a href="/logout" onclick="return confirm('Are you sure you want to log out?');">Log out</a>
+</div>
+
+
+<div class="tab iconic ui_search selected" id="search_field">
+
+
+<form method="get" action="/search" id="search_form" class="search_form search_form_active is_tag_searchis_tracking">
+
+<input type="hidden" name="form_key" value="3I2tjFpmtFJ8AeBDkyLroTAe8"/>
+<input type="hidden" name="scope" id="search_scope" value="all_of_tumblr"/>
+
+<div class="search_form_row">
+
+<div class="search_form_field">
+<input tabindex="1" type="text" name="q" id="search_query" placeholder="Search tags &amp; blogs" value="art" class="search_query popover_button " autocomplete="off"/>
+</div>
+
+<input type="submit" id="search_query_submit" class="search_query_submit" value="Search tags"/>
+
+<button type="button" class="chrome flat pill untrack_tag_button" id="untrack_tag_button" data-untrack="Untrack" data-tracking="Tracking" ><span>Tracking</span></button>
+<button type="button" class="chrome blue pill track_tag_button" id="track_tag_button" style="display:none"><span>Track</span></button>
+</div>
+
+</form><div class="selection_nipple"></div>
+
+</div>
+
+<div id="popover_search_promo" class="popover popover_menu popover_gradient search_popover promo" style="display:none;">
+<div class="popover_inner">
+<div class="popover_menu_item">
+<h3 class="search_promo_heading">Better search!</h3>
+<p class="search_promo_copy">We've completely redone search! Finding the tags and blogs you love is now easier than ever.</p>
+<button class="chrome blue search_promo_button">Okay cool</button>
+</div>
+</div></div><div id="popover_search" class="popover popover_menu popover_gradient search_popover" style="display:none;">
+<div class="popover_inner">
+
+<div id="search_results_container" class="search_results_container" />
+
+<div class="tracked_tags search_results_section">
+<h3 class="search_subheading">Tracked Tags</h3>
+
+
+<div class="popover_menu_item tracked_tag ">
+<div class="result">
+<a class="result_link" href="/tagged/art" id="tag_315" tabindex="1">
+<span class="result_title hide_overflow ">#art</span>
+<span class="result_thumb thumb" style="background-image:url(http://24.media.tumblr.com/1a4dcdc75464145f8575fa0906ceabff/tumblr_mkwl4oCrky1qarjnpo1_75sq.jpg)"></span>
+<small id="tag_unread_315" class="result_sub_title count">10 new posts</small>
+</a>
+</div>
+</div>
+
+
+<div class="popover_menu_item tracked_tag ">
+<div class="result">
+<a class="result_link" href="/tagged/blog+list" id="tag_601061" tabindex="1">
+<span class="result_title hide_overflow no_count">#blog list</span>
+<span class="result_thumb thumb" style="background-image:url(http://25.media.tumblr.com/tumblr_maqdepNTAg1qdw9s3o1_r1_75sq.png)"></span>
+</a>
+</div>
+</div>
+
+
+<div class="popover_menu_item tracked_tag ">
+<div class="result">
+<a class="result_link" href="/tagged/orteil+nested" id="tag_740756425" tabindex="1">
+<span class="result_title hide_overflow no_count">#orteil nested</span>
+</a>
+</div>
+</div>
+
+
+</div>
+</div>
+</div></div>
+
+<script>
+Tumblr.EXISTING_TAGS = [{"tag_id":"315","tag":"art","last_viewed_time":"1360828477","thumb":"http:\/\/24.media.tumblr.com\/1a4dcdc75464145f8575fa0906ceabff\/tumblr_mkwl4oCrky1qarjnpo1_75sq.jpg","unread_count":"10+"},{"tag_id":"601061","tag":"blog list","last_viewed_time":"1365471849","thumb":"http:\/\/25.media.tumblr.com\/tumblr_maqdepNTAg1qdw9s3o1_r1_75sq.png","unread_count":0},{"tag_id":"740756425","tag":"orteil nested","last_viewed_time":"1358690072","thumb":false,"unread_count":0}];
+</script>
+
+<script type="text/tmpl" id="search_loading_template">
+
+<div class="loading search_results_section">Loading...</div>
+
+</script>
+
+<script type="text/tmpl" id="search_results_template">
+
+<%
+var result_query = results['query'],
+type = results['type'],
+result_titles = {
+'tag' : 'Tags',
+'blog' : 'Blogs'},
+items = results['items'],
+more_blogs_link = '/search/blogs?q=' + result_query,
+more_blogs_label = 'More blogs with \x22%1$s\x22'.replace('%1$s', result_query);
+%>
+<div class="<%= type %> search_results_section">
+<h3 class="search_subheading"><%= result_titles[type] %></h3>
+
+<% _.each(items, function(item) { %>
+
+<%
+var template = _.template(results['item_template']);
+var item_data = {}; item_data[type] = item;
+var item_markup = template(item_data);
+%>
+
+<%= item_markup %>
+
+<% }); %>
+
+<% if(type == 'blog') { %>
+<div class="popover_menu_item ender more_results">
+<a href="<%= more_blogs_link %>" tabindex="1" class="more_results_link"><span><%= more_blogs_label %></span></a>
+</div>
+<% } %>
+
+</div>
+</div>
+
+</script>
+
+
+<script type="text/tmpl" id="search_results_item_blogs">
+<%
+var title = (blog.title && blog.title.length) ? blog.hilite_title : blog.hilite_name;
+var result_class = '';
+
+if(blog.avatar_url) result_class += ' has_thumb';
+if(blog.is_followed) result_class += ' is_followed';
+%>
+<div class="popover_menu_item">
+
+<div class="result <%= result_class %>">
+<a class="result_link" href="http://<%= blog.url %>" id="result_link_<%= blog.name %>" target="_blank" tabindex="1" data-tumblelog-name="<%= blog.name %>">
+
+<span class="hide_overflow">
+<span class="result_title"><%= title %></span>
+
+<% if(blog.avatar_url) {%>
+<span class="result_thumb thumb" style="background-image:url(<%= blog.avatar_url %>)"></span>
+<% } %>
+
+<% if(blog.url) { %>
+<small class="result_sub_title"><%= blog.hilite_url %></small>
+<% } %>
+</span>
+
+</a>
+</div>
+</div>
+</script>
+
+<script type="text/tmpl" id="search_results_item_tags">
+
+<%
+var title = '#' + tag.hilite_tag;
+var result_class = '';
+
+if(!tag.featured && !tag.unread_count) result_class += ' no_count';
+if(tag.thumb) result_class += ' has_thumb';
+if(tag.is_query) result_class += ' is_query';
+if(tag.is_featured) result_class += ' is_featured';
+
+%>
+
+<div class="popover_menu_item">
+
+<div class="result <%= result_class %>">
+<a class="result_link" href="<%= tag.url %>" id="result_link_<%= tag.tag.replace(' ','-').toLowerCase() %>" tabindex="1">
+
+<span class="hide_overflow">
+<span class="result_title"><%= title %></span>
+
+<% if(tag.thumb) {%>
+<span class="result_thumb thumb" style="background-image:url(<%= tag.thumb %>)"></span>
+<% } %>
+
+<% if(tag.featured) { %>
+<small class="result_sub_title">Featured tag</small>
+<% } %>
+
+<% if(tag.unread_count) { %>
+<small class="result_type count">
+<span <% if(tag.unread_count == 1) { %> style="display: block;" <% } else { %> style="display: none" <% } %>>1 new post</span>
+<span <% if(tag.unread_count == 2) { %> style="display: block;" <% } else { %> style="display: none" <% } %>>2 new posts</span>
+<span <% if(tag.unread_count == 3) { %> style="display: block;" <% } else { %> style="display: none" <% } %>>3 new posts</span>
+<span <% if(tag.unread_count == 4) { %> style="display: block;" <% } else { %> style="display: none" <% } %>>4 new posts</span>
+<span <% if(tag.unread_count == 5) { %> style="display: block;" <% } else { %> style="display: none" <% } %>>5 new posts</span>
+<span <% if(tag.unread_count == 6) { %> style="display: block;" <% } else { %> style="display: none" <% } %>>6 new posts</span>
+<span <% if(tag.unread_count == 7) { %> style="display: block;" <% } else { %> style="display: none" <% } %>>7 new posts</span>
+<span <% if(tag.unread_count == 8) { %> style="display: block;" <% } else { %> style="display: none" <% } %>>8 new posts</span>
+<span <% if(tag.unread_count == 9) { %> style="display: block;" <% } else { %> style="display: none" <% } %>>9 new posts</span>
+<span <% if(tag.unread_count >= 10 || tag.unread_count == '10+' || tag.unread_count == '+10') { %> style="display: block;" <% } else { %> style="display: none" <% } %>>10 new posts</span>
+</small>
+<% } %>
+</span>
+
+</a>
+</div>
+</div>
+
+</script>
+</div></div>
+
+
+</div></div>
+<div id="sidebar_footer_nav" class="pinned_sidebar_footer">
+<ul class="sidebar_nav clearfix">
+
+<li class="sidebar_nav_item">
+<a class="sidebar_link" href="/themes" target="_new">Themes</a>
+</li>
+
+<li class="sidebar_nav_item">
+<a class="sidebar_link" href="/about">About</a>
+</li>
+
+<li class="sidebar_nav_item" id="popover_legal">
+
+<a class="sidebar_link popover_legal_link" href="/policy/en/terms_of_service" target="_new">Legal</a>
+<div class="popover popover_menu popover_gradient nipple_on_bottom popover_legal">
+<ul class="popover_inner">
+<li class="popover_menu_item"><a href="/policy/en/terms_of_service" target="_new">Terms</a></li>
+<li class="popover_menu_item"><a href="/policy/en/terms_of_service#dmca" target="_new">Copyright</a></li>
+</ul>
+</div>
+</li>
+
+<li class="sidebar_nav_item">
+<a class="sidebar_link" href="/policy/en/privacy" target="_new">Privacy</a>
+</li>
+
+
+</ul></div>
+
+<img src="http://assets.tumblr.com/images/content_top.png?alpha" alt="" class="content_cap" id="content_top"
+/><div id="content" class="clearfix">
+<div id="toast_float">
+<div id="toast_container">
+<div id="toast_position">
+<ul id="toaster"></ul>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+
+var toast_translations = {
+// Like
+"%1$s liked your post": '%1$s liked your post',
+"%1$s liked your photo": '%1$s liked your photo',
+"%1$s liked your photoset": '%1$s liked your photoset',
+"%1$s liked your panorama": '%1$s liked your panorama',
+"%1$s liked your quote": '%1$s liked your quote',
+"%1$s liked your link": '%1$s liked your link',
+"%1$s liked your chat": '%1$s liked your chat',
+"%1$s liked your video": '%1$s liked your video',
+"%1$s liked your audio post": '%1$s liked your audio post',
+// Reblog
+"%1$s reblogged your post": '%1$s reblogged your post',
+"%1$s reblogged your photo": '%1$s reblogged your photo',
+"%1$s reblogged your photoset": '%1$s reblogged your photoset',
+"%1$s reblogged your panorama": '%1$s reblogged your panorama',
+"%1$s reblogged your quote": '%1$s reblogged your quote',
+"%1$s reblogged your link": '%1$s reblogged your link',
+"%1$s reblogged your chat": '%1$s reblogged your chat',
+"%1$s reblogged your video": '%1$s reblogged your video',
+"%1$s reblogged your audio post": '%1$s reblogged your audio post',
+// Reblog with diff
+"%1$s reblogged your post and added:": '%1$s reblogged your post and added:',
+"%1$s reblogged your photo and added:": '%1$s reblogged your photo and added:',
+"%1$s reblogged your photoset and added:": '%1$s reblogged your photoset and added:',
+"%1$s reblogged your panorama and added:": '%1$s reblogged your panorama and added:',
+"%1$s reblogged your quote and added:": '%1$s reblogged your quote and added:',
+"%1$s reblogged your link and added:": '%1$s reblogged your link and added:',
+"%1$s reblogged your chat and added:": '%1$s reblogged your chat and added:',
+"%1$s reblogged your video and added:": '%1$s reblogged your video and added:',
+"%1$s reblogged your audio post and added:": '%1$s reblogged your audio post and added:',
+// Answer
+"%1$s answered your question": '%1$s answered your question',
+// Reply or photo reply
+"%1$s replied to your post": '%1$s replied to your post',
+"%1$s replied to your photo": '%1$s replied to your photo',
+"%1$s replied to your photoset": '%1$s replied to your photoset',
+"%1$s replied to your panorama": '%1$s replied to your panorama',
+"%1$s replied to your quote": '%1$s replied to your quote',
+"%1$s replied to your link": '%1$s replied to your link',
+"%1$s replied to your chat": '%1$s replied to your chat',
+"%1$s replied to your video": '%1$s replied to your video',
+"%1$s replied to your audio post": '%1$s replied to your audio post',
+// Follow
+"%1$s started following %2$s": '%1$s started following %2$s',
+"%1$s started following you": '%1$s started following you',
+// Ask
+"Sent to %1$s": 'Sent to %1$s'
+};
+
+jQuery(document).ready(function($){
+
+// Initialize Toaster
+Tumblr.Toaster = new Tumblr.Toaster({
+el: '#toaster'
+});
+
+// Add translations to ToastKit
+Tumblr.ToastKit.add_translations(toast_translations);
+
+});
+</script>
+
+
+
+
+
+
+<div id="right_column" class="right_column">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ul class="controls_section" id="tag_editors">
+<li class="item 0first "style="background-image:url('http://24.media.tumblr.com/avatar_3055fa129c6e_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://ruineshumaines.tumblr.com/" class="blog" onclick="this.href = '/goto/cz3n1WsltJ9pgfG/5/315/0/ruineshumaines';">
+<div class="hide_overflow has_follow_button">
+<span class="tumblelog_name">ruineshumaines</span><br/>
+<small class="tumblelog_category">
+Top Editor
+</small>
+</div>
+</a>
+
+<div class="follow" id="suggested_blog_follow_0" data-tumblelog-name="ruineshumaines"></div>
+</li>
+<li class="item 1 "style="background-image:url('http://24.media.tumblr.com/avatar_f5b207bc6133_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://jeffdtaylor.com/" class="blog" onclick="this.href = '/goto/cz3n1W1e6eJojlJ/5/315/0/jeffdtaylor';">
+<div class="hide_overflow has_follow_button">
+<span class="tumblelog_name">jeffdtaylor</span><br/>
+<small class="tumblelog_category">
+Editor
+</small>
+</div>
+</a>
+
+<div class="follow" id="suggested_blog_follow_1" data-tumblelog-name="jeffdtaylor"></div>
+</li>
+<li class="item 2 last"style="background-image:url('http://24.media.tumblr.com/avatar_805c04802c50_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://champagneproblems.tumblr.com/" class="blog" onclick="this.href = '/goto/cz3n1fbThaK5kBm/5/315/0/champagneproblems';">
+<div class="hide_overflow has_follow_button">
+<span class="tumblelog_name">champagneproblems</span><br/>
+<small class="tumblelog_category">
+Editor
+</small>
+</div>
+</a>
+
+<div class="follow" id="suggested_blog_follow_2" data-tumblelog-name="champagneproblems"></div>
+</li>
+<li class="item 3 hidden"style="background-image:url('http://24.media.tumblr.com/avatar_1ec771e37fc4_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://showslow.tumblr.com/" class="blog" onclick="this.href = '/goto/cz3n1j3qGFOtznL/5/315/0/showslow';">
+<div class="hide_overflow has_follow_button">
+<span class="tumblelog_name">showslow</span><br/>
+<small class="tumblelog_category">
+Editor
+</small>
+</div>
+</a>
+
+<div class="follow" id="suggested_blog_follow_3" data-tumblelog-name="showslow"></div>
+</li>
+<li class="item 4 hidden"style="background-image:url('http://25.media.tumblr.com/avatar_280fcb825722_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://blog.jacobvanloon.com/" class="blog" onclick="this.href = '/goto/cz3n1RUc7pqud5N/5/315/0/jacobvanloon';">
+<div class="hide_overflow has_follow_button">
+<span class="tumblelog_name">jacobvanloon</span><br/>
+<small class="tumblelog_category">
+Editor
+</small>
+</div>
+</a>
+
+<div class="follow" id="suggested_blog_follow_4" data-tumblelog-name="jacobvanloon"></div>
+</li>
+<li class="item 5 hidden"style="background-image:url('http://24.media.tumblr.com/avatar_993d9e66d875_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://arpeggia.tumblr.com/" class="blog" onclick="this.href = '/goto/cz3n1F55o3C4U6A/5/315/0/arpeggia';">
+<div class="hide_overflow has_follow_button">
+<span class="tumblelog_name">arpeggia</span><br/>
+<small class="tumblelog_category">
+Editor
+</small>
+</div>
+</a>
+
+<div class="follow" id="suggested_blog_follow_5" data-tumblelog-name="arpeggia"></div>
+</li>
+<li class="item 6 hidden"style="background-image:url('http://24.media.tumblr.com/avatar_adb6a441c94e_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://tylervarsell.tumblr.com/" class="blog" onclick="this.href = '/goto/cz3n1hUs3LAVrlj/5/315/0/tylervarsell';">
+<div class="hide_overflow has_follow_button">
+<span class="tumblelog_name">tylervarsell</span><br/>
+<small class="tumblelog_category">
+Editor
+</small>
+</div>
+</a>
+
+<div class="follow" id="suggested_blog_follow_6" data-tumblelog-name="tylervarsell"></div>
+</li>
+<li class="item 7 hidden"style="background-image:url('http://25.media.tumblr.com/avatar_fb892be8198a_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://blackcontemporaryart.tumblr.com/" class="blog" onclick="this.href = '/goto/cz3n1BVROhxxIT7/5/315/0/blackcontemporaryart';">
+<div class="hide_overflow has_follow_button">
+<span class="tumblelog_name">blackcontemporaryart</span><br/>
+<small class="tumblelog_category">
+Editor
+</small>
+</div>
+</a>
+
+<div class="follow" id="suggested_blog_follow_7" data-tumblelog-name="blackcontemporaryart"></div>
+</li>
+<li class="item 8 hidden"style="background-image:url('http://25.media.tumblr.com/avatar_fc6e15e965d7_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://artsatlas.tumblr.com/" class="blog" onclick="this.href = '/goto/cz3n1Ljirla2y9M/5/315/0/artsatlas';">
+<div class="hide_overflow has_follow_button">
+<span class="tumblelog_name">artsatlas</span><br/>
+<small class="tumblelog_category">
+Editor
+</small>
+</div>
+</a>
+
+<div class="follow" id="suggested_blog_follow_8" data-tumblelog-name="artsatlas"></div>
+</li>
+<li class="item 9 hidden"style="background-image:url('http://25.media.tumblr.com/avatar_a01e48cb17af_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://rery.tumblr.com/" class="blog" onclick="this.href = '/goto/cz3n1KDcWY89uIY/5/315/0/rery';">
+<div class="hide_overflow has_follow_button">
+<span class="tumblelog_name">rery</span><br/>
+<small class="tumblelog_category">
+Editor
+</small>
+</div>
+</a>
+
+<div class="follow" id="suggested_blog_follow_9" data-tumblelog-name="rery"></div>
+</li>
+<li class="item 10 hidden"style="background-image:url('http://25.media.tumblr.com/avatar_eb7f197d7fb6_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://futureshipwreck.tumblr.com/" class="blog" onclick="this.href = '/goto/cz3n1BAYOQVxAb0/5/315/0/futureshipwreck';">
+<div class="hide_overflow">
+<span class="tumblelog_name">futureshipwreck</span><br/>
+<small class="tumblelog_category">
+Editor
+</small>
+</div>
+</a>
+
+</li>
+<li class="item 11 hidden"style="background-image:url('http://25.media.tumblr.com/avatar_db3f9d6d282a_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://jenna.tumblr.com/" class="blog" onclick="this.href = '/goto/cz3n173eaFQ2tuh/5/315/0/jenna';">
+<div class="hide_overflow has_follow_button">
+<span class="tumblelog_name">jenna</span><br/>
+<small class="tumblelog_category">
+Editor
+</small>
+</div>
+</a>
+
+<div class="follow" id="suggested_blog_follow_11" data-tumblelog-name="jenna"></div>
+</li>
+<li class="item 12 hidden"style="background-image:url('http://25.media.tumblr.com/avatar_0b73cfebcbb8_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://atavus.tumblr.com/" class="blog" onclick="this.href = '/goto/cz3n1xVBTLnBW2G/5/315/0/atavus';">
+<div class="hide_overflow has_follow_button">
+<span class="tumblelog_name">atavus</span><br/>
+<small class="tumblelog_category">
+Editor
+</small>
+</div>
+</a>
+
+<div class="follow" id="suggested_blog_follow_12" data-tumblelog-name="atavus"></div>
+</li>
+<li class="item 13 hidden"style="background-image:url('http://25.media.tumblr.com/avatar_3006c375d495_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://ryandonato.com/" class="blog" onclick="this.href = '/goto/cz3n1TNKcVArjaa/5/315/0/ryandonato';">
+<div class="hide_overflow has_follow_button">
+<span class="tumblelog_name">ryandonato</span><br/>
+<small class="tumblelog_category">
+Editor
+</small>
+</div>
+</a>
+
+<div class="follow" id="suggested_blog_follow_13" data-tumblelog-name="ryandonato"></div>
+</li>
+<li class="item 14 hidden"style="background-image:url('http://24.media.tumblr.com/avatar_38d4570f554f_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://anniewerner.tumblr.com/" class="blog" onclick="this.href = '/goto/cz3n1pFAfqWSHau/5/315/0/anniewerner';">
+<div class="hide_overflow has_follow_button">
+<span class="tumblelog_name">anniewerner</span><br/>
+<small class="tumblelog_category">
+Editor
+</small>
+</div>
+</a>
+
+<div class="follow" id="suggested_blog_follow_14" data-tumblelog-name="anniewerner"></div>
+</li>
+<li class="item 15 hidden"style="background-image:url('http://25.media.tumblr.com/avatar_2f2e6e604ae6_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://www.cavetocanvas.com/" class="blog" onclick="this.href = '/goto/cz3n1EE60V5auKp/5/315/0/cavetocanvas';">
+<div class="hide_overflow has_follow_button">
+<span class="tumblelog_name">cavetocanvas</span><br/>
+<small class="tumblelog_category">
+Editor
+</small>
+</div>
+</a>
+
+<div class="follow" id="suggested_blog_follow_15" data-tumblelog-name="cavetocanvas"></div>
+</li>
+<li class="item 16 hidden"style="background-image:url('http://25.media.tumblr.com/avatar_a4062753cd96_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://www.valentineuhovski.com/" class="blog" onclick="this.href = '/goto/cz3n1ObrWFOnOdH/5/315/0/valentineuhovski';">
+<div class="hide_overflow has_follow_button">
+<span class="tumblelog_name">valentineuhovski</span><br/>
+<small class="tumblelog_category">
+Editor
+</small>
+</div>
+</a>
+
+<div class="follow" id="suggested_blog_follow_16" data-tumblelog-name="valentineuhovski"></div>
+</li>
+<li class="item 17 hidden"style="background-image:url('http://24.media.tumblr.com/avatar_38d4570f554f_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://anniewerner.tumblr.com/" class="blog" onclick="this.href = '/goto/cz3n1pFAfqWSHau/5/315/0/anniewerner';">
+<div class="hide_overflow has_follow_button">
+<span class="tumblelog_name">anniewerner</span><br/>
+<small class="tumblelog_category">
+Editor
+</small>
+</div>
+</a>
+
+<div class="follow" id="suggested_blog_follow_17" data-tumblelog-name="anniewerner"></div>
+</li>
+<li class="item 18 hidden"style="background-image:url('http://24.media.tumblr.com/avatar_b7718c1f1294_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://exhibition-ism.com/" class="blog" onclick="this.href = '/goto/cz3n1SiRAQ4yKya/5/315/0/exhibition-ism';">
+<div class="hide_overflow">
+<span class="tumblelog_name">exhibition-ism</span><br/>
+<small class="tumblelog_category">
+Editor
+</small>
+</div>
+</a>
+
+</li>
+<li class="item 19 hidden"style="background-image:url('http://24.media.tumblr.com/avatar_7b8a30bdf3f4_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://thisbelongsinamuseum.com/" class="blog" onclick="this.href = '/goto/cz3n1Y52yt4TPR2/5/315/0/thisbelongsinamuseum';">
+<div class="hide_overflow has_follow_button">
+<span class="tumblelog_name">thisbelongsinamuseum</span><br/>
+<small class="tumblelog_category">
+Editor
+</small>
+</div>
+</a>
+
+<div class="follow" id="suggested_blog_follow_19" data-tumblelog-name="thisbelongsinamuseum"></div>
+</li>
+<li class="item 20 hidden"style="background-image:url('http://24.media.tumblr.com/avatar_38d4570f554f_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://anniewerner.tumblr.com/" class="blog" onclick="this.href = '/goto/cz3n1pFAfqWSHau/5/315/0/anniewerner';">
+<div class="hide_overflow has_follow_button">
+<span class="tumblelog_name">anniewerner</span><br/>
+<small class="tumblelog_category">
+Editor
+</small>
+</div>
+</a>
+
+<div class="follow" id="suggested_blog_follow_20" data-tumblelog-name="anniewerner"></div>
+</li>
+<li class="item 21 hidden"style="background-image:url('http://24.media.tumblr.com/avatar_e75f4ce22f08_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://tumblropenarts.tumblr.com/" class="blog" onclick="this.href = '/goto/cz3n18bfykR8XOo/5/315/0/tumblropenarts';">
+<div class="hide_overflow has_follow_button">
+<span class="tumblelog_name">tumblropenarts</span><br/>
+<small class="tumblelog_category">
+Editor
+</small>
+</div>
+</a>
+
+<div class="follow" id="suggested_blog_follow_21" data-tumblelog-name="tumblropenarts"></div>
+</li>
+<li class="item 22 hidden"style="background-image:url('http://24.media.tumblr.com/avatar_59b2f13812b7_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://creativetime.tumblr.com/" class="blog" onclick="this.href = '/goto/cz3n1OeQe3Zwyf5/5/315/0/creativetime';">
+<div class="hide_overflow has_follow_button">
+<span class="tumblelog_name">creativetime</span><br/>
+<small class="tumblelog_category">
+Editor
+</small>
+</div>
+</a>
+
+<div class="follow" id="suggested_blog_follow_22" data-tumblelog-name="creativetime"></div>
+</li>
+<li class="item 23 hidden"style="background-image:url('http://25.media.tumblr.com/avatar_f65fe106d417_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://artruby.com/" class="blog" onclick="this.href = '/goto/cz3n1lqiyRAzGr2/5/315/0/artruby';">
+<div class="hide_overflow has_follow_button">
+<span class="tumblelog_name">artruby</span><br/>
+<small class="tumblelog_category">
+Editor
+</small>
+</div>
+</a>
+
+<div class="follow" id="suggested_blog_follow_23" data-tumblelog-name="artruby"></div>
+</li>
+<li class="item 24 hidden"style="background-image:url('http://25.media.tumblr.com/avatar_ce2dca2ce1e8_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://devidsketchbook.com/" class="blog" onclick="this.href = '/goto/cz3n1kJWxEh0Drb/5/315/0/devidsketchbook';">
+<div class="hide_overflow has_follow_button">
+<span class="tumblelog_name">devidsketchbook</span><br/>
+<small class="tumblelog_category">
+Editor
+</small>
+</div>
+</a>
+
+<div class="follow" id="suggested_blog_follow_24" data-tumblelog-name="devidsketchbook"></div>
+</li>
+<li class="item 25 hidden"style="background-image:url('http://24.media.tumblr.com/avatar_2c60577bb390_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://deadrabbitohno.tumblr.com/" class="blog" onclick="this.href = '/goto/cz3n1xcU7VwimYN/5/315/0/deadrabbitohno';">
+<div class="hide_overflow has_follow_button">
+<span class="tumblelog_name">deadrabbitohno</span><br/>
+<small class="tumblelog_category">
+Editor
+</small>
+</div>
+</a>
+
+<div class="follow" id="suggested_blog_follow_25" data-tumblelog-name="deadrabbitohno"></div>
+</li>
+<li class="item 26 hiddenlast"style="background-image:url('http://25.media.tumblr.com/avatar_6d6056d544d4_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://slowartday.tumblr.com/" class="blog" onclick="this.href = '/goto/cz3n19Iru185SXO/5/315/0/slowartday';">
+<div class="hide_overflow has_follow_button">
+<span class="tumblelog_name">slowartday</span><br/>
+<small class="tumblelog_category">
+Editor
+</small>
+</div>
+</a>
+
+<div class="follow" id="suggested_blog_follow_26" data-tumblelog-name="slowartday"></div>
+</li>
+</ul>
+<div class="small_links" style="float:right;">
+<a href="/docs/featured_tags">Featured Tags FAQ</a>
+</div>
+<!-- Show more -->
+<div class="small_links show_more">
+<a href="#" class="show_more_contributors">
+<div class="hide_overflow">See All</div>
+<div class="gradient"></div>
+</a>
+</div>
+
+
+
+
+
+<ul class="controls_section" id="tag_contributors">
+<li class="item 0firstno_push"style="background-image:url('http://25.media.tumblr.com/avatar_d73e3357ba0a_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://likeafieldmouse.com/" class="blog" onclick="this.href = '/goto/cz3n1nkC9CHc00S/6/315/0/likeafieldmouse';">
+<div class="hide_overflow has_follow_button">
+likeafieldmouse<br/>
+<small>
+Top Contributor
+</small>
+</div>
+</a>
+
+<div class="follow" id="contrib_blog_follow_0" data-tumblelog-name="likeafieldmouse"></div>
+</li>
+<li class="item 1no_push"style="background-image:url('http://24.media.tumblr.com/avatar_ac3aee9aa46a_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://blue-voids.tumblr.com/" class="blog" onclick="this.href = '/goto/cz3n1xKxF3F7Gcz/6/315/0/blue-voids';">
+<div class="hide_overflow has_follow_button">
+blue-voids<br/>
+<small>
+Top Contributor
+</small>
+</div>
+</a>
+
+<div class="follow" id="contrib_blog_follow_1" data-tumblelog-name="blue-voids"></div>
+</li>
+<li class="item 2 last no_push"style="background-image:url('http://24.media.tumblr.com/avatar_53c43665c89e_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://darksilenceinsuburbia.tumblr.com/" class="blog" onclick="this.href = '/goto/cz3n1cahboiv1Qx/6/315/0/darksilenceinsuburbia';">
+<div class="hide_overflow has_follow_button">
+darksilenceinsuburbia<br/>
+<small>
+Top Contributor
+</small>
+</div>
+</a>
+
+<div class="follow" id="contrib_blog_follow_2" data-tumblelog-name="darksilenceinsuburbia"></div>
+</li>
+<li class="item 3 hidden no_push"style="background-image:url('http://24.media.tumblr.com/avatar_4648520c1678_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://artchipel.tumblr.com/" class="blog" onclick="this.href = '/goto/cz3n13jMnh2Cp44/6/315/0/artchipel';">
+<div class="hide_overflow has_follow_button">
+artchipel<br/>
+<small>
+Top Contributor
+</small>
+</div>
+</a>
+
+<div class="follow" id="contrib_blog_follow_3" data-tumblelog-name="artchipel"></div>
+</li>
+<li class="item 4 hidden no_push"style="background-image:url('http://25.media.tumblr.com/avatar_02a0fdae817d_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://yama-bato.tumblr.com/" class="blog" onclick="this.href = '/goto/cz3n1BpHpaBpakE/6/315/0/yama-bato';">
+<div class="hide_overflow has_follow_button">
+yama-bato<br/>
+<small>
+Top Contributor
+</small>
+</div>
+</a>
+
+<div class="follow" id="contrib_blog_follow_4" data-tumblelog-name="yama-bato"></div>
+</li>
+<li class="item 5 hidden no_push"style="background-image:url('http://24.media.tumblr.com/avatar_47f2c07adf46_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://visual-poetry.tumblr.com/" class="blog" onclick="this.href = '/goto/cz3n1f2yy2BmdcC/6/315/0/visual-poetry';">
+<div class="hide_overflow has_follow_button">
+visual-poetry<br/>
+<small>
+Top Contributor
+</small>
+</div>
+</a>
+
+<div class="follow" id="contrib_blog_follow_5" data-tumblelog-name="visual-poetry"></div>
+</li>
+<li class="item 6 hidden no_push"style="background-image:url('http://24.media.tumblr.com/avatar_7188e332e877_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://areaofinterest.com/" class="blog" onclick="this.href = '/goto/cz3n1DslOYUGq3e/6/315/0/areaofinterest';">
+<div class="hide_overflow has_follow_button">
+areaofinterest<br/>
+<small>
+Top Contributor
+</small>
+</div>
+</a>
+
+<div class="follow" id="contrib_blog_follow_6" data-tumblelog-name="areaofinterest"></div>
+</li>
+<li class="item 7 hidden no_push"style="background-image:url('http://25.media.tumblr.com/avatar_d5a9c4cafcdc_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://theartofanimation.tumblr.com/" class="blog" onclick="this.href = '/goto/cz3n1oAwDJ0Ypaq/6/315/0/theartofanimation';">
+<div class="hide_overflow has_follow_button">
+theartofanimation<br/>
+<small>
+Top Contributor
+</small>
+</div>
+</a>
+
+<div class="follow" id="contrib_blog_follow_7" data-tumblelog-name="theartofanimation"></div>
+</li>
+<li class="item 8 hidden no_push"style="background-image:url('http://24.media.tumblr.com/avatar_27b013af9079_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://frenchtwist.tumblr.com/" class="blog" onclick="this.href = '/goto/cz3n14OUmPfkstU/6/315/0/frenchtwist';">
+<div class="hide_overflow has_follow_button">
+frenchtwist<br/>
+<small>
+Top Contributor
+</small>
+</div>
+</a>
+
+<div class="follow" id="contrib_blog_follow_8" data-tumblelog-name="frenchtwist"></div>
+</li>
+<li class="item 9 hiddenlast no_push"style="background-image:url('http://24.media.tumblr.com/avatar_b9627aa94852_40.png'); background-position:top left; background-repeat:no-repeat;">
+<a href="http://samanthakeelysmith.tumblr.com/" class="blog" onclick="this.href = '/goto/cz3n1WYt4Ki9lPP/6/315/0/samanthakeelysmith';">
+<div class="hide_overflow has_follow_button">
+samanthakeelysmith<br/>
+<small>
+Top Contributor
+</small>
+</div>
+</a>
+
+<div class="follow" id="contrib_blog_follow_9" data-tumblelog-name="samanthakeelysmith"></div>
+</li>
+
+</ul>
+<!-- Show more -->
+<div class="small_links show_more">
+<a href="#" class="show_more_contributors">
+<div class="hide_overflow">See All</div>
+</a>
+</div>
+
+
+
+
+<ul class="controls_section" id="related_tags" style="display:none" data-tag="art" data-rtv="2">
+</ul>
+<div class="small_links" id="related_tags_show_more" style="margin-bottom:20px;display:none;">
+<a href="#" class="show_more_related_tags">
+<div class="hide_overflow">Show All Related Tags</div>
+</a>
+</div>
+
+
+
+
+
+
+<script type="text/javascript">var s=new Image(1,1);s.src='http://www.tumblr.com/impixu?T=1365471856&J=eyJ0eXBlIjoicG9zdCIsInVybCI6Imh0dHA6XC9cL3d3dy50dW1ibHIuY29tXC90YWdnZWRcL2FydCIsInJlcXR5cGUiOjAsInBvc3RzIjpbeyJwb3N0aWQiOjQ2MDQ1MDI0OTM1LCJibG9naWQiOiIyMzgzNTIiLCJzb3VyY2UiOjM5fV19&U=LOFOBBJLEJ&K=e71be3e75449747e89ec377d600ff30c591deb2ec8e20befdb3bbb09d4e65f5c';</script><noscript><img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="http://www.tumblr.com/impixu?T=1365471856&J=eyJ0eXBlIjoicG9zdCIsInVybCI6Imh0dHA6XC9cL3d3dy50dW1ibHIuY29tXC90YWdnZWRcL2FydCIsInJlcXR5cGUiOjAsInBvc3RzIjpbeyJwb3N0aWQiOjQ2MDQ1MDI0OTM1LCJibG9naWQiOiIyMzgzNTIiLCJzb3VyY2UiOjM5fV19&U=LOFOBBJLEJ&K=e71be3e75449747e89ec377d600ff30c591deb2ec8e20befdb3bbb09d4e65f5c&NS=1"></noscript>
+<div id="tumblr_radar" class="radar radar_type_photo is_media" data-post-id="46045024935" data-tumblelog="oktotally" data-direct-follow-url="/directfollow/cz3n1qNrsDFrGUF/4/0/0/oktotally">
+<div class="radar_post">
+<div class="radar_content">
+
+
+<div class="post photo_post">
+
+
+
+
+
+
+
+<a href="http://oktotally.tumblr.com/post/46045024935/hooked-up-my-cintiq-for-the-first-time-in-a-long"onclick="this.href = '/goto/cz3n1qNrsDFrGUF/4/0/0/oktotally?path=%2Fpost%2F46045024935%2Fhooked-up-my-cintiq-for-the-first-time-in-a-long'" style="background-image:url('http://24.media.tumblr.com/13b8592170d4f230888f50cb503eed3d/tumblr_mk3gq65kBy1qz9vd8o1_250.png')" class="thumbnail_anchor">
+<img class="photo_thumbnail" alt="Radar Photo" src="http://24.media.tumblr.com/13b8592170d4f230888f50cb503eed3d/tumblr_mk3gq65kBy1qz9vd8o1_250.png" width="215" height="215"/>
+
+</a>
+
+
+ 
+
+
+
+
+</div>
+</div>
+<div class="radar_controls">
+<div class="radar_controls_buttons">
+<a href="/follow/oktotally" class="radar_button first follow" title="Follow"><i>Follow</i></a>
+<a href="/reblog/46045024935/uiPsRrmy?redirect_to=%2Fdashboard" class="radar_button middle reblog reblog_button " data-post-type="photo" data-reblog-key="uiPsRrmy" data-reblog-id="46045024935" title="Reblog"><i>Reblog</i></a>
+<a href="#like" class="radar_button last like" title="Like" data-reblog-key="uiPsRrmy"><i>Like</i></a>
+</div>
+</div>
+</div>
+<div class="radar_footer">
+<a href="http://oktotally.tumblr.com/post/46045024935/hooked-up-my-cintiq-for-the-first-time-in-a-long" class="radar_avatar" onclick="this.href = '/goto/cz3n1qNrsDFrGUF/4/0/0/oktotally?path=%2Fpost%2F46045024935%2Fhooked-up-my-cintiq-for-the-first-time-in-a-long';">
+<span class="radar_tumblelog_avatar" style="background-image:url(http://24.media.tumblr.com/avatar_72722230fce1_30.png)">
+<img src="http://24.media.tumblr.com/avatar_72722230fce1_30.png" width="30" height="30" />
+</span>
+<span class="radar_tumblelog_label">
+<span class="name">oktotally</span>
+<span class="subheading">Tumblr Radar</span>
+</span>
+</a>
+</div>
+</div>
+
+
+
+
+<hr class="divider">
+<div class="small_links">
+<a href="/tagged/art/everything" class="">
+Show all posts tagged art</a>
+</div>
+
+
+<div class="clear"></div></div>
+
+<div id="left_column" class="left_column">
+
+
+
+<ol id="posts" class="posts_old">
+
+
+
+
+
+
+
+
+
+
+
+<li id="post_39705089974" class="post photo post_tumblelog_886a914c1f923c8c4510dd1b7034a061 not_mine with_permalink" data-post-id='39705089974'data-tumblelog-key='0zGjT8jue'data-reblog-key='PvR7Fqi0'data-type='photoset'>
+
+<div class="post_wrapper">
+
+<div class="corner_mask"></div>
+
+
+
+
+<div class="post_controls">
+
+
+
+
+<a class="post_control reblog_count" href="#" id="show_notes_link_39705089974">
+<span id="note_link_less_39705089974" style="display:none;" title="110 notes">110</span><span id="note_link_current_39705089974" title="111 notes">111</span><span id="note_link_more_39705089974" style="display:none;" title="110 notes">112</span>
+</a>
+
+
+
+
+ 
+
+
+
+
+
+
+
+<a class="post_control post_control_icon reblog_button" title="Reblog" data-tumblelog-name="cybrdrgs" data-post-type="photo" data-reblog-key="PvR7Fqi0" data-reblog-id="39705089974" data-user-form-key="3I2tjFpmtFJ8AeBDkyLroTAe8" href="/reblog/39705089974/PvR7Fqi0?redirect_to=%2Ftagged%2Fart">Reblog</a>
+
+
+
+
+
+
+ <a class="post_control post_control_icon like_buttonlike_root_39705089974" href="#" id="like_button_39705089974" data-root-post-id="39705089974" onclick="Tumblr.like_post('39705089974'); _gaq.push(['_trackEvent', 'Dashboard', 'Like', 'Post: 39705089974']); return false;" title="Like">Like</a>
+
+</div>
+
+
+<form action="/like/PvR7Fqi0" method="post" id="like_form_39705089974" class="hidden">
+<input type="hidden" name="id" value="39705089974"/>
+<input type="hidden" id="form_key" name="form_key" value="3I2tjFpmtFJ8AeBDkyLroTAe8"/>
+</form>
+
+
+
+<div class="post_info">
+
+
+
+
+
+
+
+
+
+
+
+<a href="http://cybrdrgs.tumblr.com" >cybrdrgs</a> 
+</div>
+
+<div class="post_content clearfix" id="post_content_39705089974">
+
+
+
+
+<div id="photoset_39705089974" class="photoset"
+style="clear:both; margin-bottom:11px;">
+
+
+<div class="photoset_row" style="height:290px; width:500px;">
+<a
+href="http://24.media.tumblr.com/9fe680ca80f6db060b5b65365ea93541/tumblr_mg4qjld1xl1rj6nqoo1_400.jpg" class="photoset_photo"id="photoset_link_39705089974_1"><img style="
+margin-top:-3px;
+width:245px;
+" src="http://25.media.tumblr.com/9fe680ca80f6db060b5b65365ea93541/tumblr_mg4qjld1xl1rj6nqoo1_250.jpg"
+alt="" /></a><a
+href="http://24.media.tumblr.com/fe6a016659bccdd3315c7e2ebb0574fd/tumblr_mg4qjld1xl1rj6nqoo2_400.jpg" class="photoset_photo"id="photoset_link_39705089974_2"><img style="
+width:245px;
+" src="http://25.media.tumblr.com/fe6a016659bccdd3315c7e2ebb0574fd/tumblr_mg4qjld1xl1rj6nqoo2_250.jpg"
+alt="" /></a></div>
+
+<div class="photoset_row" style="height:637px; width:500px;">
+<a
+href="http://24.media.tumblr.com/39e5be5583a962a1f172bf81c426d7e6/tumblr_mg4qjld1xl1rj6nqoo3_1280.jpg" class="photoset_photo"id="photoset_link_39705089974_3"><img style="
+width:500px;
+" src="http://24.media.tumblr.com/39e5be5583a962a1f172bf81c426d7e6/tumblr_mg4qjld1xl1rj6nqoo3_500.jpg"
+alt="" /></a></div>
+</div>
+
+<script type="text/javascript" class="inline_embed">
+var photoset_photos_39705089974 = [{"width":"349","height":"420","low_res":"http:\/\/25.media.tumblr.com\/9fe680ca80f6db060b5b65365ea93541\/tumblr_mg4qjld1xl1rj6nqoo1_250.jpg","high_res":"http:\/\/24.media.tumblr.com\/9fe680ca80f6db060b5b65365ea93541\/tumblr_mg4qjld1xl1rj6nqoo1_400.jpg"},{"width":"355","height":"420","low_res":"http:\/\/25.media.tumblr.com\/fe6a016659bccdd3315c7e2ebb0574fd\/tumblr_mg4qjld1xl1rj6nqoo2_250.jpg","high_res":"http:\/\/24.media.tumblr.com\/fe6a016659bccdd3315c7e2ebb0574fd\/tumblr_mg4qjld1xl1rj6nqoo2_400.jpg"},{"width":"565","height":"720","low_res":"http:\/\/24.media.tumblr.com\/39e5be5583a962a1f172bf81c426d7e6\/tumblr_mg4qjld1xl1rj6nqoo3_500.jpg","high_res":"http:\/\/24.media.tumblr.com\/39e5be5583a962a1f172bf81c426d7e6\/tumblr_mg4qjld1xl1rj6nqoo3_1280.jpg"}];
+
+function event_is_alt_key(e) {
+return (
+(! e && window.event && (window.event.metaKey || window.event.altKey)) ||
+(e && (e.metaKey || e.altKey))
+);
+};
+
+document.getElementById('photoset_link_39705089974_1').onclick = function(e){
+if (event_is_alt_key(e)) return true;
+
+Tumblr.Lightbox.init(
+photoset_photos_39705089974, 1);
+
+return false;
+}
+document.getElementById('photoset_link_39705089974_2').onclick = function(e){
+if (event_is_alt_key(e)) return true;
+
+Tumblr.Lightbox.init(
+photoset_photos_39705089974, 2);
+
+return false;
+}
+document.getElementById('photoset_link_39705089974_3').onclick = function(e){
+if (event_is_alt_key(e)) return true;
+
+Tumblr.Lightbox.init(
+photoset_photos_39705089974, 3);
+
+return false;
+}
+</script>
+
+
+<div class="caption" style="margin-top:0px;">
+<p><strong>LOUISE BOURGEOIS</strong> - THE FRAGILE, 2007</p></div>
+</div>
+
+<div class="clear"></div>
+
+
+
+<div class="post_footer_links with_tags ">
+
+
+
+<span id="post_tags_wrapper_39705089974" class="post_tags_wrapper">
+<span id="post_tags_39705089974" class="tags with_blingy_tag">
+
+<a class="blingy blue" href="/tagged/art">#Art<span class="left"></span><span class="right"></span></a>
+
+<a class="tag" href="/tagged/louise-bourgeois">#louise bourgeois</a>
+</span>
+</span>
+
+</div>
+
+ 
+
+
+
+
+<div id="notes_outer_container_39705089974" class="notes_outer_container">
+<div>
+<div class="notes_container"><ol class="notes"></ol></div>
+<div class="notes_control"><div class="notes_loader">Loading...</div></div>
+</div>
+</div>
+<a href="http://cybrdrgs.tumblr.com/post/39705089974/louise-bourgeois-the-fragile-2007" target="_blank" title="View post - January 4th, 8:52pm" class="permalink" id="permalink_39705089974"></a>
+
+
+</div>
+
+
+
+
+<div class="avatar_and_i">
+
+
+
+<a href="http://cybrdrgs.tumblr.com/"title="&dagger;" class="post_avatar" id="post_avatar_39705089974" style="background-image:url('http://24.media.tumblr.com/avatar_5275610d18ea_64.png')"
+data-user-avatar-url="http://24.media.tumblr.com/avatar_5275610d18ea_64.png"
+data-avatar-url="http://24.media.tumblr.com/avatar_5275610d18ea_64.png"
+data-blog-url="http://cybrdrgs.tumblr.com/"
+data-use-channel-avatar="1"
+data-use-sub-avatar=""
+></a>
+
+
+<div class="user_menu_info_button">
+<div class="user_menu_info"></div>
+
+
+<div class="user_menu popover" id="user_menu_39705089974" style="display:none">
+<div class="user_menu_nipple"></div>
+<div class="user_menu_list">
+<a href="http://cybrdrgs.tumblr.com/ask" class="ask" data-tumblelog-name="cybrdrgs" data-anonymous-ask="1"><div class="user_menu_list_item"><span class="user_menu_icon ask"></span> Ask</div></a>
+
+<a href="/follow/cybrdrgs" following="false" class="user_menu_item_toggle_following user_menu_item_toggle_following_886a914c1f923c8c4510dd1b7034a061" data-tumblelog-hash="886a914c1f923c8c4510dd1b7034a061" data-tumblelog-name="cybrdrgs">
+<div class="user_menu_list_item user_menu_list_item_follow_886a914c1f923c8c4510dd1b7034a061" style="display:block"><span class="user_menu_icon follow"></span> Follow</div>
+<div class="user_menu_list_item user_menu_list_item_unfollow_886a914c1f923c8c4510dd1b7034a061" style="display:none"><span class="user_menu_icon unfollow"></span> Unfollow</div>
+</a>
+
+
+
+</div>
+</div></div>
+
+</div>
+
+
+<span class="arrow"></span>
+
+</li>
+
+
+
+
+
+
+
+<li id="post_47496988319" class="post photo post_tumblelog_3639eb178ea4a0f80eba79c39f83aab7 not_mine with_permalink" data-post-id='47496988319'data-tumblelog-key='dse5mdwRr'data-reblog-key='VG4CTkJK'data-type='photo'>
+
+<div class="post_wrapper">
+
+<div class="corner_mask"></div>
+
+
+
+
+<div class="post_controls">
+
+
+
+
+<a class="post_control reblog_count" href="#" id="show_notes_link_47496988319">
+<span id="note_link_less_47496988319" style="display:none;" title="302 notes">302</span><span id="note_link_current_47496988319" title="303 notes">303</span><span id="note_link_more_47496988319" style="display:none;" title="302 notes">304</span>
+</a>
+
+
+
+
+ 
+
+
+
+
+
+
+
+<a class="post_control post_control_icon reblog_button" title="Reblog" data-tumblelog-name="darksilenceinsuburbia" data-post-type="photo" data-reblog-key="VG4CTkJK" data-reblog-id="47496988319" data-user-form-key="3I2tjFpmtFJ8AeBDkyLroTAe8" href="/reblog/47496988319/VG4CTkJK?redirect_to=%2Ftagged%2Fart">Reblog</a>
+
+
+
+
+
+
+ <a class="post_control post_control_icon like_buttonlike_root_47496988319" href="#" id="like_button_47496988319" data-root-post-id="47496988319" onclick="Tumblr.like_post('47496988319'); _gaq.push(['_trackEvent', 'Dashboard', 'Like', 'Post: 47496988319']); return false;" title="Like">Like</a>
+
+</div>
+
+
+<form action="/like/VG4CTkJK" method="post" id="like_form_47496988319" class="hidden">
+<input type="hidden" name="id" value="47496988319"/>
+<input type="hidden" id="form_key" name="form_key" value="3I2tjFpmtFJ8AeBDkyLroTAe8"/>
+</form>
+
+
+
+<div class="post_info">
+
+
+
+
+
+
+
+
+
+
+
+<a href="http://darksilenceinsuburbia.tumblr.com" >darksilenceinsuburbia</a> 
+</div>
+
+<div class="post_content clearfix" id="post_content_47496988319">
+
+
+
+
+
+
+<div class="flipcard simple" id="flipcard_47496988319">
+<div class="flipcard_front" id="flipcard_47496988319_front">
+
+<a class="high_res_link no_pop" href="http://darksilenceinsuburbia.tumblr.com/image/47496988319"id="high_res_link_47496988319" >
+<img class="image" alt=""width="500" height="665" src="http://25.media.tumblr.com/1a4dcdc75464145f8575fa0906ceabff/tumblr_mkwl4oCrky1qarjnpo1_500.jpg"/>
+</a>
+
+<a href="#" class="photo_exif_flipper" title="Show EXIF data"></a>
+
+</div><div class="flipcard_back" id="flipcard_47496988319_back">
+<table height="100%" width="100%">
+<tr>
+<td align="center" valign="middle">
+<table class="exif_content">
+<tr>
+<td class="label" align="right">Camera</td>
+<td class="data">Canon MP190 series</td>
+</tr>
+
+
+
+
+</table>
+</td>
+</tr>
+</table><a href="#" class="photo_exif_flipper photo_exif_flipper_close" title="Close"></a>
+</div>
+</div>
+<div class="caption">
+<p><strong><a href="http://cizgilimasallar.blogspot.pt/search?updated-max=2013-03-05T13:58:00%2B02:00&amp;max-results=4&amp;start=4&amp;by-date=false" target="_blank">Kate Baylay</a></strong>. The Olive Fairy Book.</p></div>
+
+
+<script type="text/javascript">
+if(document.getElementById('high_res_link_47496988319')) {
+document.getElementById('high_res_link_47496988319').onclick = function(e){
+// Don't run lightbox on alt-click
+if (
+(! e && window.event && (window.event.metaKey || window.event.altKey)) ||
+(e && (e.metaKey || e.altKey))
+) {
+return true;
+}
+
+Tumblr.Lightbox.init([{
+high_res: 'http://25.media.tumblr.com/1a4dcdc75464145f8575fa0906ceabff/tumblr_mkwl4oCrky1qarjnpo1_1280.jpg',
+low_res: 'http://25.media.tumblr.com/1a4dcdc75464145f8575fa0906ceabff/tumblr_mkwl4oCrky1qarjnpo1_500.jpg',
+width: 677,
+height: 900}]);
+
+return false;
+};
+}
+
+</script>
+</div>
+
+<div class="clear"></div>
+
+
+
+<div class="post_footer_links with_tags ">
+
+
+
+<span id="post_tags_wrapper_47496988319" class="post_tags_wrapper">
+<span id="post_tags_47496988319" class="tags with_blingy_tag">
+
+<a class="blingy blue" href="/tagged/art">#Art<span class="left"></span><span class="right"></span></a>
+
+<a class="tag" href="/tagged/Kate-Baylay">#Kate Baylay</a>
+<a class="tag" href="/tagged/illustration">#illustration</a>
+<a class="tag" href="/tagged/book">#book</a>
+</span>
+</span>
+
+</div>
+
+ 
+
+
+
+
+<div id="notes_outer_container_47496988319" class="notes_outer_container">
+<div>
+<div class="notes_container"><ol class="notes"></ol></div>
+<div class="notes_control"><div class="notes_loader">Loading...</div></div>
+</div>
+</div>
+<a href="http://darksilenceinsuburbia.tumblr.com/post/47496988319/kate-baylay-the-olive-fairy-book" target="_blank" title="View post - 8:16pm" class="permalink" id="permalink_47496988319"></a>
+
+
+</div>
+
+
+
+
+<div class="avatar_and_i">
+
+
+
+<a href="http://darksilenceinsuburbia.tumblr.com/"title="Dark Silence In Suburbia" class="post_avatar" id="post_avatar_47496988319" style="background-image:url('http://25.media.tumblr.com/avatar_53c43665c89e_64.png')"
+data-user-avatar-url="http://25.media.tumblr.com/avatar_53c43665c89e_64.png"
+data-avatar-url="http://25.media.tumblr.com/avatar_53c43665c89e_64.png"
+data-blog-url="http://darksilenceinsuburbia.tumblr.com/"
+data-use-channel-avatar="1"
+data-use-sub-avatar=""
+></a>
+
+
+<div class="user_menu_info_button">
+<div class="user_menu_info"></div>
+
+
+<div class="user_menu popover" id="user_menu_47496988319" style="display:none">
+<div class="user_menu_nipple"></div>
+<div class="user_menu_list">
+<a href="http://darksilenceinsuburbia.tumblr.com/ask" class="ask" data-tumblelog-name="darksilenceinsuburbia" data-anonymous-ask="0"><div class="user_menu_list_item"><span class="user_menu_icon ask"></span> Ask</div></a>
+
+<a href="/follow/darksilenceinsuburbia" following="false" class="user_menu_item_toggle_following user_menu_item_toggle_following_3639eb178ea4a0f80eba79c39f83aab7" data-tumblelog-hash="3639eb178ea4a0f80eba79c39f83aab7" data-tumblelog-name="darksilenceinsuburbia">
+<div class="user_menu_list_item user_menu_list_item_follow_3639eb178ea4a0f80eba79c39f83aab7" style="display:block"><span class="user_menu_icon follow"></span> Follow</div>
+<div class="user_menu_list_item user_menu_list_item_unfollow_3639eb178ea4a0f80eba79c39f83aab7" style="display:none"><span class="user_menu_icon unfollow"></span> Unfollow</div>
+</a>
+
+
+
+</div>
+</div></div>
+
+</div>
+
+
+<span class="arrow"></span>
+
+</li>
+
+
+
+
+
+
+
+<li id="post_47357276065" class="post photo post_tumblelog_5ed9b0c7a98a8145adeb4a54f01e5055 not_mine with_permalink" data-post-id='47357276065'data-tumblelog-key='yYH2ksxLx'data-reblog-key='fdtAQA8I'data-type='photoset'>
+
+<div class="post_wrapper">
+
+<div class="corner_mask"></div>
+
+
+
+
+<div class="post_controls">
+
+
+
+
+<a class="post_control reblog_count" href="#" id="show_notes_link_47357276065">
+<span id="note_link_less_47357276065" style="display:none;" title="492 notes">492</span><span id="note_link_current_47357276065" title="493 notes">493</span><span id="note_link_more_47357276065" style="display:none;" title="492 notes">494</span>
+</a>
+
+
+
+
+ 
+
+
+
+
+
+
+
+<a class="post_control post_control_icon reblog_button" title="Reblog" data-tumblelog-name="martinekenblog" data-post-type="photo" data-reblog-key="fdtAQA8I" data-reblog-id="47357276065" data-user-form-key="3I2tjFpmtFJ8AeBDkyLroTAe8" href="/reblog/47357276065/fdtAQA8I?redirect_to=%2Ftagged%2Fart">Reblog</a>
+
+
+
+
+
+
+ <a class="post_control post_control_icon like_buttonlike_root_47357276065" href="#" id="like_button_47357276065" data-root-post-id="47357276065" onclick="Tumblr.like_post('47357276065'); _gaq.push(['_trackEvent', 'Dashboard', 'Like', 'Post: 47357276065']); return false;" title="Like">Like</a>
+
+</div>
+
+
+<form action="/like/fdtAQA8I" method="post" id="like_form_47357276065" class="hidden">
+<input type="hidden" name="id" value="47357276065"/>
+<input type="hidden" id="form_key" name="form_key" value="3I2tjFpmtFJ8AeBDkyLroTAe8"/>
+</form>
+
+
+
+<div class="post_info">
+
+
+
+
+
+
+
+
+
+
+
+<a href="http://martinekenblog.tumblr.com" >martinekenblog</a> 
+</div>
+
+<div class="post_content clearfix" id="post_content_47357276065">
+
+
+
+
+<div id="photoset_47357276065" class="photoset"
+style="clear:both; margin-bottom:11px;">
+
+
+<div class="photoset_row" style="height:667px; width:500px;">
+<a
+href="http://25.media.tumblr.com/6d165659d0358bae129a9a76d1bf6176/tumblr_mkvu5ahSMR1r13l3bo1_1280.jpg" class="photoset_photo"id="photoset_link_47357276065_1"><img style="
+width:500px;
+" src="http://25.media.tumblr.com/6d165659d0358bae129a9a76d1bf6176/tumblr_mkvu5ahSMR1r13l3bo1_500.jpg"
+alt="" /></a></div>
+
+<div class="photoset_row" style="height:667px; width:500px;">
+<a
+href="http://24.media.tumblr.com/ac11640b182714a2a4298e33daea1a2b/tumblr_mkvu5ahSMR1r13l3bo2_1280.jpg" class="photoset_photo"id="photoset_link_47357276065_2"><img style="
+width:500px;
+" src="http://25.media.tumblr.com/ac11640b182714a2a4298e33daea1a2b/tumblr_mkvu5ahSMR1r13l3bo2_500.jpg"
+alt="" /></a></div>
+
+<div class="photoset_row" style="height:667px; width:500px;">
+<a
+href="http://25.media.tumblr.com/4b40f8e706a74442fd97d3f2d3b1f01b/tumblr_mkvu5ahSMR1r13l3bo3_1280.jpg" class="photoset_photo"id="photoset_link_47357276065_3"><img style="
+width:500px;
+" src="http://24.media.tumblr.com/4b40f8e706a74442fd97d3f2d3b1f01b/tumblr_mkvu5ahSMR1r13l3bo3_500.jpg"
+alt="" /></a></div>
+</div>
+
+<script type="text/javascript" class="inline_embed">
+var photoset_photos_47357276065 = [{"width":"720","height":"960","low_res":"http:\/\/25.media.tumblr.com\/6d165659d0358bae129a9a76d1bf6176\/tumblr_mkvu5ahSMR1r13l3bo1_500.jpg","high_res":"http:\/\/25.media.tumblr.com\/6d165659d0358bae129a9a76d1bf6176\/tumblr_mkvu5ahSMR1r13l3bo1_1280.jpg"},{"width":"720","height":"960","low_res":"http:\/\/25.media.tumblr.com\/ac11640b182714a2a4298e33daea1a2b\/tumblr_mkvu5ahSMR1r13l3bo2_500.jpg","high_res":"http:\/\/24.media.tumblr.com\/ac11640b182714a2a4298e33daea1a2b\/tumblr_mkvu5ahSMR1r13l3bo2_1280.jpg"},{"width":"960","height":"1280","low_res":"http:\/\/24.media.tumblr.com\/4b40f8e706a74442fd97d3f2d3b1f01b\/tumblr_mkvu5ahSMR1r13l3bo3_500.jpg","high_res":"http:\/\/25.media.tumblr.com\/4b40f8e706a74442fd97d3f2d3b1f01b\/tumblr_mkvu5ahSMR1r13l3bo3_1280.jpg"}];
+
+function event_is_alt_key(e) {
+return (
+(! e && window.event && (window.event.metaKey || window.event.altKey)) ||
+(e && (e.metaKey || e.altKey))
+);
+};
+
+document.getElementById('photoset_link_47357276065_1').onclick = function(e){
+if (event_is_alt_key(e)) return true;
+
+Tumblr.Lightbox.init(
+photoset_photos_47357276065, 1);
+
+return false;
+}
+document.getElementById('photoset_link_47357276065_2').onclick = function(e){
+if (event_is_alt_key(e)) return true;
+
+Tumblr.Lightbox.init(
+photoset_photos_47357276065, 2);
+
+return false;
+}
+document.getElementById('photoset_link_47357276065_3').onclick = function(e){
+if (event_is_alt_key(e)) return true;
+
+Tumblr.Lightbox.init(
+photoset_photos_47357276065, 3);
+
+return false;
+}
+</script>
+
+
+<div class="caption" style="margin-top:0px;">
+<p><a href="http://lenasophiedrawings.tumblr.com/" target="_blank">Lena-Sophie Drawings</a></p></div>
+</div>
+
+<div class="clear"></div>
+
+
+
+<div class="post_footer_links with_tags ">
+
+
+
+<span id="post_tags_wrapper_47357276065" class="post_tags_wrapper">
+<span id="post_tags_47357276065" class="tags with_blingy_tag">
+
+<a class="blingy blue" href="/tagged/artists-on-tumblr">#Artists on Tumblr<span class="left"></span><span class="right"></span></a>
+<a class="blingy blue" href="/tagged/art">#Art<span class="left"></span><span class="right"></span></a>
+
+<a class="tag" href="/tagged/artist-on-tumblr">#artist on tumblr</a>
+<a class="tag" href="/tagged/drawing">#drawing</a>
+<a class="tag" href="/tagged/illustration">#illustration</a>
+<a class="tag" href="/tagged/eye">#eye</a>
+<a class="tag" href="/tagged/portrait">#portrait</a>
+</span>
+</span>
+
+</div>
+
+ 
+
+
+
+
+<div id="notes_outer_container_47357276065" class="notes_outer_container">
+<div>
+<div class="notes_container"><ol class="notes"></ol></div>
+<div class="notes_control"><div class="notes_loader">Loading...</div></div>
+</div>
+</div>
+<a href="http://martinekenblog.tumblr.com/post/47357276065/lena-sophie-drawings" target="_blank" title="View post - Sunday, 7:20am" class="permalink" id="permalink_47357276065"></a>
+
+
+</div>
+
+
+
+
+<div class="avatar_and_i">
+
+
+
+<a href="http://martinekenblog.tumblr.com/"title="" class="post_avatar" id="post_avatar_47357276065" style="background-image:url('http://25.media.tumblr.com/avatar_153db349dbcb_64.png')"
+data-user-avatar-url="http://25.media.tumblr.com/avatar_153db349dbcb_64.png"
+data-avatar-url="http://25.media.tumblr.com/avatar_153db349dbcb_64.png"
+data-blog-url="http://martinekenblog.tumblr.com/"
+data-use-channel-avatar="1"
+data-use-sub-avatar=""
+></a>
+
+
+<div class="user_menu_info_button">
+<div class="user_menu_info"></div>
+
+
+<div class="user_menu popover" id="user_menu_47357276065" style="display:none">
+<div class="user_menu_nipple"></div>
+<div class="user_menu_list">
+<a href="http://martinekenblog.tumblr.com/ask" class="ask" data-tumblelog-name="martinekenblog" data-anonymous-ask="1"><div class="user_menu_list_item"><span class="user_menu_icon ask"></span> Ask</div></a>
+
+<a href="/follow/martinekenblog" following="false" class="user_menu_item_toggle_following user_menu_item_toggle_following_5ed9b0c7a98a8145adeb4a54f01e5055" data-tumblelog-hash="5ed9b0c7a98a8145adeb4a54f01e5055" data-tumblelog-name="martinekenblog">
+<div class="user_menu_list_item user_menu_list_item_follow_5ed9b0c7a98a8145adeb4a54f01e5055" style="display:block"><span class="user_menu_icon follow"></span> Follow</div>
+<div class="user_menu_list_item user_menu_list_item_unfollow_5ed9b0c7a98a8145adeb4a54f01e5055" style="display:none"><span class="user_menu_icon unfollow"></span> Unfollow</div>
+</a>
+
+
+
+</div>
+</div></div>
+
+</div>
+
+
+<span class="arrow"></span>
+
+</li>
+
+
+
+
+
+
+
+<li id="post_47478316968" class="post photo post_tumblelog_90e7c8731c602dd2444f63109111f86f not_mine with_permalink" data-post-id='47478316968'data-tumblelog-key='fEs98VhYm'data-reblog-key='amZiT3Oq'data-type='photo'>
+
+<div class="post_wrapper">
+
+<div class="corner_mask"></div>
+
+
+
+
+<div class="post_controls">
+
+
+
+
+<a class="post_control reblog_count" href="#" id="show_notes_link_47478316968">
+<span id="note_link_less_47478316968" style="display:none;" title="1,041 notes">1,041</span><span id="note_link_current_47478316968" title="1,042 notes">1,042</span><span id="note_link_more_47478316968" style="display:none;" title="1,041 notes">1,043</span>
+</a>
+
+
+
+
+ 
+
+
+
+
+
+
+
+<a class="post_control post_control_icon reblog_button" title="Reblog" data-tumblelog-name="scottlava" data-post-type="photo" data-reblog-key="amZiT3Oq" data-reblog-id="47478316968" data-user-form-key="3I2tjFpmtFJ8AeBDkyLroTAe8" href="/reblog/47478316968/amZiT3Oq?redirect_to=%2Ftagged%2Fart">Reblog</a>
+
+
+
+
+
+
+ <a class="post_control post_control_icon like_buttonlike_root_47478316968" href="#" id="like_button_47478316968" data-root-post-id="47478316968" onclick="Tumblr.like_post('47478316968'); _gaq.push(['_trackEvent', 'Dashboard', 'Like', 'Post: 47478316968']); return false;" title="Like">Like</a>
+
+</div>
+
+
+<form action="/like/amZiT3Oq" method="post" id="like_form_47478316968" class="hidden">
+<input type="hidden" name="id" value="47478316968"/>
+<input type="hidden" id="form_key" name="form_key" value="3I2tjFpmtFJ8AeBDkyLroTAe8"/>
+</form>
+
+
+
+<div class="post_info">
+
+
+
+
+
+
+
+
+
+
+
+<a href="http://greatshowdowns.com" >scottlava</a> 
+</div>
+
+<div class="post_content clearfix" id="post_content_47478316968">
+
+
+
+
+
+
+<div>
+
+<a class="high_res_link no_pop" href="http://greatshowdowns.com/image/47478316968"id="high_res_link_47478316968" >
+<img class="image" alt=""width="485" height="750" src="http://25.media.tumblr.com/325c7c9cb1edebb31f7bf5b60fd03409/tumblr_mkye8etLgB1qay9wgo1_500.jpg"/>
+</a>
+
+
+</div>
+
+<div class="caption">
+<p><strong>PILE OF PEE WEES print is now available!</strong></p>
+<p>Get them at <a href="http://postercabaret.com/gallery/scott-c/pile-of-pee-wees-by-scott-c.html" target="_blank">Poster Cabaret</a>!</p>
+<p>They are very limited in number, so get them sooner rather than later!</p></div>
+
+
+<script type="text/javascript">
+if(document.getElementById('high_res_link_47478316968')) {
+document.getElementById('high_res_link_47478316968').onclick = function(e){
+// Don't run lightbox on alt-click
+if (
+(! e && window.event && (window.event.metaKey || window.event.altKey)) ||
+(e && (e.metaKey || e.altKey))
+) {
+return true;
+}
+
+Tumblr.Lightbox.init([{
+high_res: 'http://25.media.tumblr.com/325c7c9cb1edebb31f7bf5b60fd03409/tumblr_mkye8etLgB1qay9wgo1_1280.jpg',
+low_res: 'http://25.media.tumblr.com/325c7c9cb1edebb31f7bf5b60fd03409/tumblr_mkye8etLgB1qay9wgo1_500.jpg',
+width: 792,
+height: 1224}]);
+
+return false;
+};
+}
+
+</script>
+</div>
+
+<div class="clear"></div>
+
+
+
+<div class="post_footer_links with_tags ">
+
+
+
+<span id="post_tags_wrapper_47478316968" class="post_tags_wrapper">
+<span id="post_tags_47478316968" class="tags with_blingy_tag">
+
+<a class="blingy blue" href="/tagged/artists-on-tumblr">#Artists on Tumblr<span class="left"></span><span class="right"></span></a>
+<a class="blingy blue" href="/tagged/illustration">#Illustration<span class="left"></span><span class="right"></span></a>
+<a class="blingy blue" href="/tagged/art">#Art<span class="left"></span><span class="right"></span></a>
+
+</span>
+</span>
+
+</div>
+
+ 
+
+
+
+
+<div id="notes_outer_container_47478316968" class="notes_outer_container">
+<div>
+<div class="notes_container"><ol class="notes"></ol></div>
+<div class="notes_control"><div class="notes_loader">Loading...</div></div>
+</div>
+</div>
+<a href="http://greatshowdowns.com/post/47478316968/pile-of-pee-wees-print-is-now-available-get-them" target="_blank" title="View post - 4:29pm" class="permalink" id="permalink_47478316968"></a>
+
+
+</div>
+
+
+
+
+<div class="avatar_and_i">
+
+
+
+<a href="http://greatshowdowns.com/"title="GREAT SHOWDOWNS by scott c." class="post_avatar" id="post_avatar_47478316968" style="background-image:url('http://25.media.tumblr.com/avatar_7dc9f8d14d12_64.png')"
+data-user-avatar-url="http://25.media.tumblr.com/avatar_7dc9f8d14d12_64.png"
+data-avatar-url="http://25.media.tumblr.com/avatar_7dc9f8d14d12_64.png"
+data-blog-url="http://greatshowdowns.com/"
+data-use-channel-avatar="1"
+data-use-sub-avatar=""
+></a>
+
+
+<div class="user_menu_info_button">
+<div class="user_menu_info"></div>
+
+
+<div class="user_menu popover" id="user_menu_47478316968" style="display:none">
+<div class="user_menu_nipple"></div>
+<div class="user_menu_list">
+
+<a href="/follow/scottlava" following="false" class="user_menu_item_toggle_following user_menu_item_toggle_following_90e7c8731c602dd2444f63109111f86f" data-tumblelog-hash="90e7c8731c602dd2444f63109111f86f" data-tumblelog-name="scottlava">
+<div class="user_menu_list_item user_menu_list_item_follow_90e7c8731c602dd2444f63109111f86f" style="display:block"><span class="user_menu_icon follow"></span> Follow</div>
+<div class="user_menu_list_item user_menu_list_item_unfollow_90e7c8731c602dd2444f63109111f86f" style="display:none"><span class="user_menu_icon unfollow"></span> Unfollow</div>
+</a>
+
+
+
+</div>
+</div></div>
+
+</div>
+
+
+<span class="arrow"></span>
+
+</li>
+
+
+
+
+
+
+
+<li id="post_47375918113" class="post photo post_tumblelog_dc139de6488c773b326cc92382696055 not_mine with_permalink" data-post-id='47375918113'data-tumblelog-key='j2d3PONm8'data-reblog-key='uSt7l545'data-type='photo'>
+
+<div class="post_wrapper">
+
+<div class="corner_mask"></div>
+
+
+
+
+<div class="post_controls">
+
+
+
+
+<a class="post_control reblog_count" href="#" id="show_notes_link_47375918113">
+<span id="note_link_less_47375918113" style="display:none;" title="220 notes">220</span><span id="note_link_current_47375918113" title="221 notes">221</span><span id="note_link_more_47375918113" style="display:none;" title="220 notes">222</span>
+</a>
+
+
+
+
+ 
+
+
+
+
+
+
+
+<a class="post_control post_control_icon reblog_button" title="Reblog" data-tumblelog-name="nivbavarsky" data-post-type="photo" data-reblog-key="uSt7l545" data-reblog-id="47375918113" data-user-form-key="3I2tjFpmtFJ8AeBDkyLroTAe8" href="/reblog/47375918113/uSt7l545?redirect_to=%2Ftagged%2Fart">Reblog</a>
+
+
+
+
+
+
+ <a class="post_control post_control_icon like_buttonlike_root_47375918113" href="#" id="like_button_47375918113" data-root-post-id="47375918113" onclick="Tumblr.like_post('47375918113'); _gaq.push(['_trackEvent', 'Dashboard', 'Like', 'Post: 47375918113']); return false;" title="Like">Like</a>
+
+</div>
+
+
+<form action="/like/uSt7l545" method="post" id="like_form_47375918113" class="hidden">
+<input type="hidden" name="id" value="47375918113"/>
+<input type="hidden" id="form_key" name="form_key" value="3I2tjFpmtFJ8AeBDkyLroTAe8"/>
+</form>
+
+
+
+<div class="post_info">
+
+
+
+
+
+
+
+
+
+
+
+<a href="http://nivbavarsky.tumblr.com" >nivbavarsky</a> 
+</div>
+
+<div class="post_content clearfix" id="post_content_47375918113">
+
+
+
+
+
+
+<div>
+
+<a class="high_res_link" href="http://www.flickr.com/photos/nivbavarsky/8628609234/" target="_blank" >
+<img class="image" alt=""width="500" height="418" src="http://25.media.tumblr.com/4042c3f8baae708188c11531a6b30783/tumblr_mkw94cUQkr1qzcax6o1_500.jpg"/>
+</a>
+
+
+</div>
+
+<div class="caption">
+<p>Illustration for the NYT Sunday Review&#160;:</p>
+<p>- article here: <a href="http://www.nytimes.com/2013/04/07/opinion/sunday/sunday-dialogue-tackling-global-warming.html?ref=opinion"></a><a href="http://www.nytimes.com/2013/04/07/opinion/sunday/sunday-dialogue-tackling-global-warming.html?ref=opinion">http://www.nytimes.com/2013/04/07/opinion/sunday/sunday-dialogue-tackling-global-warming.html?ref=opinion</a><br /><br /> Thanks a ton to the art director, Alexandra Zsigmond</p></div>
+
+
+</div>
+
+<div class="clear"></div>
+
+
+
+<div class="post_footer_links with_tags ">
+
+
+
+<span id="post_tags_wrapper_47375918113" class="post_tags_wrapper">
+<span id="post_tags_47375918113" class="tags with_blingy_tag">
+
+<a class="blingy blue" href="/tagged/illustration">#Illustration<span class="left"></span><span class="right"></span></a>
+<a class="blingy blue" href="/tagged/artists-on-tumblr">#Artists on Tumblr<span class="left"></span><span class="right"></span></a>
+<a class="blingy blue" href="/tagged/art">#Art<span class="left"></span><span class="right"></span></a>
+
+<a class="tag" href="/tagged/niv-bavarsky">#niv bavarsky</a>
+<a class="tag" href="/tagged/new-york-times">#new york times</a>
+<a class="tag" href="/tagged/global-warming">#global warming</a>
+</span>
+</span>
+
+</div>
+
+ 
+
+
+
+
+<div id="notes_outer_container_47375918113" class="notes_outer_container">
+<div>
+<div class="notes_container"><ol class="notes"></ol></div>
+<div class="notes_control"><div class="notes_loader">Loading...</div></div>
+</div>
+</div>
+<a href="http://nivbavarsky.tumblr.com/post/47375918113/illustration-for-the-nyt-sunday-review" target="_blank" title="View post - Sunday, 12:44pm" class="permalink" id="permalink_47375918113"></a>
+
+
+</div>
+
+
+
+
+<div class="avatar_and_i">
+
+
+
+<a href="http://nivbavarsky.tumblr.com/"title="Niv Bavarsky" class="post_avatar" id="post_avatar_47375918113" style="background-image:url('http://25.media.tumblr.com/avatar_51055e2bfcfe_64.png')"
+data-user-avatar-url="http://25.media.tumblr.com/avatar_51055e2bfcfe_64.png"
+data-avatar-url="http://25.media.tumblr.com/avatar_51055e2bfcfe_64.png"
+data-blog-url="http://nivbavarsky.tumblr.com/"
+data-use-channel-avatar="1"
+data-use-sub-avatar=""
+></a>
+
+
+<div class="user_menu_info_button">
+<div class="user_menu_info"></div>
+
+
+<div class="user_menu popover" id="user_menu_47375918113" style="display:none">
+<div class="user_menu_nipple"></div>
+<div class="user_menu_list">
+<a href="http://nivbavarsky.tumblr.com/ask" class="ask" data-tumblelog-name="nivbavarsky" data-anonymous-ask="1"><div class="user_menu_list_item"><span class="user_menu_icon ask"></span> Ask</div></a>
+
+<a href="/follow/nivbavarsky" following="false" class="user_menu_item_toggle_following user_menu_item_toggle_following_dc139de6488c773b326cc92382696055" data-tumblelog-hash="dc139de6488c773b326cc92382696055" data-tumblelog-name="nivbavarsky">
+<div class="user_menu_list_item user_menu_list_item_follow_dc139de6488c773b326cc92382696055" style="display:block"><span class="user_menu_icon follow"></span> Follow</div>
+<div class="user_menu_list_item user_menu_list_item_unfollow_dc139de6488c773b326cc92382696055" style="display:none"><span class="user_menu_icon unfollow"></span> Unfollow</div>
+</a>
+
+
+
+</div>
+</div></div>
+
+</div>
+
+
+<span class="arrow"></span>
+
+</li>
+
+
+
+
+
+
+
+<li id="post_47487176674" class="post photo post_tumblelog_25dca09f298a9b54877a2e88aa37edda not_mine allow_photo_replies with_permalink" data-post-id='47487176674'data-tumblelog-key='iEptPBw7z'data-reblog-key='0cGZRR4R'data-type='photo'>
+
+<div class="post_wrapper">
+
+<div class="corner_mask"></div>
+
+
+
+
+<div class="post_controls">
+
+
+
+
+<a class="post_control reblog_count" href="#" id="show_notes_link_47487176674">
+<span id="note_link_less_47487176674" style="display:none;" title="293 notes">293</span><span id="note_link_current_47487176674" title="294 notes">294</span><span id="note_link_more_47487176674" style="display:none;" title="293 notes">295</span>
+</a>
+
+
+
+
+ <form class="photo_reply_form" id="photo_reply_form_47487176674" data-post-id="47487176674" action="/drop/image" method="post" enctype="multipart/form-data">
+<input type="hidden" name="form_key" value="3I2tjFpmtFJ8AeBDkyLroTAe8"/>
+<input type="hidden" name="photo_reply[tumblelog_name]" value=""/>
+<input type="hidden" name="photo_reply[post_id]" value="47487176674"/>
+<input type="hidden" name="photo_reply[reblog_key]" value="0cGZRR4R"/>
+<span class="post_control photo_reply_icon active" id="photo_reply_icon_47487176674">
+<div class="photo_reply_icon_base"></div>
+<div class="photo_reply_icon_progress" id="photo_reply_progress_47487176674" style="width:0%"></div>
+<div class="photo_reply_icon_mask"></div>
+<input class="photo_reply_file_input" type="file" name="image" accept="image/*" title="Photo reply" alt="Photo reply" disabled/>
+</span>
+</form>
+
+
+
+
+
+
+
+
+<a class="post_control post_control_icon reblog_button" title="Reblog" data-tumblelog-name="thedailydoodles" data-post-type="photo" data-reblog-key="0cGZRR4R" data-reblog-id="47487176674" data-user-form-key="3I2tjFpmtFJ8AeBDkyLroTAe8" href="/reblog/47487176674/0cGZRR4R?redirect_to=%2Ftagged%2Fart">Reblog</a>
+
+
+
+
+
+
+ <a class="post_control post_control_icon like_buttonlike_root_47487176674" href="#" id="like_button_47487176674" data-root-post-id="47487176674" onclick="Tumblr.like_post('47487176674'); _gaq.push(['_trackEvent', 'Dashboard', 'Like', 'Post: 47487176674']); return false;" title="Like">Like</a>
+
+</div>
+
+
+<form action="/like/0cGZRR4R" method="post" id="like_form_47487176674" class="hidden">
+<input type="hidden" name="id" value="47487176674"/>
+<input type="hidden" id="form_key" name="form_key" value="3I2tjFpmtFJ8AeBDkyLroTAe8"/>
+</form>
+
+
+
+<div class="post_info">
+
+
+
+
+
+
+
+
+
+
+
+<a href="http://www.thedailydoodles.com" >thedailydoodles</a> 
+</div>
+
+<div class="post_content clearfix" id="post_content_47487176674">
+
+
+
+
+
+
+<div class="flipcard simple" id="flipcard_47487176674">
+<div class="flipcard_front" id="flipcard_47487176674_front">
+
+<a class="high_res_link no_pop" href="http://www.thedailydoodles.com/image/47487176674"id="high_res_link_47487176674" >
+<img class="image" alt=""width="500" height="375" src="http://24.media.tumblr.com/a3ca38b4df377e768df1307a5d20e706/tumblr_mkyje17djx1qf12swo1_500.jpg"/>
+</a>
+
+<a href="#" class="photo_exif_flipper" title="Show EXIF data"></a>
+
+</div><div class="flipcard_back" id="flipcard_47487176674_back">
+<table height="100%" width="100%">
+<tr>
+<td align="center" valign="middle">
+<table class="exif_content">
+<tr>
+<td class="label" align="right">Camera</td>
+<td class="data">Canon PowerShot SD1300 IS</td>
+</tr>
+
+<tr>
+<td class="label" align="right">ISO</td>
+<td class="data">640</td>
+</tr>
+
+<tr>
+<td class="label" align="right">Aperture</td>
+<td class="data">f/2.8</td>
+</tr>
+
+<tr>
+<td class="label" align="right">Exposure</td>
+<td class="data">1/20th</td>
+</tr>
+
+<tr>
+<td class="label" align="right">Focal Length</td>
+<td class="data">28mm</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><a href="#" class="photo_exif_flipper photo_exif_flipper_close" title="Close"></a>
+</div>
+</div>
+<div class="caption">
+<p><strong>&#8220;7 Days a Week&#8221; </strong>a haiku.</p>
+<p>It takes more each year<br />To make it okay to live,<br />Seven days a week.</p>
+<p><em><strong><a href="http://thedailydoodles.tumblr.com/post/6368411095/have-you-ever-wondered-why-you-feel-empty-inside" title="http://thedailydoodles.tumblr.com/post/6368411095/have-you-ever-wondered-why-you-feel-empty-inside">Wanna appear in your very own Daily Doodle?CLICK HERE!<br /></a><a href="http://thedailydoodles.tumblr.com/post/8851143025/its-been-a-while-since-i-said-hi" title="http://thedailydoodles.tumblr.com/post/8851143025/its-been-a-while-since-i-said-hi">FAQ</a><a href="http://twitter.com/#%21/thedailydoodles" title="http://twitter.com/#!/thedailydoodles">TWITTER</a><a href="http://www.facebook.com/TheDailyDoodles" title="http://www.facebook.com/TheDailyDoodles">FACEBOOK</a></strong></em><em><strong><em><a href="http://society6.com/Davidmichaelchandler" title="http://society6.com/Davidmichaelchandler">SOCIETY6</a></em></strong></em></p></div>
+
+
+<script type="text/javascript">
+if(document.getElementById('high_res_link_47487176674')) {
+document.getElementById('high_res_link_47487176674').onclick = function(e){
+// Don't run lightbox on alt-click
+if (
+(! e && window.event && (window.event.metaKey || window.event.altKey)) ||
+(e && (e.metaKey || e.altKey))
+) {
+return true;
+}
+
+Tumblr.Lightbox.init([{
+high_res: 'http://25.media.tumblr.com/a3ca38b4df377e768df1307a5d20e706/tumblr_mkyje17djx1qf12swo1_1280.jpg',
+low_res: 'http://24.media.tumblr.com/a3ca38b4df377e768df1307a5d20e706/tumblr_mkyje17djx1qf12swo1_500.jpg',
+width: 1280,
+height: 960}]);
+
+return false;
+};
+}
+
+</script>
+</div>
+
+<div class="clear"></div>
+
+
+
+<div class="post_footer_links with_tags ">
+
+
+
+<span id="post_tags_wrapper_47487176674" class="post_tags_wrapper">
+<span id="post_tags_47487176674" class="tags with_blingy_tag">
+
+<a class="blingy blue" href="/tagged/artists-on-tumblr">#Artists on Tumblr<span class="left"></span><span class="right"></span></a>
+<a class="blingy blue" href="/tagged/illustration">#Illustration<span class="left"></span><span class="right"></span></a>
+<a class="blingy blue" href="/tagged/art">#Art<span class="left"></span><span class="right"></span></a>
+
+<a class="tag" href="/tagged/PILLS">#PILLS</a>
+<a class="tag" href="/tagged/ADDICTION">#ADDICTION</a>
+<a class="tag" href="/tagged/DRUGS">#DRUGS</a>
+<a class="tag" href="/tagged/POETRY">#POETRY</a>
+<a class="tag" href="/tagged/HAIKU">#HAIKU</a>
+<a class="tag" href="/tagged/WRITING">#WRITING</a>
+<a class="tag" href="/tagged/FICTION">#FICTION</a>
+<a class="tag" href="/tagged/PILL-BOXES">#PILL BOXES</a>
+<a class="tag" href="/tagged/RED">#RED</a>
+<a class="tag" href="/tagged/XANAX">#XANAX</a>
+<a class="tag" href="/tagged/ZOLOFT">#ZOLOFT</a>
+<a class="tag" href="/tagged/WARFARIN">#WARFARIN</a>
+<a class="tag" href="/tagged/REGRET">#REGRET</a>
+<a class="tag" href="/tagged/MODERN-LIVING-BLUES">#MODERN LIVING BLUES</a>
+<a class="tag" href="/tagged/AGING">#AGING</a>
+<a class="tag" href="/tagged/CHRONIC-DISEASE">#CHRONIC DISEASE</a>
+<a class="tag" href="/tagged/DISEASE">#DISEASE</a>
+<a class="tag" href="/tagged/AILMENTS">#AILMENTS</a>
+<a class="tag" href="/tagged/BETTER-LIVING-THROUGH-CHEMISTRY">#BETTER LIVING THROUGH CHEMISTRY</a>
+<a class="tag" href="/tagged/DRAGGIN%27-OUT-DA-DAYS">#DRAGGIN&#039; OUT DA DAYS</a>
+<a class="tag" href="/tagged/HIV">#HIV</a>
+<a class="tag" href="/tagged/AIDS">#AIDS</a>
+</span>
+</span>
+
+</div>
+
+ 
+
+
+
+
+<div id="notes_outer_container_47487176674" class="notes_outer_container">
+<div>
+<div class="notes_container"><ol class="notes"></ol></div>
+<div class="notes_control"><div class="notes_loader">Loading...</div></div>
+</div>
+</div>
+<a href="http://www.thedailydoodles.com/post/47487176674/7-days-a-week-a-haiku-it-takes-more-each-year" target="_blank" title="View post - 6:20pm" class="permalink" id="permalink_47487176674"></a>
+
+
+
+
+<div id="photo_reply_container_47487176674" class="photo_reply_container">
+</div>
+
+</div>
+
+
+
+
+<div class="avatar_and_i">
+
+
+
+<a href="http://www.thedailydoodles.com/"title="The Daily Doodles" class="post_avatar" id="post_avatar_47487176674" style="background-image:url('http://25.media.tumblr.com/avatar_0c90423c9858_64.png')"
+data-user-avatar-url="http://25.media.tumblr.com/avatar_0c90423c9858_64.png"
+data-avatar-url="http://25.media.tumblr.com/avatar_0c90423c9858_64.png"
+data-blog-url="http://www.thedailydoodles.com/"
+data-use-channel-avatar="1"
+data-use-sub-avatar=""
+></a>
+
+
+<div class="user_menu_info_button">
+<div class="user_menu_info"></div>
+
+
+<div class="user_menu popover" id="user_menu_47487176674" style="display:none">
+<div class="user_menu_nipple"></div>
+<div class="user_menu_list">
+<a href="http://www.thedailydoodles.com/ask" class="ask" data-tumblelog-name="thedailydoodles" data-anonymous-ask="1"><div class="user_menu_list_item"><span class="user_menu_icon ask"></span> Ask</div></a>
+
+<a href="/follow/thedailydoodles" following="false" class="user_menu_item_toggle_following user_menu_item_toggle_following_25dca09f298a9b54877a2e88aa37edda" data-tumblelog-hash="25dca09f298a9b54877a2e88aa37edda" data-tumblelog-name="thedailydoodles">
+<div class="user_menu_list_item user_menu_list_item_follow_25dca09f298a9b54877a2e88aa37edda" style="display:block"><span class="user_menu_icon follow"></span> Follow</div>
+<div class="user_menu_list_item user_menu_list_item_unfollow_25dca09f298a9b54877a2e88aa37edda" style="display:none"><span class="user_menu_icon unfollow"></span> Unfollow</div>
+</a>
+
+
+
+</div>
+</div></div>
+
+</div>
+
+
+<span class="arrow"></span>
+
+</li>
+
+
+
+
+
+
+
+<li id="post_47495396451" class="post photo post_tumblelog_78f45e41e59ea16a86eeb8ca1f6e2116 not_mine with_permalink" data-post-id='47495396451'data-tumblelog-key='DCNxQpglU'data-reblog-key='MPtRpgut'data-type='photo'>
+
+<div class="post_wrapper">
+
+<div class="corner_mask"></div>
+
+
+
+
+<div class="post_controls">
+
+
+
+
+<a class="post_control reblog_count" href="#" id="show_notes_link_47495396451">
+<span id="note_link_less_47495396451" style="display:none;" title="145 notes">145</span><span id="note_link_current_47495396451" title="146 notes">146</span><span id="note_link_more_47495396451" style="display:none;" title="145 notes">147</span>
+</a>
+
+
+
+
+ 
+
+
+
+
+
+
+
+<a class="post_control post_control_icon reblog_button" title="Reblog" data-tumblelog-name="ryandonato" data-post-type="photo" data-reblog-key="MPtRpgut" data-reblog-id="47495396451" data-user-form-key="3I2tjFpmtFJ8AeBDkyLroTAe8" href="/reblog/47495396451/MPtRpgut?redirect_to=%2Ftagged%2Fart">Reblog</a>
+
+
+
+
+
+
+ <a class="post_control post_control_icon like_buttonlike_root_47495396451" href="#" id="like_button_47495396451" data-root-post-id="47495396451" onclick="Tumblr.like_post('47495396451'); _gaq.push(['_trackEvent', 'Dashboard', 'Like', 'Post: 47495396451']); return false;" title="Like">Like</a>
+
+</div>
+
+
+<form action="/like/MPtRpgut" method="post" id="like_form_47495396451" class="hidden">
+<input type="hidden" name="id" value="47495396451"/>
+<input type="hidden" id="form_key" name="form_key" value="3I2tjFpmtFJ8AeBDkyLroTAe8"/>
+</form>
+
+
+
+<div class="post_info">
+
+
+
+
+
+
+
+
+
+
+
+<a href="http://ryandonato.com" >ryandonato</a> 
+</div>
+
+<div class="post_content clearfix" id="post_content_47495396451">
+
+
+
+
+
+
+<div>
+
+<a class="high_res_link no_pop" href="http://ryandonato.com/image/47495396451"id="high_res_link_47495396451" >
+<img class="image" alt=""width="500" height="339" src="http://25.media.tumblr.com/0ad82ee7b98f9dae7177dacc495bc1cb/tumblr_mkynwnu1uP1qgkoejo1_500.jpg"/>
+</a>
+
+
+</div>
+
+<div class="caption">
+<p><a href="http://en.wikipedia.org/wiki/Olympia_(Manet)" target="_blank">Édouard Manet</a>, <em>Olympia</em></p></div>
+
+
+<script type="text/javascript">
+if(document.getElementById('high_res_link_47495396451')) {
+document.getElementById('high_res_link_47495396451').onclick = function(e){
+// Don't run lightbox on alt-click
+if (
+(! e && window.event && (window.event.metaKey || window.event.altKey)) ||
+(e && (e.metaKey || e.altKey))
+) {
+return true;
+}
+
+Tumblr.Lightbox.init([{
+high_res: 'http://25.media.tumblr.com/0ad82ee7b98f9dae7177dacc495bc1cb/tumblr_mkynwnu1uP1qgkoejo1_1280.jpg',
+low_res: 'http://25.media.tumblr.com/0ad82ee7b98f9dae7177dacc495bc1cb/tumblr_mkynwnu1uP1qgkoejo1_500.jpg',
+width: 1280,
+height: 867}]);
+
+return false;
+};
+}
+
+</script>
+</div>
+
+<div class="clear"></div>
+
+
+
+<div class="post_footer_links with_tags ">
+
+
+
+<span id="post_tags_wrapper_47495396451" class="post_tags_wrapper">
+<span id="post_tags_47495396451" class="tags with_blingy_tag">
+
+<a class="blingy blue" href="/tagged/art">#Art<span class="left"></span><span class="right"></span></a>
+
+<a class="tag" href="/tagged/favorite">#favorite</a>
+</span>
+</span>
+
+</div>
+
+ 
+
+
+
+
+<div id="notes_outer_container_47495396451" class="notes_outer_container">
+<div>
+<div class="notes_container"><ol class="notes"></ol></div>
+<div class="notes_control"><div class="notes_loader">Loading...</div></div>
+</div>
+</div>
+<a href="http://ryandonato.com/post/47495396451/edouard-manet-olympia" target="_blank" title="View post - 7:58pm" class="permalink" id="permalink_47495396451"></a>
+
+
+</div>
+
+
+
+
+<div class="avatar_and_i">
+
+
+
+<a href="http://ryandonato.com/"title="ryan donato" class="post_avatar" id="post_avatar_47495396451" style="background-image:url('http://25.media.tumblr.com/avatar_3006c375d495_64.png')"
+data-user-avatar-url="http://25.media.tumblr.com/avatar_3006c375d495_64.png"
+data-avatar-url="http://25.media.tumblr.com/avatar_3006c375d495_64.png"
+data-blog-url="http://ryandonato.com/"
+data-use-channel-avatar="1"
+data-use-sub-avatar=""
+></a>
+
+
+<div class="user_menu_info_button">
+<div class="user_menu_info"></div>
+
+
+<div class="user_menu popover" id="user_menu_47495396451" style="display:none">
+<div class="user_menu_nipple"></div>
+<div class="user_menu_list">
+<a href="http://ryandonato.com/ask" class="ask" data-tumblelog-name="ryandonato" data-anonymous-ask="1"><div class="user_menu_list_item"><span class="user_menu_icon ask"></span> Ask</div></a>
+
+<a href="/follow/ryandonato" following="false" class="user_menu_item_toggle_following user_menu_item_toggle_following_78f45e41e59ea16a86eeb8ca1f6e2116" data-tumblelog-hash="78f45e41e59ea16a86eeb8ca1f6e2116" data-tumblelog-name="ryandonato">
+<div class="user_menu_list_item user_menu_list_item_follow_78f45e41e59ea16a86eeb8ca1f6e2116" style="display:block"><span class="user_menu_icon follow"></span> Follow</div>
+<div class="user_menu_list_item user_menu_list_item_unfollow_78f45e41e59ea16a86eeb8ca1f6e2116" style="display:none"><span class="user_menu_icon unfollow"></span> Unfollow</div>
+</a>
+
+
+
+</div>
+</div></div>
+
+</div>
+
+
+<span class="arrow"></span>
+
+</li>
+
+
+
+
+
+
+
+<li id="post_47491688997" class="post photo post_tumblelog_180a940f48aea152867234ffb899f2ca not_mine with_permalink" data-post-id='47491688997'data-tumblelog-key='FgCnCwTaR'data-reblog-key='R6nfsAWB'data-type='photo'>
+
+<div class="post_wrapper">
+
+<div class="corner_mask"></div>
+
+
+
+
+<div class="post_controls">
+
+
+
+
+<a class="post_control reblog_count" href="#" id="show_notes_link_47491688997">
+<span id="note_link_less_47491688997" style="display:none;" title="149 notes">149</span><span id="note_link_current_47491688997" title="150 notes">150</span><span id="note_link_more_47491688997" style="display:none;" title="149 notes">151</span>
+</a>
+
+
+
+
+ 
+
+
+
+
+
+
+
+<a class="post_control post_control_icon reblog_button" title="Reblog" data-tumblelog-name="blue-voids" data-post-type="photo" data-reblog-key="R6nfsAWB" data-reblog-id="47491688997" data-user-form-key="3I2tjFpmtFJ8AeBDkyLroTAe8" href="/reblog/47491688997/R6nfsAWB?redirect_to=%2Ftagged%2Fart">Reblog</a>
+
+
+
+
+
+
+ <a class="post_control post_control_icon like_buttonlike_root_47491688997" href="#" id="like_button_47491688997" data-root-post-id="47491688997" onclick="Tumblr.like_post('47491688997'); _gaq.push(['_trackEvent', 'Dashboard', 'Like', 'Post: 47491688997']); return false;" title="Like">Like</a>
+
+</div>
+
+
+<form action="/like/R6nfsAWB" method="post" id="like_form_47491688997" class="hidden">
+<input type="hidden" name="id" value="47491688997"/>
+<input type="hidden" id="form_key" name="form_key" value="3I2tjFpmtFJ8AeBDkyLroTAe8"/>
+</form>
+
+
+
+<div class="post_info">
+
+
+
+
+
+
+
+
+
+
+
+<a href="http://blue-voids.tumblr.com" >blue-voids</a> 
+</div>
+
+<div class="post_content clearfix" id="post_content_47491688997">
+
+
+
+
+
+
+<div>
+
+<a class="high_res_link no_pop" href="http://blue-voids.tumblr.com/image/47491688997"id="high_res_link_47491688997" >
+<img class="image" alt=""width="500" height="505" src="http://24.media.tumblr.com/8670e92c60bd912b2bc7d7eb2556549d/tumblr_mkylv1Cnuh1r6w3qso1_500.jpg"/>
+</a>
+
+
+</div>
+
+<div class="caption">
+<p><a href="http://www.axel-vervoordt.com/en/inside/foundation/discover#!/schwarze-sonne">Otto Piene</a> - <em>Schwarze Sonne, smoke and charcoal on canvas, 1962-63</em></p></div>
+
+
+<script type="text/javascript">
+if(document.getElementById('high_res_link_47491688997')) {
+document.getElementById('high_res_link_47491688997').onclick = function(e){
+// Don't run lightbox on alt-click
+if (
+(! e && window.event && (window.event.metaKey || window.event.altKey)) ||
+(e && (e.metaKey || e.altKey))
+) {
+return true;
+}
+
+Tumblr.Lightbox.init([{
+high_res: 'http://24.media.tumblr.com/8670e92c60bd912b2bc7d7eb2556549d/tumblr_mkylv1Cnuh1r6w3qso1_1280.jpg',
+low_res: 'http://24.media.tumblr.com/8670e92c60bd912b2bc7d7eb2556549d/tumblr_mkylv1Cnuh1r6w3qso1_500.jpg',
+width: 520,
+height: 525}]);
+
+return false;
+};
+}
+
+</script>
+</div>
+
+<div class="clear"></div>
+
+
+
+<div class="post_footer_links with_tags ">
+
+
+
+<span id="post_tags_wrapper_47491688997" class="post_tags_wrapper">
+<span id="post_tags_47491688997" class="tags with_blingy_tag">
+
+<a class="blingy blue" href="/tagged/art">#Art<span class="left"></span><span class="right"></span></a>
+
+</span>
+</span>
+
+</div>
+
+ 
+
+
+
+
+<div id="notes_outer_container_47491688997" class="notes_outer_container">
+<div>
+<div class="notes_container"><ol class="notes"></ol></div>
+<div class="notes_control"><div class="notes_loader">Loading...</div></div>
+</div>
+</div>
+<a href="http://blue-voids.tumblr.com/post/47491688997/otto-piene-schwarze-sonne-smoke-and-charcoal-on" target="_blank" title="View post - 7:14pm" class="permalink" id="permalink_47491688997"></a>
+
+
+</div>
+
+
+
+
+<div class="avatar_and_i">
+
+
+
+<a href="http://blue-voids.tumblr.com/"title="LOST HIGHWAY" class="post_avatar" id="post_avatar_47491688997" style="background-image:url('http://24.media.tumblr.com/avatar_ac3aee9aa46a_64.png')"
+data-user-avatar-url="http://24.media.tumblr.com/avatar_ac3aee9aa46a_64.png"
+data-avatar-url="http://24.media.tumblr.com/avatar_ac3aee9aa46a_64.png"
+data-blog-url="http://blue-voids.tumblr.com/"
+data-use-channel-avatar="1"
+data-use-sub-avatar=""
+></a>
+
+
+<div class="user_menu_info_button">
+<div class="user_menu_info"></div>
+
+
+<div class="user_menu popover" id="user_menu_47491688997" style="display:none">
+<div class="user_menu_nipple"></div>
+<div class="user_menu_list">
+<a href="http://blue-voids.tumblr.com/ask" class="ask" data-tumblelog-name="blue-voids" data-anonymous-ask="1"><div class="user_menu_list_item"><span class="user_menu_icon ask"></span> Ask</div></a>
+
+<a href="/follow/blue-voids" following="false" class="user_menu_item_toggle_following user_menu_item_toggle_following_180a940f48aea152867234ffb899f2ca" data-tumblelog-hash="180a940f48aea152867234ffb899f2ca" data-tumblelog-name="blue-voids">
+<div class="user_menu_list_item user_menu_list_item_follow_180a940f48aea152867234ffb899f2ca" style="display:block"><span class="user_menu_icon follow"></span> Follow</div>
+<div class="user_menu_list_item user_menu_list_item_unfollow_180a940f48aea152867234ffb899f2ca" style="display:none"><span class="user_menu_icon unfollow"></span> Unfollow</div>
+</a>
+
+
+
+</div>
+</div></div>
+
+</div>
+
+
+<span class="arrow"></span>
+
+</li>
+
+
+
+
+
+
+
+<li id="post_47473765799" class="post photo post_tumblelog_2785b35cd33fa6a1ca839efd9657f390 not_mine with_permalink" data-post-id='47473765799'data-tumblelog-key='EAGZNGus8'data-reblog-key='dLi0L0Nk'data-type='photoset'>
+
+<div class="post_wrapper">
+
+<div class="corner_mask"></div>
+
+
+
+
+<div class="post_controls">
+
+
+
+
+<a class="post_control reblog_count" href="#" id="show_notes_link_47473765799">
+<span id="note_link_less_47473765799" style="display:none;" title="908 notes">908</span><span id="note_link_current_47473765799" title="909 notes">909</span><span id="note_link_more_47473765799" style="display:none;" title="908 notes">910</span>
+</a>
+
+
+
+
+ 
+
+
+
+
+
+
+
+<a class="post_control post_control_icon reblog_button" title="Reblog" data-tumblelog-name="likeafieldmouse" data-post-type="photo" data-reblog-key="dLi0L0Nk" data-reblog-id="47473765799" data-user-form-key="3I2tjFpmtFJ8AeBDkyLroTAe8" href="/reblog/47473765799/dLi0L0Nk?redirect_to=%2Ftagged%2Fart">Reblog</a>
+
+
+
+
+
+
+ <a class="post_control post_control_icon like_buttonlike_root_47473765799" href="#" id="like_button_47473765799" data-root-post-id="47473765799" onclick="Tumblr.like_post('47473765799'); _gaq.push(['_trackEvent', 'Dashboard', 'Like', 'Post: 47473765799']); return false;" title="Like">Like</a>
+
+</div>
+
+
+<form action="/like/dLi0L0Nk" method="post" id="like_form_47473765799" class="hidden">
+<input type="hidden" name="id" value="47473765799"/>
+<input type="hidden" id="form_key" name="form_key" value="3I2tjFpmtFJ8AeBDkyLroTAe8"/>
+</form>
+
+
+
+<div class="post_info">
+
+
+
+
+
+
+
+
+
+
+
+<a href="http://likeafieldmouse.com" >likeafieldmouse</a> 
+</div>
+
+<div class="post_content clearfix" id="post_content_47473765799">
+
+
+
+
+<div id="photoset_47473765799" class="photoset"
+style="clear:both; margin-bottom:11px;">
+
+
+<div class="photoset_row" style="height:664px; width:500px;">
+<a
+href="http://25.media.tumblr.com/cb4f31bb04b210706f3c2327b7f4c444/tumblr_mkdf8h0tTD1qe31lco3_r2_1280.jpg" class="photoset_photo"id="photoset_link_47473765799_1"><img style="
+width:500px;
+" src="http://24.media.tumblr.com/cb4f31bb04b210706f3c2327b7f4c444/tumblr_mkdf8h0tTD1qe31lco3_r2_500.jpg"
+alt="" /></a></div>
+
+<div class="photoset_row" style="height:417px; width:500px;">
+<a
+href="http://24.media.tumblr.com/00eff58d2d554c97185e78155852ae13/tumblr_mkdf8h0tTD1qe31lco2_1280.jpg" class="photoset_photo"id="photoset_link_47473765799_2"><img style="
+width:500px;
+" src="http://24.media.tumblr.com/00eff58d2d554c97185e78155852ae13/tumblr_mkdf8h0tTD1qe31lco2_500.jpg"
+alt="" /></a></div>
+
+<div class="photoset_row" style="height:409px; width:500px;">
+<a
+href="http://24.media.tumblr.com/c19b364dfa15b9843ae75f5000fbcfef/tumblr_mkdf8h0tTD1qe31lco6_r1_1280.jpg" class="photoset_photo"id="photoset_link_47473765799_3"><img style="
+width:500px;
+" src="http://25.media.tumblr.com/c19b364dfa15b9843ae75f5000fbcfef/tumblr_mkdf8h0tTD1qe31lco6_r1_500.jpg"
+alt="" /></a></div>
+
+<div class="photoset_row" style="height:430px; width:500px;">
+<a
+href="http://24.media.tumblr.com/13334c91aacc117474760663180694de/tumblr_mkdf8h0tTD1qe31lco4_r1_1280.jpg" class="photoset_photo"id="photoset_link_47473765799_4"><img style="
+width:500px;
+" src="http://25.media.tumblr.com/13334c91aacc117474760663180694de/tumblr_mkdf8h0tTD1qe31lco4_r1_500.jpg"
+alt="" /></a></div>
+
+<div class="photoset_row" style="height:627px; width:500px;">
+<a
+href="http://25.media.tumblr.com/7c8846ba8b332f95260c5829a6091d8c/tumblr_mkdf8h0tTD1qe31lco1_r1_1280.jpg" class="photoset_photo"id="photoset_link_47473765799_5"><img style="
+width:500px;
+" src="http://25.media.tumblr.com/7c8846ba8b332f95260c5829a6091d8c/tumblr_mkdf8h0tTD1qe31lco1_r1_500.jpg"
+alt="" /></a></div>
+
+<div class="photoset_row" style="height:635px; width:500px;">
+<a
+href="http://24.media.tumblr.com/13ff9f8374b9a387cba5d49a21e6f879/tumblr_mkdf8h0tTD1qe31lco5_r1_1280.jpg" class="photoset_photo"id="photoset_link_47473765799_6"><img style="
+width:500px;
+" src="http://24.media.tumblr.com/13ff9f8374b9a387cba5d49a21e6f879/tumblr_mkdf8h0tTD1qe31lco5_r1_500.jpg"
+alt="" /></a></div>
+</div>
+
+<script type="text/javascript" class="inline_embed">
+var photoset_photos_47473765799 = [{"width":"1000","height":"1327","low_res":"http:\/\/24.media.tumblr.com\/cb4f31bb04b210706f3c2327b7f4c444\/tumblr_mkdf8h0tTD1qe31lco3_r2_500.jpg","high_res":"http:\/\/25.media.tumblr.com\/cb4f31bb04b210706f3c2327b7f4c444\/tumblr_mkdf8h0tTD1qe31lco3_r2_1280.jpg"},{"width":"840","height":"700","low_res":"http:\/\/24.media.tumblr.com\/00eff58d2d554c97185e78155852ae13\/tumblr_mkdf8h0tTD1qe31lco2_500.jpg","high_res":"http:\/\/24.media.tumblr.com\/00eff58d2d554c97185e78155852ae13\/tumblr_mkdf8h0tTD1qe31lco2_1280.jpg"},{"width":"900","height":"736","low_res":"http:\/\/25.media.tumblr.com\/c19b364dfa15b9843ae75f5000fbcfef\/tumblr_mkdf8h0tTD1qe31lco6_r1_500.jpg","high_res":"http:\/\/24.media.tumblr.com\/c19b364dfa15b9843ae75f5000fbcfef\/tumblr_mkdf8h0tTD1qe31lco6_r1_1280.jpg"},{"width":"1000","height":"860","low_res":"http:\/\/25.media.tumblr.com\/13334c91aacc117474760663180694de\/tumblr_mkdf8h0tTD1qe31lco4_r1_500.jpg","high_res":"http:\/\/24.media.tumblr.com\/13334c91aacc117474760663180694de\/tumblr_mkdf8h0tTD1qe31lco4_r1_1280.jpg"},{"width":1280,"height":"1606","low_res":"http:\/\/25.media.tumblr.com\/7c8846ba8b332f95260c5829a6091d8c\/tumblr_mkdf8h0tTD1qe31lco1_r1_500.jpg","high_res":"http:\/\/25.media.tumblr.com\/7c8846ba8b332f95260c5829a6091d8c\/tumblr_mkdf8h0tTD1qe31lco1_r1_1280.jpg"},{"width":"966","height":"1226","low_res":"http:\/\/24.media.tumblr.com\/13ff9f8374b9a387cba5d49a21e6f879\/tumblr_mkdf8h0tTD1qe31lco5_r1_500.jpg","high_res":"http:\/\/24.media.tumblr.com\/13ff9f8374b9a387cba5d49a21e6f879\/tumblr_mkdf8h0tTD1qe31lco5_r1_1280.jpg"}];
+
+function event_is_alt_key(e) {
+return (
+(! e && window.event && (window.event.metaKey || window.event.altKey)) ||
+(e && (e.metaKey || e.altKey))
+);
+};
+
+document.getElementById('photoset_link_47473765799_1').onclick = function(e){
+if (event_is_alt_key(e)) return true;
+
+Tumblr.Lightbox.init(
+photoset_photos_47473765799, 1);
+
+return false;
+}
+document.getElementById('photoset_link_47473765799_2').onclick = function(e){
+if (event_is_alt_key(e)) return true;
+
+Tumblr.Lightbox.init(
+photoset_photos_47473765799, 2);
+
+return false;
+}
+document.getElementById('photoset_link_47473765799_3').onclick = function(e){
+if (event_is_alt_key(e)) return true;
+
+Tumblr.Lightbox.init(
+photoset_photos_47473765799, 3);
+
+return false;
+}
+document.getElementById('photoset_link_47473765799_4').onclick = function(e){
+if (event_is_alt_key(e)) return true;
+
+Tumblr.Lightbox.init(
+photoset_photos_47473765799, 4);
+
+return false;
+}
+document.getElementById('photoset_link_47473765799_5').onclick = function(e){
+if (event_is_alt_key(e)) return true;
+
+Tumblr.Lightbox.init(
+photoset_photos_47473765799, 5);
+
+return false;
+}
+document.getElementById('photoset_link_47473765799_6').onclick = function(e){
+if (event_is_alt_key(e)) return true;
+
+Tumblr.Lightbox.init(
+photoset_photos_47473765799, 6);
+
+return false;
+}
+</script>
+
+
+<div class="caption" style="margin-top:0px;">
+<p><a href="http://www.chinese-photography.net/huangyan.php" target="_blank">Huang Yan</a> - <em>Chinese Landscapes</em> (1999-2005)</p></div>
+</div>
+
+<div class="clear"></div>
+
+
+
+<div class="post_footer_links with_tags ">
+
+
+
+<span id="post_tags_wrapper_47473765799" class="post_tags_wrapper">
+<span id="post_tags_47473765799" class="tags with_blingy_tag">
+
+<a class="blingy blue" href="/tagged/art">#Art<span class="left"></span><span class="right"></span></a>
+
+</span>
+</span>
+
+</div>
+
+ 
+
+
+
+
+<div id="notes_outer_container_47473765799" class="notes_outer_container">
+<div>
+<div class="notes_container"><ol class="notes"></ol></div>
+<div class="notes_control"><div class="notes_loader">Loading...</div></div>
+</div>
+</div>
+<a href="http://likeafieldmouse.com/post/47473765799/huang-yan-chinese-landscapes-1999-2005" target="_blank" title="View post - 3:27pm" class="permalink" id="permalink_47473765799"></a>
+
+
+</div>
+
+
+
+
+<div class="avatar_and_i">
+
+
+
+<a href="http://likeafieldmouse.com/"title="not shaking the grass" class="post_avatar" id="post_avatar_47473765799" style="background-image:url('http://24.media.tumblr.com/avatar_d73e3357ba0a_64.png')"
+data-user-avatar-url="http://24.media.tumblr.com/avatar_d73e3357ba0a_64.png"
+data-avatar-url="http://24.media.tumblr.com/avatar_d73e3357ba0a_64.png"
+data-blog-url="http://likeafieldmouse.com/"
+data-use-channel-avatar="1"
+data-use-sub-avatar=""
+></a>
+
+
+<div class="user_menu_info_button">
+<div class="user_menu_info"></div>
+
+
+<div class="user_menu popover" id="user_menu_47473765799" style="display:none">
+<div class="user_menu_nipple"></div>
+<div class="user_menu_list">
+<a href="http://likeafieldmouse.com/ask" class="ask" data-tumblelog-name="likeafieldmouse" data-anonymous-ask="1"><div class="user_menu_list_item"><span class="user_menu_icon ask"></span> Ask</div></a>
+
+<a href="/follow/likeafieldmouse" following="false" class="user_menu_item_toggle_following user_menu_item_toggle_following_2785b35cd33fa6a1ca839efd9657f390" data-tumblelog-hash="2785b35cd33fa6a1ca839efd9657f390" data-tumblelog-name="likeafieldmouse">
+<div class="user_menu_list_item user_menu_list_item_follow_2785b35cd33fa6a1ca839efd9657f390" style="display:block"><span class="user_menu_icon follow"></span> Follow</div>
+<div class="user_menu_list_item user_menu_list_item_unfollow_2785b35cd33fa6a1ca839efd9657f390" style="display:none"><span class="user_menu_icon unfollow"></span> Unfollow</div>
+</a>
+
+
+
+</div>
+</div></div>
+
+</div>
+
+
+<span class="arrow"></span>
+
+</li>
+
+
+
+
+
+
+
+<li id="post_47471133438" class="post photo post_tumblelog_2785b35cd33fa6a1ca839efd9657f390 not_mine same_user_as_last with_permalink" data-post-id='47471133438'data-tumblelog-key='EAGZNGus8'data-reblog-key='FBGgDv0P'data-type='photoset'>
+
+<div class="post_wrapper">
+
+<div class="corner_mask"></div>
+
+
+
+
+<div class="post_controls">
+
+
+
+
+<a class="post_control reblog_count" href="#" id="show_notes_link_47471133438">
+<span id="note_link_less_47471133438" style="display:none;" title="1,176 notes">1,176</span><span id="note_link_current_47471133438" title="1,177 notes">1,177</span><span id="note_link_more_47471133438" style="display:none;" title="1,176 notes">1,178</span>
+</a>
+
+
+
+
+ 
+
+
+
+
+
+
+
+<a class="post_control post_control_icon reblog_button" title="Reblog" data-tumblelog-name="likeafieldmouse" data-post-type="photo" data-reblog-key="FBGgDv0P" data-reblog-id="47471133438" data-user-form-key="3I2tjFpmtFJ8AeBDkyLroTAe8" href="/reblog/47471133438/FBGgDv0P?redirect_to=%2Ftagged%2Fart">Reblog</a>
+
+
+
+
+
+
+ <a class="post_control post_control_icon like_buttonlike_root_47471133438" href="#" id="like_button_47471133438" data-root-post-id="47471133438" onclick="Tumblr.like_post('47471133438'); _gaq.push(['_trackEvent', 'Dashboard', 'Like', 'Post: 47471133438']); return false;" title="Like">Like</a>
+
+</div>
+
+
+<form action="/like/FBGgDv0P" method="post" id="like_form_47471133438" class="hidden">
+<input type="hidden" name="id" value="47471133438"/>
+<input type="hidden" id="form_key" name="form_key" value="3I2tjFpmtFJ8AeBDkyLroTAe8"/>
+</form>
+
+
+
+<div class="post_info">
+
+
+
+
+
+
+
+
+
+
+
+<a href="http://likeafieldmouse.com" >likeafieldmouse</a> 
+</div>
+
+<div class="post_content clearfix" id="post_content_47471133438">
+
+
+
+
+<div id="photoset_47471133438" class="photoset"
+style="clear:both; margin-bottom:11px;">
+
+
+<div class="photoset_row" style="height:519px; width:500px;">
+<a
+href="http://25.media.tumblr.com/f833d84502c4827472c01ddda03fdb70/tumblr_mky9fdTpUS1qe31lco6_1280.jpg" class="photoset_photo"id="photoset_link_47471133438_1"><img style="
+width:500px;
+" src="http://24.media.tumblr.com/f833d84502c4827472c01ddda03fdb70/tumblr_mky9fdTpUS1qe31lco6_500.jpg"
+alt="" /></a></div>
+
+<div class="photoset_row" style="height:500px; width:500px;">
+<a
+href="http://25.media.tumblr.com/873ff6fe3d19db052f646179efbe758e/tumblr_mky9fdTpUS1qe31lco4_1280.jpg" class="photoset_photo"id="photoset_link_47471133438_2"><img style="
+width:500px;
+" src="http://25.media.tumblr.com/873ff6fe3d19db052f646179efbe758e/tumblr_mky9fdTpUS1qe31lco4_500.jpg"
+alt="" /></a></div>
+
+<div class="photoset_row" style="height:334px; width:500px;">
+<a
+href="http://25.media.tumblr.com/85754ba4c5a4a41cb34345e3ebcae131/tumblr_mky9fdTpUS1qe31lco5_1280.jpg" class="photoset_photo"id="photoset_link_47471133438_3"><img style="
+width:500px;
+" src="http://25.media.tumblr.com/85754ba4c5a4a41cb34345e3ebcae131/tumblr_mky9fdTpUS1qe31lco5_500.jpg"
+alt="" /></a></div>
+
+<div class="photoset_row" style="height:334px; width:500px;">
+<a
+href="http://24.media.tumblr.com/4588704d112b1b2d226c97de3aa6f921/tumblr_mky9fdTpUS1qe31lco2_1280.jpg" class="photoset_photo"id="photoset_link_47471133438_4"><img style="
+width:500px;
+" src="http://25.media.tumblr.com/4588704d112b1b2d226c97de3aa6f921/tumblr_mky9fdTpUS1qe31lco2_500.jpg"
+alt="" /></a></div>
+
+<div class="photoset_row" style="height:474px; width:500px;">
+<a
+href="http://25.media.tumblr.com/3ff5dede7a906936db8fa6263c07ff09/tumblr_mky9fdTpUS1qe31lco7_1280.jpg" class="photoset_photo"id="photoset_link_47471133438_5"><img style="
+width:500px;
+" src="http://24.media.tumblr.com/3ff5dede7a906936db8fa6263c07ff09/tumblr_mky9fdTpUS1qe31lco7_500.jpg"
+alt="" /></a></div>
+
+<div class="photoset_row" style="height:532px; width:500px;">
+<a
+href="http://25.media.tumblr.com/31ff2376ffa1ac5b83c1ea38665ab655/tumblr_mky9fdTpUS1qe31lco3_1280.jpg" class="photoset_photo"id="photoset_link_47471133438_6"><img style="
+width:500px;
+" src="http://25.media.tumblr.com/31ff2376ffa1ac5b83c1ea38665ab655/tumblr_mky9fdTpUS1qe31lco3_500.jpg"
+alt="" /></a></div>
+</div>
+
+<script type="text/javascript" class="inline_embed">
+var photoset_photos_47471133438 = [{"width":"800","height":"830","low_res":"http:\/\/24.media.tumblr.com\/f833d84502c4827472c01ddda03fdb70\/tumblr_mky9fdTpUS1qe31lco6_500.jpg","high_res":"http:\/\/25.media.tumblr.com\/f833d84502c4827472c01ddda03fdb70\/tumblr_mky9fdTpUS1qe31lco6_1280.jpg"},{"width":"800","height":"800","low_res":"http:\/\/25.media.tumblr.com\/873ff6fe3d19db052f646179efbe758e\/tumblr_mky9fdTpUS1qe31lco4_500.jpg","high_res":"http:\/\/25.media.tumblr.com\/873ff6fe3d19db052f646179efbe758e\/tumblr_mky9fdTpUS1qe31lco4_1280.jpg"},{"width":"800","height":"534","low_res":"http:\/\/25.media.tumblr.com\/85754ba4c5a4a41cb34345e3ebcae131\/tumblr_mky9fdTpUS1qe31lco5_500.jpg","high_res":"http:\/\/25.media.tumblr.com\/85754ba4c5a4a41cb34345e3ebcae131\/tumblr_mky9fdTpUS1qe31lco5_1280.jpg"},{"width":"800","height":"534","low_res":"http:\/\/25.media.tumblr.com\/4588704d112b1b2d226c97de3aa6f921\/tumblr_mky9fdTpUS1qe31lco2_500.jpg","high_res":"http:\/\/24.media.tumblr.com\/4588704d112b1b2d226c97de3aa6f921\/tumblr_mky9fdTpUS1qe31lco2_1280.jpg"},{"width":"800","height":"759","low_res":"http:\/\/24.media.tumblr.com\/3ff5dede7a906936db8fa6263c07ff09\/tumblr_mky9fdTpUS1qe31lco7_500.jpg","high_res":"http:\/\/25.media.tumblr.com\/3ff5dede7a906936db8fa6263c07ff09\/tumblr_mky9fdTpUS1qe31lco7_1280.jpg"},{"width":"800","height":"851","low_res":"http:\/\/25.media.tumblr.com\/31ff2376ffa1ac5b83c1ea38665ab655\/tumblr_mky9fdTpUS1qe31lco3_500.jpg","high_res":"http:\/\/25.media.tumblr.com\/31ff2376ffa1ac5b83c1ea38665ab655\/tumblr_mky9fdTpUS1qe31lco3_1280.jpg"}];
+
+function event_is_alt_key(e) {
+return (
+(! e && window.event && (window.event.metaKey || window.event.altKey)) ||
+(e && (e.metaKey || e.altKey))
+);
+};
+
+document.getElementById('photoset_link_47471133438_1').onclick = function(e){
+if (event_is_alt_key(e)) return true;
+
+Tumblr.Lightbox.init(
+photoset_photos_47471133438, 1);
+
+return false;
+}
+document.getElementById('photoset_link_47471133438_2').onclick = function(e){
+if (event_is_alt_key(e)) return true;
+
+Tumblr.Lightbox.init(
+photoset_photos_47471133438, 2);
+
+return false;
+}
+document.getElementById('photoset_link_47471133438_3').onclick = function(e){
+if (event_is_alt_key(e)) return true;
+
+Tumblr.Lightbox.init(
+photoset_photos_47471133438, 3);
+
+return false;
+}
+document.getElementById('photoset_link_47471133438_4').onclick = function(e){
+if (event_is_alt_key(e)) return true;
+
+Tumblr.Lightbox.init(
+photoset_photos_47471133438, 4);
+
+return false;
+}
+document.getElementById('photoset_link_47471133438_5').onclick = function(e){
+if (event_is_alt_key(e)) return true;
+
+Tumblr.Lightbox.init(
+photoset_photos_47471133438, 5);
+
+return false;
+}
+document.getElementById('photoset_link_47471133438_6').onclick = function(e){
+if (event_is_alt_key(e)) return true;
+
+Tumblr.Lightbox.init(
+photoset_photos_47471133438, 6);
+
+return false;
+}
+</script>
+
+
+<div class="caption" style="margin-top:0px;">
+<p><a href="http://josephlgriffiths.com/" target="_blank">Joseph L. Griffiths</a> - <em>Drawing Machine 1: To Your Heart&#8217;s Content</em> (2009) - Interactive mixed media with bicycle</p></div>
+</div>
+
+<div class="clear"></div>
+
+
+
+<div class="post_footer_links with_tags ">
+
+
+
+<span id="post_tags_wrapper_47471133438" class="post_tags_wrapper">
+<span id="post_tags_47471133438" class="tags with_blingy_tag">
+
+<a class="blingy blue" href="/tagged/art">#Art<span class="left"></span><span class="right"></span></a>
+
+<a class="tag" href="/tagged/installation">#installation</a>
+</span>
+</span>
+
+</div>
+
+ 
+
+
+
+
+<div id="notes_outer_container_47471133438" class="notes_outer_container">
+<div>
+<div class="notes_container"><ol class="notes"></ol></div>
+<div class="notes_control"><div class="notes_loader">Loading...</div></div>
+</div>
+</div>
+<a href="http://likeafieldmouse.com/post/47471133438/joseph-l-griffiths-drawing-machine-1-to-your" target="_blank" title="View post - 2:46pm" class="permalink" id="permalink_47471133438"></a>
+
+
+</div>
+
+
+
+
+<div class="avatar_and_i">
+
+
+
+<a href="http://likeafieldmouse.com/"title="not shaking the grass" class="post_avatar" id="post_avatar_47471133438" style="background-image:url('http://24.media.tumblr.com/avatar_d73e3357ba0a_64.png')"
+data-user-avatar-url="http://24.media.tumblr.com/avatar_d73e3357ba0a_64.png"
+data-avatar-url="http://24.media.tumblr.com/avatar_d73e3357ba0a_64.png"
+data-blog-url="http://likeafieldmouse.com/"
+data-use-channel-avatar="1"
+data-use-sub-avatar=""
+></a>
+
+
+<div class="user_menu_info_button">
+<div class="user_menu_info"></div>
+
+
+<div class="user_menu popover" id="user_menu_47471133438" style="display:none">
+<div class="user_menu_nipple"></div>
+<div class="user_menu_list">
+<a href="http://likeafieldmouse.com/ask" class="ask" data-tumblelog-name="likeafieldmouse" data-anonymous-ask="1"><div class="user_menu_list_item"><span class="user_menu_icon ask"></span> Ask</div></a>
+
+<a href="/follow/likeafieldmouse" following="false" class="user_menu_item_toggle_following user_menu_item_toggle_following_2785b35cd33fa6a1ca839efd9657f390" data-tumblelog-hash="2785b35cd33fa6a1ca839efd9657f390" data-tumblelog-name="likeafieldmouse">
+<div class="user_menu_list_item user_menu_list_item_follow_2785b35cd33fa6a1ca839efd9657f390" style="display:block"><span class="user_menu_icon follow"></span> Follow</div>
+<div class="user_menu_list_item user_menu_list_item_unfollow_2785b35cd33fa6a1ca839efd9657f390" style="display:none"><span class="user_menu_icon unfollow"></span> Unfollow</div>
+</a>
+
+
+
+</div>
+</div></div>
+
+</div>
+
+
+<span class="arrow"></span>
+
+</li>
+
+
+<li>
+<script type="text/javascript">var s=new Image(1,1);s.src='http://www.tumblr.com/impixu?T=1365471856&J=eyJ0eXBlIjoicG9zdCIsInVybCI6Imh0dHA6XC9cL3d3dy50dW1ibHIuY29tXC90YWdnZWRcL2FydCIsInJlcXR5cGUiOjAsInBvc3RzIjpbeyJwb3N0aWQiOiIzOTcwNTA4OTk3NCIsImJsb2dpZCI6Ijc3MzQ5ODg3Iiwic291cmNlIjozMzF9LHsicG9zdGlkIjo0NzQ5Njk4ODMxOSwiYmxvZ2lkIjoiMjE2ODgyMCIsInNvdXJjZSI6MzMxfSx7InBvc3RpZCI6NDczNTcyNzYwNjUsImJsb2dpZCI6IjI1MTcyNTgwIiwic291cmNlIjozMzF9LHsicG9zdGlkIjo0NzQ3ODMxNjk2OCwiYmxvZ2lkIjoiMjQ2NTk0NSIsInNvdXJjZSI6MzMxfSx7InBvc3RpZCI6IjQ3Mzc1OTE4MTEzIiwiYmxvZ2lkIjoiOTkxMTEwIiwic291cmNlIjozMzF9LHsicG9zdGlkIjoiNDc0ODcxNzY2NzQiLCJibG9naWQiOiI5OTIxNjc5Iiwic291cmNlIjozMzF9LHsicG9zdGlkIjo0NzQ5NTM5NjQ1MSwiYmxvZ2lkIjoiMTMxMDYzOTYiLCJzb3VyY2UiOjMzMX0seyJwb3N0aWQiOjQ3NDkxNjg4OTk3LCJibG9naWQiOiIzNDI3NzMzMSIsInNvdXJjZSI6MzMxfSx7InBvc3RpZCI6NDc0NzM3NjU3OTksImJsb2dpZCI6IjgzMzQ3NjkiLCJzb3VyY2UiOjMzMX0seyJwb3N0aWQiOjQ3NDcxMTMzNDM4LCJibG9naWQiOiI4MzM0NzY5Iiwic291cmNlIjozMzF9XX0=&U=MBALIAGLNG&K=b28ceb7153e7d03ce70e59099043fa8d03e8bb1536139c1d825c73294a5d29db';</script><noscript><img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="http://www.tumblr.com/impixu?T=1365471856&J=eyJ0eXBlIjoicG9zdCIsInVybCI6Imh0dHA6XC9cL3d3dy50dW1ibHIuY29tXC90YWdnZWRcL2FydCIsInJlcXR5cGUiOjAsInBvc3RzIjpbeyJwb3N0aWQiOiIzOTcwNTA4OTk3NCIsImJsb2dpZCI6Ijc3MzQ5ODg3Iiwic291cmNlIjozMzF9LHsicG9zdGlkIjo0NzQ5Njk4ODMxOSwiYmxvZ2lkIjoiMjE2ODgyMCIsInNvdXJjZSI6MzMxfSx7InBvc3RpZCI6NDczNTcyNzYwNjUsImJsb2dpZCI6IjI1MTcyNTgwIiwic291cmNlIjozMzF9LHsicG9zdGlkIjo0NzQ3ODMxNjk2OCwiYmxvZ2lkIjoiMjQ2NTk0NSIsInNvdXJjZSI6MzMxfSx7InBvc3RpZCI6IjQ3Mzc1OTE4MTEzIiwiYmxvZ2lkIjoiOTkxMTEwIiwic291cmNlIjozMzF9LHsicG9zdGlkIjoiNDc0ODcxNzY2NzQiLCJibG9naWQiOiI5OTIxNjc5Iiwic291cmNlIjozMzF9LHsicG9zdGlkIjo0NzQ5NTM5NjQ1MSwiYmxvZ2lkIjoiMTMxMDYzOTYiLCJzb3VyY2UiOjMzMX0seyJwb3N0aWQiOjQ3NDkxNjg4OTk3LCJibG9naWQiOiIzNDI3NzMzMSIsInNvdXJjZSI6MzMxfSx7InBvc3RpZCI6NDc0NzM3NjU3OTksImJsb2dpZCI6IjgzMzQ3NjkiLCJzb3VyY2UiOjMzMX0seyJwb3N0aWQiOjQ3NDcxMTMzNDM4LCJibG9naWQiOiI4MzM0NzY5Iiwic291cmNlIjozMzF9XX0=&U=MBALIAGLNG&K=b28ceb7153e7d03ce70e59099043fa8d03e8bb1536139c1d825c73294a5d29db&NS=1"></noscript></li>
+
+
+
+
+</ol>
+
+</div>
+
+<div class="clear"></div>
+
+<div id="pagination" class="hidden">
+<a id="next_page_link" href="/tagged/art?before=1365466771">Next page &#8594;</a>
+</div>
+
+
+<script type="text/javascript">
+
+jQuery(document).ready(function($) {
+if (window.location.hash.match(/#[0-9]+$/)) {
+var focus_post_id = window.location.hash.substring(1);
+if ($('#post_' + focus_post_id).length) {
+var scroll_offset = $('#post_' + focus_post_id).offset().top
+if (scroll_offset >= 200) {
+setTimeout(function(){
+$('html, body').animate({
+scrollTop: $('#post_' + focus_post_id).offset().top - 20
+}, 1000);
+}, 10);
+}
+}
+}
+});
+
+</script>
+</div><img src="http://assets.tumblr.com/images/content_bottom.png?alpha" alt="" class="content_cap" id="content_bottom"/>
+
+
+
+</div>
+<div id="footer_container" class="clearfix">
+<div id="footer"class="fixed" >
+<ul class="footer_links">
+
+ <li class="footer_link">
+<strong>&copy; Tumblr, Inc.</strong>
+ </li>
+
+ <li class="footer_link">
+<a href="/help">Help</a>
+ </li>
+
+ <li class="footer_link">
+<a href="/about">About</a>
+ </li>
+
+ <li class="footer_link">
+ <a href="/apps">Apps</a>
+</li>
+ 
+ <li class="footer_link">
+<a href="/developers">Developers</a>
+ </li>
+
+ <li class="footer_link">
+<a href="/themes/" title="Tumblr Themes">Themes</a>
+ </li>
+
+ <li class="footer_link">
+<a href="/meetups">Meetups</a>
+ </li>
+
+ <li class="footer_link">
+<a href="/jobs" onclick="this.href = '/jobs?Tumblr+Footer';">Jobs</a>
+ </li>
+
+ <li class="footer_link" id="popover_legal">
+
+<a class=" popover_legal_link" href="/policy/en/terms_of_service" >Legal</a>
+<div class="popover popover_menu popover_gradient nipple_on_bottom popover_legal">
+<ul class="popover_inner">
+<li class="popover_menu_item"><a href="/policy/en/terms_of_service" >Terms</a></li>
+<li class="popover_menu_item"><a href="/policy/en/terms_of_service#dmca" >Copyright</a></li>
+</ul>
+</div>
+ </li>
+
+ <li class="footer_link">
+<a href="/policy/en/privacy">Privacy</a>
+ </li>
+
+
+</ul></div></div>
+
+<div id="auto_pagination_loader">
+<span id="auto_pagination_loader_loading">
+<div class="spinner"></div>
+Loading more posts...</span>
+
+<span id="auto_pagination_loader_failure" style="display:none;">
+Sorry, we couldn't load the next page!&nbsp; <a href="#" onclick="Tumblr.AutoPaginator.start(); return false;">Try again</a>.</span>
+
+<span id="auto_pagination_loader_no_posts" style="display:none;">
+Sorry, we couldn't find any more posts!</span>
+</div>
+
+<div id="report_tumblelog_bar" style="display:none;">
+<span id="report_tumblelog_with_name" style="display:none;">
+Report <span id="report_tumblelog_name"></span>?</span>
+<span id="report_tumblelog_without_name" style="display:none;">Report this person?</span>
+<button class="chrome spam"><div class="chrome_button"><div class="chrome_button_left"></div>Spam<div class="chrome_button_right"></div></div></button>
+<button class="chrome harassment"><div class="chrome_button"><div class="chrome_button_left"></div>Harassment<div class="chrome_button_right"></div></div></button>
+<button class="chrome dismiss"><div class="chrome_button"><div class="chrome_button_left"></div>No thanks<div class="chrome_button_right"></div></div></button>
+</div>
+
+<script type="text/javascript">
+jQuery(document).ready(function($){
+if ((typeof Tumblr.Toaster === 'object') && ($('#toaster').length === 1)) {
+
+// Thoth polling
+Tumblr.Thoth = new Tumblr.Thoth({
+start_timestamp: '1365471856',
+primary_tumblelog: 'jamesmunsch',
+check_posts: true,
+check_inbox: true,
+toast_mode: 1
+});
+
+}
+});
+</script>
+
+
+
+<div id="tab_switching" class="tab_switching inactive">
+<div class="tab_blogs count_2">
+<div class="tab_blog item tab_dashboard">
+<div class="blog_icon dashboard">
+<i class="blog_icon_resting"><img class="blog_icon_img" src="http://assets.tumblr.com/images/tab_switching_dashboard_resting.png?1"></i>
+<i class="blog_icon_active"><img class="blog_icon_img" src="http://assets.tumblr.com/images/tab_switching_dashboard_active.png?1"></i>
+</div>
+<a class="blog_name" href="/dashboard">
+<span class="blog_name_span">Dashboard</span>
+</a>
+<div class="tab_notice new_post_notice_container"><div class="tab_notice_value"></div></div>
+</div>
+<div class="tab_blog item" id="tab_blog_jamesmunsch">
+<div class="blog_icon " style="background-image:url(http://24.media.tumblr.com/avatar_1dd54e4934da_128.png)">
+<i class="blog_icon_overlay"></i>
+</div>
+<a class="blog_name" href="/blog/jamesmunsch">
+<span class="blog_name_span">James Allen Munsch</span>
+</a>
+</div>
+</div>
+</div>
+<div id="post_tab_switching" class="post_tab_switching inactive undimmed">
+<div class="tab_post_types count_7">
+<div class="tab_post_type item" data-index="1">
+<div class="post_type_icon icon_text">
+<i class="post_type_icon_overlay"></i>
+</div>
+<a class="post_type_name" href="/new/text">
+<span class="post_type_name_span">Text</span>
+</a>
+</div>
+<div class="tab_post_type item" data-index="2">
+<div class="post_type_icon icon_photo">
+<i class="post_type_icon_overlay"></i>
+</div>
+<a class="post_type_name" href="/new/photo">
+<span class="post_type_name_span">Photo</span>
+</a>
+</div>
+<div class="tab_post_type item" data-index="3">
+<div class="post_type_icon icon_quote">
+<i class="post_type_icon_overlay"></i>
+</div>
+<a class="post_type_name" href="/new/quote">
+<span class="post_type_name_span">Quote</span>
+</a>
+</div>
+<div class="tab_post_type item" data-index="4">
+<div class="post_type_icon icon_link">
+<i class="post_type_icon_overlay"></i>
+</div>
+<a class="post_type_name" href="/new/link">
+<span class="post_type_name_span">Link</span>
+</a>
+</div>
+<div class="tab_post_type item" data-index="5">
+<div class="post_type_icon icon_chat">
+<i class="post_type_icon_overlay"></i>
+</div>
+<a class="post_type_name" href="/new/chat">
+<span class="post_type_name_span">Chat</span>
+</a>
+</div>
+<div class="tab_post_type item" data-index="6">
+<div class="post_type_icon icon_audio">
+<i class="post_type_icon_overlay"></i>
+</div>
+<a class="post_type_name" href="/new/audio">
+<span class="post_type_name_span">Audio</span>
+</a>
+</div>
+<div class="tab_post_type item" data-index="7">
+<div class="post_type_icon icon_video">
+<i class="post_type_icon_overlay"></i>
+</div>
+<a class="post_type_name" href="/new/video">
+<span class="post_type_name_span">Video</span>
+</a>
+</div>
+</div>
+</div>
+
+
+<script type="text/javascript">
+__qoptions = _qoptions = { qacct: 'p-19UtqE8ngoZbM' };
+</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript>
+<img src="http://pixel.quantserve.com/pixel/p-19UtqE8ngoZbM.gif"
+style="display:none; border-width:0px; height:1px; width:1px;"/>
+</noscript>
+
+<script type="text/javascript">
+var _comscore = _comscore || [];
+_comscore.push(
+{ c1: "2", c2: '15742520' }
+);
+(function(){ var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true; s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js"; el.parentNode.insertBefore(s, el); })();
+</script>
+<noscript><img src="http://b.scorecardresearch.com/p?c1=2&c2=15742520&amp;cv=2.0&amp;cj=1" /></noscript>
+
+<script type="text/javascript">var s=new Image(1,1);s.src='http://www.tumblr.com/impixu?T=1365471856&J=eyJ0eXBlIjoidXJsIiwidXJsIjoiaHR0cDpcL1wvd3d3LnR1bWJsci5jb21cL3RhZ2dlZFwvYXJ0IiwicmVxdHlwZSI6MH0=&U=GNHLFLKBCO&K=5dd745f8b4fe16e4dce8304d888e8d45020eb9decc0485b14ee218296afd7d04';</script><noscript><img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="http://www.tumblr.com/impixu?T=1365471856&J=eyJ0eXBlIjoidXJsIiwidXJsIjoiaHR0cDpcL1wvd3d3LnR1bWJsci5jb21cL3RhZ2dlZFwvYXJ0IiwicmVxdHlwZSI6MH0=&U=GNHLFLKBCO&K=5dd745f8b4fe16e4dce8304d888e8d45020eb9decc0485b14ee218296afd7d04&NS=1"></noscript>
+
+<script>
+Tumblr.ASK_CHARACTER_LIMIT = 500;
+</script>
+<script type="text/tmpl" id="dashboard_ask_template">
+<div data-token="body-scrollverlay" class="plexi scrollverlay color">
+<div class="v_center_outer">
+<div class="v_center_inner">
+<div class="post_form_wrapper detached v_center_el"> 
+<div class="avatar_and_i">
+<a class="post_avatar use_blog_avatar animating" 
+data-user-avatar-url="http://24.media.tumblr.com/avatar_1dd54e4934da_64.png"
+data-avatar-url="http://24.media.tumblr.com/avatar_1dd54e4934da_64.png"
+data-blog-url="http://jamesmunsch.tumblr.com/">
+<span class="post_avatar blog_avatar anonymous" data-anonymous-avatar-url="http://assets.tumblr.com/images/anonymous_avatar_64.gif" style="background-image: url(http://assets.tumblr.com/images/anonymous_avatar_64.gif);"></span>
+<span class="post_avatar blog_avatar new" style="background-image: url(http://24.media.tumblr.com/avatar_1dd54e4934da_64.png);"></span>
+</a> 
+</div>
+<span class="arrow"></span>
+<div class="post_form_wrapper_inner">
+<form id="ask_form" enctype="multipart/form-data" class="active">
+<input type="hidden" name="jk" value='R9hhtAdF6SJZr0vQLEsLid1L3I'>
+<input type="hidden" name="jkt" value='0YiTugYUMTM2NTQ3MTg1Ng'>
+<div class="form_wrapper">
+<div class="post_loader">
+<div class="loader"></div>
+<div class="overlay"></div>
+</div>
+<header id="post_header" class="clearfix">
+<span id="from">
+<span class="tumblelog_name">jamesmunsch</span>
+<span class="anonymous">anonymous</span>
+</span>
+<span class="to_label">to</span>
+<span id="recipient_label"><%- recipient %></span>
+<input type="hidden" name="recipient" id="recipient" value="<%- recipient %>">
+<span id="character_count"></span>
+</header>
+<div id="post_content">
+<div class="main_content ask_form">
+<textarea id="question" name="question" placeholder="Ask me anything" maxlength="500" autofocus></textarea>
+</div>
+
+<nav id="post_controls" class="clearfix">
+<button class="chrome blue" type="submit" id="ask_button" disabled>Ask</button>
+<% if(allow_anonymous) { %>
+<div class="anonymous_wrapper">
+<input type="checkbox" name="anonymous" value="1" id="ask_anonymously"/>
+<label id="ask_anonymously_label" for="ask_anonymously">Ask anonymously</label>
+</div>
+<% } %>
+<button type="button" class="chrome flat close">Close</button>
+</nav>
+<ul class="messages errors"></ul>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</script>
+
+
+<script src="http://assets.tumblr.com/javascript/tiny_mce_3_5_5/tiny_mce.js?1088"></script>
+
+<script>
+if(document.addEventListener) {
+document.addEventListener('DOMContentLoaded', function() {
+var mode = 'display';
+Tumblr.PostForms.initialize({mode: mode});
+});
+} else {
+ // IE (less than 9) gets old post forms
+}
+</script>
+
+
+<script>
+var __ = (function() {
+
+var translation = {
+// General words
+"Dismiss": 'Dismiss',
+"Text": 'Text',
+"Photo": 'Photo',
+"Quote": 'Quote',
+"Link": 'Link',
+"Chat": 'Chat',
+"Audio": 'Audio',
+"Video": 'Video',
+// General form errors
+"Cancel editing this post? All changes will be lost.": 'Cancel editing this post?All changes will be lost.',
+"You must agree that you have permission to share this file.": 'You must agree that you have permission to share this file.',
+"Please wait for the upload to complete.": 'Please wait for the upload to complete.',
+"Post cannot be empty.": 'Post cannot be empty.',
+"You have an unsaved post.": 'You have an unsaved post.',
+"Are you sure you want to change post type? All changes will be lost.": 'Are you sure you want to change post type? All changes will be lost.',
+// No file errors
+"Please choose an image before continuing.": 'Please choose an image before continuing.',
+"Please choose a video source before continuing.": 'Please choose a video source before continuing.',
+"Please choose an audio source before continuing.": 'Please choose an audio source before continuing.',
+// File size errors
+"File is too big.": 'File is too big.',
+"File is too big. Max 10MB.": 'File is too big. Max 10MB.',
+"File is too big. Max 100MB.": 'File is too big. Max 100MB.',
+// File type errors
+"Filetype is not allowed.": 'Filetype is not allowed.',
+"Only image files are allowed.": 'Only image files are allowed.',
+"Only audio files are allowed.": 'Only audio files are allowed.',
+"Only video files are allowed.": 'Only video files are allowed.',
+// Video-specific errors
+"Video is too long. Must be 5 minutes or less.": 'Video is too long. Must be 5 minutes or less.',
+"Video preview not available.": 'Video preview not available.',
+"Sorry, we don't recognize that video service. Please use their embed code instead.": 'Sorry, we don\'t recognize that video service. Please use their embed code instead.',
+// Photo errors
+"Error loading image from url": 'Error loading image from url',
+"You can only upload up to 10 photos. Please remove some if you want to add more" : 'You can only upload up to 10 photos. Please remove some if you want to add more',
+// Delete
+"Delete this post?" : 'Delete this post?',
+"Upload Image" : 'Upload Image'};
+
+return function(string) {
+return translation[string] || string;
+};
+
+})();
+
+Tumblr.USER_TAGS = ['james allen munsch','music','art','artist','truck','james murray','Chicago Art','james munsch','python','Regex','wordnet','derp','nltk','derptown','Tokenize','painting','lulz','meme','lol','glitter','eido','anoobis','fucks give','FUCKS GIVEN ON RISE','words','java','Jabberwocky','probability','lewis carrol','linguisitcs','language','analysis','universe','sweet','objects','nested','recursive','loopy','orteil','banana','dicks','ubuntu','virtual host','Default','apache2','2 urls','sites-available','1 host','electronics','mitch','Dokken','politics','opportunity','gentrification','linux','shell','bash','cli','command line','interfacing','work','php','server','proxy','websense','convert','imagemagick','thumbnails','fifth world problems','oil paint','internet','scrape','crawler','y not','tcp','udp','csf','Email','gmail','external ip','copyright','3d','intellectual property','printing','tree','grammar','noun phrase','grep','126','cat','fail','Password','ssh','LOGiN','honeypot','attempts','file to long','brian eno','note to self','delusional','glitch','post-material','news','np','scrapy','half life','process','trends','meta-consumption','historical buzz','40k rss feeds','threading','multi processing','emulation','TN 3270','ass hats','legit','bacon','how to','extension','filename','replace','programmin','replace extension','Diamonds','crowns','facebook','friends','Aesthetic','photo manipulation','Trope','google','screen shot','AR','over','fee','Ph','aest','photography','feet','overlay','event','javascript','reference','dom','reflection','gif','artists on tumblr','photo','fargo','Meghan Duda','camera','canon','arduino','timelapse','automated','acrylic','michael jordan','Speech Recognition','speech to text','audio to speech','rename'];
+
+Tumblr.use_soundcloud_embed = true;
+
+
+
+</script>
+
+<script id="base_template" type="text/x-handlebars-template">
+{{#if detached}}
+<div class="avatar_and_i">
+<a href="http://jamesmunsch.tumblr.com/"title="James Allen Munsch" class="post_avatar" style="background:#0a2939 url('http://24.media.tumblr.com/avatar_1dd54e4934da_64.png') no-repeat top right"
+data-user-avatar-url="http://24.media.tumblr.com/avatar_1dd54e4934da_64.png"
+data-avatar-url="http://24.media.tumblr.com/avatar_1dd54e4934da_64.png"
+data-blog-url="http://jamesmunsch.tumblr.com/"
+data-use-tumblelog-avatar=""
+data-use-sub-avatar=""
+></a>
+<a href="http://jamesmunsch.tumblr.com/" title="James Allen Munsch" class="sub_avatar" id="post_controls_sub_avatar" style="background:#0a2939 url('http://25.media.tumblr.com/avatar_1dd54e4934da_30.png') no-repeat top right"></a>
+</div>
+<span class="arrow"></span>
+<div class="post_form_wrapper_inner">
+{{/if}}
+<form id="post_form" style="display: none;" enctype="multipart/form-data" class="">
+<div class="form_wrapper">
+<div class="post_loader">
+<div class="loader"></div>
+<div class="overlay"></div>
+</div>
+<header id="post_header" class="clearfix">
+<input type="hidden" name="context_id" value=""/>
+<input type="hidden" name="context_page" value="dashboard"/>
+{{#if reblog}}
+<input type="hidden" name="reblog_post_id" value="{{reblog_id}}">
+<input type="hidden" name="reblog_key" value="{{reblog_key}}">
+{{/if}}
+<div id="tumblelog_select">
+{{#if edit}}
+{{#with post_tumblelog}}
+<span class="txt edit">{{#if legacy_private_channel}}{{title}}{{else}}{{name_or_id}}{{/if}}</span>
+{{/with}}
+{{else}}
+<span class="txt">jamesmunsch</span>
+{{/if}}
+<input type="hidden" name="editor_type" id="post_editor_type" value="rich">
+<input type="hidden" id="post_one_is_rich_text" name="is_rich_text[one]" value="0">
+<input type="hidden" id="post_two_is_rich_text" name="is_rich_text[two]" value="0">
+<input type="hidden" id="post_three_is_rich_text" name="is_rich_text[three]" value="0">
+<input id="channel_id" type="hidden" name="channel_id" value="jamesmunsch">
+{{#if edit}}
+<div id="tumblelog_choices" style="display: none;">
+<div class="selected"
+{{#with post_tumblelog}}
+title="{{#unless legacy_private_channel}}{{title}}{{/unless}}"
+data-option-value="{{name_or_id}}"
+data-user-avatar-url="http://24.media.tumblr.com/avatar_1dd54e4934da_64.png"
+data-avatar-url="{{avatar_64}}"
+data-blog-url="{{url}}"
+data-use-channel-avatar="{{#unless is_private_channel}}1{{/unless}}"
+data-use-sub-avatar="{{#if show_author_avatar}}1{{/if}}"
+data-is-password-protected="{{#if password_protected}}true{{else}}false{{/if}}"
+data-twitter="false"
+data-facebook="false"
+data-twitter-on="false"
+data-facebook-on="false">
+{{#if legacy_private_channel}}{{title}}{{else}}{{name_or_id}}{{/if}}
+{{/with}}
+</div>
+</div>
+{{else}}
+<div id="tumblelog_choices" style="display: none;">
+<div class="post_options popover flex_nip popover_gradient popover_menu popover_post_options">
+<span class="nipple"></span>
+<div class="popover_inner">
+<ul>
+<li>
+<div class="option selected"
+title="James Allen Munsch"
+data-option-value="jamesmunsch"
+data-user-avatar-url="http://24.media.tumblr.com/avatar_1dd54e4934da_64.png"
+data-avatar-url="http://24.media.tumblr.com/avatar_1dd54e4934da_64.png"
+data-blog-url="http://jamesmunsch.tumblr.com/"
+data-use-channel-avatar="1"
+data-use-sub-avatar=""
+data-is-password-protected="false"
+data-twitter="false"
+data-facebook="false"
+data-twitter-on="false"
+data-facebook-on="false">
+jamesmunsch</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+{{/if}}
+</div>
+{{#if reblog}}
+<div class="reblog_source">
+<span class="reblog_icon">reblogged</span>
+<span class="reblog_name">{{post.reblog_name}}</span>
+</div>
+<div id="reblog_as">
+<div class="reblog_select" data-type="{{post.type}}"></div>
+<div id="reblog_select" style="display: none;">
+<div class="post_options popover popover_gradient popover_post_options popover_menu">
+<div class="popover_inner">
+<div class="popover_header">
+Reblog as...</div>
+<ul>
+{{#reblogPostTypes post.can_reblog_as post.type}}{{/reblogPostTypes}}
+</ul>
+</div>
+</div>
+</div>
+</div>
+{{/if}}
+<div class="post_options_wrapper">
+<div class="cog" title="Advanced options">
+<span class="badge"></span>
+</div>
+<div class="advanced_post_options" style="display: none;">
+<div class="post_options popover popover_gradient popover_post_options label_view">
+<div class="popover_inner clearfix">
+<div class="option">
+<div class="label_field">
+<label for="post_slug">Custom URL</label>
+</div>
+<div class="input_field">
+<label for="post_slug">/post/123/</label>
+<input id="post_slug" name="post[slug]" type="text" value="{{post.slug}}" autocomplete="off">
+</div>
+</div>
+<div class="option draft_message {{#isDraft post}}active{{else}}hidden{{/isDraft}}"> 
+<div class="label_field">
+<label for="post_draft_status">Status message</label>
+</div>
+<div class="input_field">
+<input type="text" id="post_draft_status" value="{{#draftMessage post}}{{/draftMessage}}" placeholder="Draft" name="post[draft_status]" autocomplete="off">
+</div>
+</div>
+<div class="option"> 
+<div class="label_field">
+<label for="post_source_url">Content source</label>
+</div>
+<div class="input_field">
+<label for="post_source_url"></label>
+<input type="text" id="post_source_url" placeholder="http://" value="{{#if post.source_url}}{{post.source_url}}{{else}}http://{{/if}}" name="post[source_url]" autocomplete="off">
+</div>
+</div>
+{{#isNewOrPublished post}}
+<div class="option"> 
+<div class="label_field">
+<label for="post_date">Post date</label>
+</div>
+<div class="input_field">
+<input type="text" id="post_date" value="{{post.date}}" placeholder="Now" name="post[date]" autocomplete="off">
+</div>
+</div>
+{{/isNewOrPublished}}
+{{#isPublished post reblog}}
+ <div class="option"> 
+<div class="label_field">
+<label for="post_permalink">Short URL</label>
+</div>
+<div class="input_field">
+<input type="text" id="post_permalink" value="{{post.tiny_url}}" disabled>
+</div>
+</div>
+{{/isPublished}}
+{{#allowPhotoReplies post reblog}}
+<div class="option full_row">
+<label for="allow_photo_replies"> 
+<input type="checkbox" id="allow_photo_replies" name="allow_photo_replies"{{#if post.allow_photo_replies}} checked="checked"{{/if}}>
+<span>Let people photo reply</span>
+</label>
+</div>
+{{/allowPhotoReplies}} 
+</div>
+</div>
+</div>
+</div>
+</header>
+<div id="post_content">
+<div class="main_content">
+<div class="post_type"></div>
+<section class="tag_editor">
+<div class="tags">
+<input class="post_tags" name="post[tags]" type="text" style="display: none;" value="{{post.tags}}">
+<div class="editor_wrapper">
+<input type="text" class="editor borderless" autocomplete="off" spellcheck="false">
+<div id="tag_suggest" class="popover popover_menu popover_gradient ">
+<div class="popover_inner">
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+<nav id="post_controls" class="clearfix">
+<div href="#" class="split" id="create_post">
+
+<button class="chrome blue txt {{#isPasswordPublished post post_tumblelog}}full{{/isPasswordPublished}}" type="submit" disabled>
+{{#if edit}}
+Save post{{else}}
+{{#if reblog}}
+Reblog post{{else}}
+Publish{{/if}}
+{{/if}}
+</button>
+{{#isPasswordPublished post post_tumblelog}}
+{{else}}
+<div class="chrome blue options"></div>
+<div id="post_options" style="display: none;">
+<div class="post_options popover popover_gradient popover_menu popover_post_options">
+<div class="popover_inner">
+<ul>
+<li class="publish_now"><div class="option selected" data-option-value="0" data-button-text="{{#if edit}}Save post{{else}}{{#if reblog}}Reblog post{{else}}Publish{{/if}}{{/if}}">{{#isPublished post reblog}}Published{{else}}Publish now{{/isPublished}}</div></li>
+{{#isPublished post reblog}}
+{{else}}
+<li class="queue"><div class="option" data-option-value="2" data-button-text="Queue post">Add to queue</div></li>
+<li class="publish_on">
+<div class="option" data-option-value="on.2" data-button-text="Schedule post">
+<label for="post_publish_on" class="title">Publish on...</label>
+<div class="inline_edit">
+<input type="text" class="inplace_edit" data-original-value="next tuesday, 10am" value="{{post.publish_on}}" id="post_publish_on" name="post[publish_on]" autocomplete="off">
+</div>
+</div>
+</li>
+<li class="save_draft"><div class="option" data-option-value="1" data-button-text="Save draft">Save as draft</div></li>
+{{/isPublished}}
+<li class="private_post"><div class="option" data-option-value="private" data-button-text="{{#if edit}}Save private post{{else}}Create private post{{/if}}">Private</div></li>
+<li id="preview"><span class="chrome full">Preview on blog</span></li>
+</ul>
+</div>
+</div>
+</div>
+{{/isPasswordPublished}}
+<input type="hidden" name="post[state]" id="post_state" value="{{#if post.state}}{{post.state}}{{else}}0{{/if}}">
+</div>
+{{#allowShare post reblog}}
+<div class="share_btns">
+<ul class="share_btns_list">
+<li data-share="twitter" class="share_btn twitter checked">
+<label>
+<input type="checkbox" class="share_checkbox" id="send_to_twitter" name="send_to_twitter" checked="checked">
+</label>
+<div id="tweet_popover" class="caption_popover popover popover_gradient" style="display: none;">
+<div class="popover_inner">
+<div class="custom_tweet_container">
+<textarea id="custom_tweet" name="custom_tweet" class="text_field">{{#if post.custom_tweet}}{{post.custom_tweet}}{{else}}[URL]{{/if}}</textarea>
+</div>
+<button type="button" class="chrome small dismiss">Done</button>
+<span class="length"></span>
+</div>
+</div>
+</li>
+<li data-share="facebook" class="share_btn facebook checked">
+<label>
+<input type="checkbox" class="share_checkbox" id="send_to_fbog" name="send_to_fbog" checked="checked">
+</label>
+</li>
+</ul>
+</div>
+{{/allowShare}}
+<button type="button" class="chrome flat close">Close</button>
+</nav>
+{{#allowAnswers post reblog}}
+<div class="additional_options_panel">
+<div class="additional_options">
+<label for="allow_answers">
+<input type="checkbox" id="allow_answers" name="allow_answers" {{#if post.allow_answers}}checked{{/if}}/>
+<span>Let people answer this</span>
+</label>
+</div>
+</div>
+{{/allowAnswers}}
+<ul class="messages errors"></ul>
+</div>
+</div>
+</form>
+{{#if detached}}
+</div>
+{{/if}}
+</script>
+
+<script id="tag_suggest_subtemplate" type="text/x-handlebars-template">
+<div class="inner_tag_wrapper">
+{{#each user_tags}}
+<div class="popover_menu_item user_tags">
+<a tabindex="1" href="#">
+<div class="hide_overflow no_count">{{{this}}}</div>
+</a>
+</div>
+{{/each}}
+{{#if suggested_tags}}
+<div class="popover_header {{#if user_tags}}user_tags_present{{/if}}">
+Suggested tags
+</div>
+{{#each suggested_tags}}
+<div class="popover_menu_item">
+<a tabindex="1" href="#">
+<div class="hide_overflow no_count">{{tag}}</div>
+</a>
+</div>
+{{/each}}
+{{/if}}
+</div>
+</script>
+
+<script id="regular_subtemplate" type="text/x-handlebars-template">
+<input type="hidden" value="regular" name="post[type]">
+<div class="file_upload_overlay offscreen">
+<b class="cancel"></b>
+<div class="upload_button">
+<label for="regular_image_upload">Upload image</label>
+<input type="file" id="regular_image_upload" name="image" accept="image/*">
+</div>
+</div>
+<div class="input_wrapper">
+<input class="borderless full title {{#unless post.one}}optional{{/unless}}" id="post_one" name="post[one]" type="text" value="{{post.one}}" autocomplete="off" placeholder="Title">
+<label class="optional" for="post_one">Optional</label>
+</div>
+<div class="textarea_wrapper">
+<textarea class="full borderless resize_y" id="post_two" name="post[two]" style="height: 135px;" autofocus>{{post.two}}</textarea>
+<div class="textarea_shim"><!-- cover up iframe on drag and drop --></div>
+</div>
+</script>
+
+<script id="note_subtemplate" type="text/x-handlebars-template">
+<input type="hidden" value="note" name="post[type]">
+<div class="file_upload_overlay offscreen">
+<b class="cancel"></b>
+<div class="upload_button">
+<label for="regular_image_upload">Upload image</label>
+<input type="file" id="regular_image_upload" name="image" accept="image/*">
+</div>
+</div>
+<div class="original_question">
+<div class="post_question ">{{post.one}}</div>
+<div class="asking_avatar">
+{{#if post.asking_tumblelog.url}}
+<a href="{{post.asking_tumblelog.url}}"><img src="{{post.asking_tumblelog.avatar}}" alt="" width="24" height="24"></a>
+<a href="{{post.asking_tumblelog.url}}" class="post_question_asker">{{post.asking_tumblelog.name}}</a>
+{{else}}
+<img src="{{post.asking_tumblelog.avatar}}" alt="" width="24" height="24">
+<span class="post_question_asker">{{post.asking_tumblelog.name}}</span>
+{{/if}}
+
+</div>
+</div>
+<div class="inner_content">
+<div class="textarea_wrapper">
+<textarea class="full borderless resize_y" id="post_two" name="post[two]" style="height: 135px;" autofocus>{{post.two}}</textarea>
+<div class="textarea_shim"><!-- cover up iframe on drag and drop --></div>
+</div>
+</div>
+</script>
+
+<script id="photo_subtemplate" type="text/x-handlebars-template">
+<div class="photos collapsed">
+<div class="drop" style="display: none"></div>
+<div class="horizontal_marker" style="display: none"></div>
+<div class="vertical_marker" style="display: none"></div>
+</div>
+<div id="webcam_container" style="display: none"></div>
+<div class="photo_field drop_zone_container">
+<div class="drop_zone">
+<input type="hidden" name="MAX_FILE_SIZE" value="10485760">
+<input type="hidden" value="photo" name="post[type]">
+<div class="file_upload">
+<input multiple type="file" id="photo_file_input" name="photo[]" accept="image/*" data-error-size='File is too big. Max 10MB.' data-error-type='Only photo files are allowed.'>
+</div>
+<div class="help" data-another-photo="">
+<span class="help_text">
+<span class="default_text">
+<b class="photo_icon"></b>
+<span class="sub">
+Choose up to 10 photos</span>
+</span>
+<span class="additional_text">
+<span class="sub">
+Upload another photo<br><small>Or use a URL</small>
+</span>
+</span>
+</span>
+<div class="photo_spinner"></div>
+<div class="drop_target" title="Click to add photos or drag some from your desktop"></div>
+</div>
+<div class="url_container">
+<span class="webcam_button">Take a photo</span>
+<span class="url_button">URL</span>
+<div class="url_popover popover popover_gradient" style="display: none;">
+<div class="popover_inner">
+<input class="text_field external_url" placeholder="http://" maxlength="200">{{external_url}}</textarea>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<ul class="messages info"></ul>
+
+<div class="inner_content">
+<div class="inset_label" id="photo_caption">
+<div data-for="post_two" class="optional label{{#if post.two}} hide{{/if}}">Caption</div>
+<label class="optional" for="post_two">Optional</label>
+<textarea class="full resize_y borderless" id="post_two" name="post[two]">{{post.two}}</textarea>
+</div>
+</div>
+</script>
+
+<script id="photo_grid_subtemplate" type="text/x-handlebars-template">
+<div class="item" style="width:{{width}}px;">
+{{#if webcam}}
+<div class="webcam_controls">
+<a class="snap_btn control_btn" href="#"><span class="icon"></span></a>
+<a style="display:none" class="retake_btn control_btn" href="#"><span class="icon"></span></a>
+<span style="display:none" class="countdown control_btn"></span>
+</div>
+{{else}}
+<div class="image_wrapper">
+<img draggable="false" width="100%" class="thumb" src="{{data_url}}" data-filename="{{filename}}">
+</div>
+{{/if}}
+{{#if controls}}
+<div class="controls">
+{{#if webcam}}
+<div class="control flash_toggle" title="Toggle Flash">
+<b class="icon"></b>
+</div>
+{{/if}}
+{{#if linkthrough}}
+<div class="linkthrough control{{#if link_url}} edited{{/if}}" title="Click-through link">
+<b class="icon"></b>
+<div class="linkthrough_popover popover popover_gradient" style="display: none;">
+<div class="popover_inner">
+<label for="post[three]">Set a click-through link</label>
+<div>
+<input type="text" class="text_field" placeholder="http://" maxlength="200" size="40" name="post[three]" value="{{link_url}}" autocomplete="off">
+</div>
+</div>
+</div>
+</div>
+{{/if}}
+{{#if individual_captions}}
+<div class="caption control{{#if caption}} edited{{/if}}" title="Caption">
+<b class="icon"></b>
+<div class="caption_popover popover popover_gradient" style="display: none;">
+<div class="popover_inner">
+<div class="caption_container">
+<textarea class="text_field" placeholder="Caption" maxlength="200">{{caption}}</textarea>
+</div>
+<button type="button" class="chrome small dismiss">Set caption</button>
+<span class="length"></span>
+</div>
+</div>
+</div>
+{{/if}}
+<div class="control x" title="Remove">
+<b class="icon"></b>
+</div>
+</div>
+{{/if}}
+</div>
+</script>
+
+<script id="quote_subtemplate" type="text/x-handlebars-template">
+<input type="hidden" value="quote" name="post[type]">
+<textarea class="borderless full title resize_y" id="post_one" style="height: 100px;" name="post[one]" placeholder="Quote" autofocus>{{post.one}}</textarea>
+<div class="inset_label">
+<div data-for="post_two" class="optional label{{#if post.two}} hide{{/if}}">Source</div>
+<label class="optional" for="post_two">Optional</label>
+<textarea class="full borderless resize_y" id="post_two" name="post[two]" style="{{#if post.two}}height: 135px;{{else}}height: 105px;{{/if}}">{{post.two}}</textarea>
+</div>
+</script>
+
+<script id="link_subtemplate" type="text/x-handlebars-template">
+<input type="hidden" value="link" name="post[type]">
+
+<div class="input_wrapper">
+<input class="borderless full title" id="post_two" name="post[two]" type="text" value="{{post.two}}" placeholder="URL" {{#unless reblog}}autofocus{{/unless}} autocomplete="off"{{#if reblog}} readonly{{/if}}>
+</div>
+<div class="input_wrapper">
+<input class="bordertop full title {{#unless post.one}}optional{{/unless}}" id="post_one" name="post[one]" type="text" value="{{post.one}}" placeholder="Title" autocomplete="off"{{#if reblog}} readonly{{/if}}>
+<label class="optional" for="post_one">Optional</label>
+</div>
+<div class="inset_label">
+<div data-for="post_three" class="optional label{{#if post.three}} hide{{/if}}">Caption</div>
+<label class="optional" for="post_three">Optional</label>
+<textarea class="full borderless resize_y" id="post_three" style="height: 120px;" name="post[three]">{{post.three}}</textarea>
+</div>
+</script>
+
+<script id="link_preview_subtemplate" type="text/x-handlebars-template">
+<div class="link_preview_container">
+<div class="link_preview">
+<div class="link_thumbnail_container no_upload">
+<a href="#" class="cancel overlay"></a>
+<a href="{{two}}" target="_blank" class="link_thumbnail_click">
+<img class="link_thumbnail" src="{{thumbnail}}" alt=""/>
+</a>
+</div>
+<div class="link_text_container">
+<div class="link_text_outer"><div class="link_text">
+{{#if one}}
+<a href="{{two}}" target="_blank" class="link_title">{{one}}</a>
+<a href="{{two}}" target="_blank" class="link_source">{{two}}</a>
+{{else}}
+<a href="{{two}}" target="_blank" class="link_title">{{two}}</a>
+<a href="{{two}}" target="_blank" class="link_source"></a>
+{{/if}}
+</div></div>
+</div>
+</div>
+<div class="loading_overlay">
+<div class="loading_icon"></div>
+</div>
+</div>
+</script>
+
+<script id="chat_subtemplate" type="text/x-handlebars-template">
+<input type="hidden" value="conversation" name="post[type]">
+<div class="input_wrapper">
+<input class="borderless full title {{#unless post.one}}optional{{/unless}}" id="post_one" name="post[one]" type="text" value="{{post.one}}" placeholder="Title" autocomplete="off">
+<label class="optional" for="post_one">Optional</label>
+</div>
+<div class="inset_label">
+<div data-for="post_two" class="label ghost{{#if post.two}} hide{{/if}}">
+<p>Tourist: Could you give us directions to Olive Garden?<br/>New Yorker: No, but I could give you directions to an actual Italian restaurant.<br/></p>
+</div>
+<textarea class="full preview resize_y chat" id="post_two" name="post[two]" autofocus>{{post.two}}</textarea>
+</div>
+</script>
+
+<script id="audio_subtemplate" type="text/x-handlebars-template">
+<input type="hidden" value="audio" name="post[type]">
+<ul class="audio_tabs clearfix">
+<li><a href="#audio_search" class="active" id="tab_audio_search">Search</a></li>
+<li><a href="#audio_upload" id="tab_audio_upload">Upload</a></li>
+<li><a href="#audio_external" id="tab_audio_external">External URL</a></li>
+</ul>
+<div id="audio_search" class="audio_option active">
+<input class="borderless full title" type="text" value="{{post.one}}" id="audio_search_field" autofocus autocomplete="off" placeholder="Enter a track name">
+<div class="search_loader"></div>
+<div id="audio_search_results" class="audio_search_results" style="display:none;">
+<ol id="audio_search_results_spotify"></ol>
+<ol id="audio_search_results_soundcloud"></ol>
+<div id="audio_search_error" class="audio_search_error">
+Hmm, this search has problems :(</div>
+
+<div id="audio_search_no_results" class="audio_search_error">
+Darn, we couldn't find that :(</div>
+</div>
+</div>
+<div id="audio_upload" class="audio_option" style="display: none;">
+<div class="file_upload droppable">
+<div class="drop_zone">
+<div class="help" data-another-photo="">
+<span class="help_text">
+<span class="default_text">
+<span class="sub">
+Choose file</span>
+<b class="audio_icon"></b>
+<span id="audio_upload_requirements">
+Up to 10 MB, MP3</span>
+</span>
+</span>
+</div>
+</div>
+<input type="hidden" name="MAX_FILE_SIZE" value="10485760">
+<div class="file_upload_wrapper">
+<input type="file" id="audio_file_input" name="audio" accept="audio/mpeg">
+</div>
+</div>
+</div>
+<div id="audio_external" class="audio_option" style="display: none;">
+<input class="borderless full title" type="text" value="{{post.three}}" id="post_three" name="post[three]" placeholder="http://" autocomplete="off">
+</div>
+<div class="inset_label" id="audio_description">
+<div data-for="post_two" class="optional label{{#if post.two}} hide{{/if}}">Description</div>
+<label class="optional" for="post_two">Optional</label>
+<textarea class="full borderless resize_y" id="post_two" name="post[two]" style="height: 135px;">{{post.two}}</textarea>
+</div>
+</script>
+
+<script id="audio_spotify_subtemplate" type="text/x-handlebars-template">
+{{#items}}
+<li class="search_result search_result_spotify" data-href="{{href}}" data-provider="spotify">
+<div class="audio_label">
+<a href="{{href}}" class="title">{{name}}</a>
+<span class="artist">{{artists.0.name}} <cite>{{album.name}}</cite></span>
+</div>
+</li>
+{{/items}}
+</script>
+
+<script id="audio_soundcloud_subtemplate" type="text/x-handlebars-template">
+{{#items}}
+<li class="search_result search_result_soundcloud soundcloud_kind_{{kind}}" data-href="{{permalink_url}}" data-artwork="{{artwork_url}}" data-stream="{{stream_url}}" data-provider="soundcloud" data-title="{{title}}">
+<div class="audio_label">
+<a href="{{permalink_url}}" class="title">{{title}}</a>
+<span class="artist">{{user.username}}</span>
+</div>
+</li>
+{{/items}}
+</script>
+
+<script id="audio_spotify_preview_subtemplate" type="text/x-handlebars-template">
+<div class="audio_preview_container">
+<iframe src="https://embed.spotify.com/?uri={{href}}" frameborder="0" allowtransparency="true" class="spotify_player"></iframe>
+<a href="#" class="dismiss_preview cancel"></a>
+</div>
+</script>
+
+<script id="audio_soundcloud_preview_subtemplate" type="text/x-handlebars-template">
+<div class="audio_preview_container">
+<input type="hidden" id="upload_artwork" name="album_art" value="{{artwork}}">
+<input type="hidden" class="inplace_edit" name="id3_tags[title]" value="{{Title}}" id="audio_id3_title">
+<input type="hidden" class="inplace_edit" name="id3_tags[artist]" value="{{Artist}}" id="audio_id3_artist">
+<input type="hidden" class="inplace_edit" name="id3_tags[album]" value="{{Album}}" id="audio_id3_album">
+<iframe src="https://w.soundcloud.com/player/?url={{href}}&amp;color=3a5976&amp;liking=false&amp;sharing=false&origin=tumblr" frameborder="0" allowtransparency="true" class="soundcloud_audio_player" width="500" height="116"></iframe>
+<a href="#" class="dismiss_preview cancel"></a>
+</div>
+</script>
+
+<script id="upload_list_subtemplate" type="text/x-handlebars-template">
+<div class="upload_container">
+<div id="file_list" class="{{className}}">
+<span class="title">{{name}}</span>
+{{#if prettySize}} 
+<span class="size">- {{prettySize}}</span>
+{{else}}
+<div class="iframe_progress"></div>
+{{/if}}
+<a href="#" class="cancel"></a>
+<div class="progress_background">
+<div class="progress_bar"></div>
+</div>
+<div class="processing">Processing</div>
+</div>
+</div>
+</script>
+
+<script id="upload_tos_subtemplate" type="text/x-handlebars-template">
+<div id="upload_tos">
+<label for="confirm_tos">
+<input type="checkbox" name="confirm_tos" id="confirm_tos" data-error-msg='You must agree that you have permission to share this file.'>
+<span>I have permission to let Tumblr use this under the <a href="/terms_of_service" target="_blank">Terms of Service</a></span>
+</label>
+</div>
+</script>
+
+<script id="audio_preview_player_subtemplate" type="text/x-handlebars-template">
+<div class="audio_preview_container html5">
+<input type="hidden" name="pre_upload" value="" id="pre_upload">
+<input type="hidden" name="preuploaded_url" value="" id="preuploaded_url">
+
+<input type="hidden" id="remove_artwork" name="remove_album_art" value="">
+<input type="hidden" name="artwork_pre_upload" value="{{upload_artwork}}" id="artwork_pre_upload">
+<input type="hidden" id="upload_artwork" name="album_art" value="{{artwork}}">
+
+<div class="audio_preview_player_container">
+<div id="audio_album_art" class="audio_album_art{{#unless artwork}} empty{{/unless}}">
+<a href="#" class="cancel overlay"></a>
+<div id="artwork" class="album_art_container">
+{{#if artwork}}<img src="{{artwork}}" alt=""/>{{/if}}
+</div>
+<div id="upload_art">
+<label for="art_upload_input"><span>Select album art</span></label>
+<input type="file" id="art_upload_input" name="album_art" accept="image/*">
+</div>
+</div>
+</div>
+<div class="audio_id3_editor">
+<ul class="id3_tags">
+<li class="track_name">
+<input type="text" class="inplace_edit" name="id3_tags[title]" value="{{Title}}" id="audio_id3_title">
+<label for="audio_id3_title">Track</label>
+</li>
+<li class="artist_name">
+<input type="text" class="inplace_edit" name="id3_tags[artist]" value="{{Artist}}" id="audio_id3_artist">
+<label for="audio_id3_artist">Artist</label>
+</li>
+<li class="album_name">
+<input type="text" class="inplace_edit" name="id3_tags[album]" value="{{Album}}" id="audio_id3_album">
+<label for="audio_id3_album">Album</label>
+</li>
+</ul>
+</div>
+<a href="#" class="dismiss_preview cancel top">Cancel</a>
+</div>
+</script>
+
+<script id="audio_upload_preview_subtemplate" type="text/x-handlebars-template">
+<div class="audio_preview_container">
+<input type="hidden" name="pre_upload" value="" id="pre_upload">
+<input type="hidden" name="preuploaded_url" value="" id="preuploaded_url">
+<div class="audio_preview upload">
+<div id="audio_album_art" {{#unless artwork}}class="empty"{{/unless}}>
+<a href="#" class="cancel overlay"></a>
+<div id="artwork">
+{{#if artwork}}
+<img src="{{artwork}}" alt="">
+{{/if}}
+<input type="hidden" id="remove_artwork" name="remove_album_art" value="">
+<input type="hidden" name="artwork_pre_upload" value="{{upload_artwork}}" id="artwork_pre_upload">
+<input type="hidden" id="upload_artwork" name="album_art" value="{{artwork}}">
+</div>
+<div id="upload_art">
+<label for="art_upload_input"><span>Select album art</span></label>
+<input type="file" id="art_upload_input" name="album_art" accept="image/*">
+</div>
+</div>
+<div class="audio_details">
+<div class="audio_preview">
+<div class="preview_player play" data-stream="{{stream}}">&nbsp; <div class="preview_player_icon"></div></div>
+<audio id="audio_preview_track" class="audio_preview_track" type="audio/mpeg"></audio>
+</div>
+<ul id="audio_id3_editor">
+<li>
+<input type="text" class="inplace_edit" name="id3_tags[title]" value="{{Title}}" id="audio_id3_title">
+<label for="audio_id3_title">track</label>
+</li>
+<li>
+<input type="text" class="inplace_edit" name="id3_tags[artist]" value="{{Artist}}" id="audio_id3_artist">
+<label for="audio_id3_artist">artist</label>
+</li>
+<li>
+<input type="text" class="inplace_edit" name="id3_tags[album]" value="{{Album}}" id="audio_id3_album">
+<label for="audio_id3_album">album</label>
+</li>
+</ul>
+</div>
+</div>
+<a href="#" class="dismiss_preview cancel top"></a>
+</div>
+</script>
+
+<script type="text/javascript">
+Tumblr.video_regexes = {"youtube\\.com\/watch.*[\\?|\\&]v=([a-z0-9-_]+)":"youtube","youtube\\.com\/(?:v|video)\/([a-z0-9-_]+)":"youtube","youtube\\.com\/e\/([a-z0-9-_]+)":"youtube","youtube\\.com.*[\\?|\\&]v=([a-z0-9-_]+)":"youtube","youtu\\.be\/([a-z0-9-_]+)":"youtube","youtube\\.com\/embed\/([a-z0-9-_]+)":"youtube","video\\.google\\.com\/googleplayer\\.swf\\?docId=([0-9:]+)":"google","video\\.google\\.com\/videoplay\\?docid=([0-9:]+)":"google","vimeo\\.com\/moogaloop\\.swf\\?clip_id=([0-9]+)":"vimeo","vimeo\\.com\/groups\/[^\/]+\/videos\/([0-9]+)":"vimeo","vimeo\\.com\/channels\/[^\/]+[\/|\\#]([0-9]+)":"vimeo","vimeo\\.com\/([0-9]+)":"vimeo","player\\.vimeo\\.com\/video\/([0-9]+)":"vimeo","metacafe\\.com\/fplayer\/([0-9]+)":"metacafe","metacafe\\.com\/watch\/([0-9]+)":"metacafe","funnyordie\\.com\/videos\/([a-z0-9]+)":"funny_or_die","funnyordie\\.com\/embed\/([a-z0-9]+)":"funny_or_die","player\\.ordienetworks\\.com\/flash\/fodplayer\\.swf.*key=([a-z0-9]+)":"funny_or_die","dailymotion\\.com\/video\/([a-z0-9]+)":"dailymotion","dailymotion\\.com\/swf\/video\/([a-z0-9]+)":"dailymotion","dailymotion\\.com\/embed\/video\/([a-z0-9]+)":"dailymotion","blip\\.tv\/play\/episode\/([a-zA-Z0-9-_\\+]+)":"blip","blip\\.tv\/play\/([a-zA-Z0-9-_\\+]+)":"blip","blip\\.tv\/([a-zA-Z0-9-]+\/[a-zA-Z0-9-_\\+]+)":"blip","collegehumor\\.com\/video\/([0-9]+)":"collegehumor","collegehumor\\.com\/e\/([0-9]+)":"collegehumor","collegehumor\\.cvcdn\\.com\/moogaloop.*clip_id=([0-9]+)":"collegehumor","hulu\\.com\/embed\/([a-zA-Z0-9-_]+)":"hulu_eid","hulu\\.com\/embed\\.html.*[\\?\\&]?eid=([a-zA-Z0-9-_]+)":"hulu_eid","videofy\\.me\/v\/([0-9]+)":"videofy","jest\\.com\/video\/([0-9]+)":"jest","jest\\.com\/embed\/([0-9]+)":"jest","jest\\.com\/e\/([0-9]+)":"jest","jest\\.cvcdn\\.com\/moogaloop.*clip_id=([0-9+]+)":"jest","coub\\.com\/view\/([a-zA-Z0-9]+)":"coub","coub\\.com\/embed\/([a-zA-Z0-9]+)":"coub","viddler\\.com\/([a-zA-Z0-9-_\\+]+)":"viddler","viddler\\.com\/embed\/([a-zA-Z0-9-_\\+]+)":"viddler"};
+</script>
+<script id="video_subtemplate" type="text/x-handlebars-template">
+<div id="video_options_container" class="rounded_border_group">
+<input type="hidden" value="video" name="post[type]">
+<div id="video_embed" class="video_option">
+<textarea class="borderless full title resize_y autofocus" autofocus type="text" id="post_one" name="post[one]" placeholder="Embed code or video URL">{{post.one}}</textarea>
+</div>
+<div id="video_upload" class="video_option">
+<div class="file_upload droppable">
+<div class="drop_zone">
+<div class="help" data-another-photo="">
+<span class="help_text">
+<span class="default_text">
+<span class="sub">
+Or choose a file</span>
+<b class="video_icon"></b>
+<span id="video_upload_requirements">
+<span class="video_time_remaining">5:00</span> minutes of video remaining today. 100 MB max per file.</span>
+</span>
+</span>
+</div>
+</div>
+<input type="hidden" name="MAX_FILE_SIZE" value="104857600">
+{{#post.is_direct_video}}<input type="hidden" name="keep_video" value="1" id="keep_video"/>{{/post.is_direct_video}}
+<input type="hidden" id="pre_upload" name="pre_upload" value="">
+<input type="hidden" name="preuploaded_url" value="" id="preuploaded_url">
+<input type="hidden" name="preuploaded_ch" value="" id="preuploaded_ch">
+<input type="hidden" id="valid_embed_code" name="valid_embed_code" value="">
+<div class="file_upload_wrapper">
+<label for="video_file_upload" class="text"></label>
+<input type="file" id="video_file_input" name="video" accept="video/*">
+</div>
+</div>
+</div>
+
+</div>
+<div class="inset_label" id="video_caption">
+<div data-for="post_two" class="optional label{{#if post.two}} hide{{/if}}">Caption</div>
+<label class="optional" for="post_two">Optional</label>
+<textarea class="full borderless resize_y" id="post_two" name="post[two]">{{post.two}}</textarea>
+</div>
+</script>
+
+
+<script id="video_youtube_preview_subtemplate" type="text/x-handlebars-template">
+<div id="video_preview_container">
+<div class="video_preview" class="youtube">
+<div id="video_preview_loading">Loading preview</div>
+<div id="video_preview">
+<iframe width="{{width}}" height="{{height}}" src="http://www.youtube.com/embed/{{video_id}}?wmode=transparent&autohide=1&egm=0&hd=1&iv_load_policy=3&modestbranding=1&rel=0&showinfo=0&showsearch=0#t={{timeindex}}" frameborder="0" allowfullscreen></iframe></div>
+</div>
+<a href="#" class="dismiss_preview cancel"></a>
+</div>
+</script>
+
+
+<script id="video_google_preview_subtemplate" type="text/x-handlebars-template">
+<div id="video_preview_container">
+<div class="video_preview" class="google">
+<div id="video_preview_loading">Loading preview</div>
+<div id="video_preview">
+<embed style="width:{{width}}px; height:{{height}}px;" id="VideoPlayback" type="application/x-shockwave-flash" src="http://video.google.com/googleplayer.swf?docId={{video_id}}" flashvars="" wmode="transparent"> </embed></div>
+</div>
+<a href="#" class="dismiss_preview cancel"></a>
+</div>
+</script>
+
+
+<script id="video_vimeo_preview_subtemplate" type="text/x-handlebars-template">
+<div id="video_preview_container">
+<div class="video_preview" class="vimeo">
+<div id="video_preview_loading">Loading preview</div>
+<div id="video_preview">
+<iframe src="http://player.vimeo.com/video/{{video_id}}" width="{{width}}" height="{{height}}" frameborder="0"></iframe></div>
+</div>
+<a href="#" class="dismiss_preview cancel"></a>
+</div>
+</script>
+
+
+<script id="video_metacafe_preview_subtemplate" type="text/x-handlebars-template">
+<div id="video_preview_container">
+<div class="video_preview" class="metacafe">
+<div id="video_preview_loading">Loading preview</div>
+<div id="video_preview">
+<embed src="http://www.metacafe.com/fplayer/{{video_id}}/natures_wonders.swf" width="{{width}}" height="{{height}}" wmode="transparent" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"> </embed></div>
+</div>
+<a href="#" class="dismiss_preview cancel"></a>
+</div>
+</script>
+
+
+<script id="video_funny_or_die_preview_subtemplate" type="text/x-handlebars-template">
+<div id="video_preview_container">
+<div class="video_preview" class="funny_or_die">
+<div id="video_preview_loading">Loading preview</div>
+<div id="video_preview">
+<iframe src="http://www.funnyordie.com/embed/{{video_id}}" width="{{width}}" height="{{height}}" frameborder="0"></iframe></div>
+</div>
+<a href="#" class="dismiss_preview cancel"></a>
+</div>
+</script>
+
+
+<script id="video_dailymotion_preview_subtemplate" type="text/x-handlebars-template">
+<div id="video_preview_container">
+<div class="video_preview" class="dailymotion">
+<div id="video_preview_loading">Loading preview</div>
+<div id="video_preview">
+<iframe src="http://www.dailymotion.com/embed/video/{{video_id}}" width="{{width}}" height="{{height}}" frameborder="0"></iframe></div>
+</div>
+<a href="#" class="dismiss_preview cancel"></a>
+</div>
+</script>
+
+
+<script id="video_blip_preview_subtemplate" type="text/x-handlebars-template">
+<div id="video_preview_container">
+<div class="video_preview" class="blip">
+<div id="video_preview_loading">Loading preview</div>
+<div id="video_preview">
+<iframe src="http://blip.tv/play/{{video_id}}.html?p=1" width="{{width}}" height="{{height}}" frameborder="0" allowfullscreen></iframe></div>
+</div>
+<a href="#" class="dismiss_preview cancel"></a>
+</div>
+</script>
+
+
+<script id="video_collegehumor_preview_subtemplate" type="text/x-handlebars-template">
+<div id="video_preview_container">
+<div class="video_preview" class="collegehumor">
+<div id="video_preview_loading">Loading preview</div>
+<div id="video_preview">
+<iframe src="http://www.collegehumor.com/e/{{video_id}}" width="{{width}}" height="{{height}}" frameborder="0" webkitAllowFullScreen allowfullscreen></iframe></div>
+</div>
+<a href="#" class="dismiss_preview cancel"></a>
+</div>
+</script>
+
+
+<script id="video_hulu_eid_preview_subtemplate" type="text/x-handlebars-template">
+<div id="video_preview_container">
+<div class="video_preview" class="hulu_eid">
+<div id="video_preview_loading">Loading preview</div>
+<div id="video_preview">
+<object width="512" height="288"><param name="movie" value="http://www.hulu.com/embed/{{video_id}}"></param><param name="allowFullScreen" value="true"></param><embed src="http://www.hulu.com/embed/{{video_id}}" type="application/x-shockwave-flash" width="{{width}}" height="{{height}}" allowFullScreen="true"></embed></object></div>
+</div>
+<a href="#" class="dismiss_preview cancel"></a>
+</div>
+</script>
+
+
+<script id="video_videofy_preview_subtemplate" type="text/x-handlebars-template">
+<div id="video_preview_container">
+<div class="video_preview" class="videofy">
+<div id="video_preview_loading">Loading preview</div>
+<div id="video_preview">
+<iframe src="http://p.videofy.me/v/{{video_id}}" width="{{width}}" height="{{height}}" frameborder="0"></iframe></div>
+</div>
+<a href="#" class="dismiss_preview cancel"></a>
+</div>
+</script>
+
+
+<script id="video_jest_preview_subtemplate" type="text/x-handlebars-template">
+<div id="video_preview_container">
+<div class="video_preview" class="jest">
+<div id="video_preview_loading">Loading preview</div>
+<div id="video_preview">
+<iframe src="http://www.jest.com/e/{{video_id}}" width="{{width}}" height="{{height}}" frameborder="0" webkitAllowFullScreen allowFullScreen></iframe></div>
+</div>
+<a href="#" class="dismiss_preview cancel"></a>
+</div>
+</script>
+
+
+<script id="video_coub_preview_subtemplate" type="text/x-handlebars-template">
+<div id="video_preview_container">
+<div class="video_preview" class="coub">
+<div id="video_preview_loading">Loading preview</div>
+<div id="video_preview">
+<iframe src="http://coub.com/embed/{{video_id}}" width="{{width}}" height="{{height}}" frameborder="0" webkitAllowFullScreen allowFullScreen></iframe></div>
+</div>
+<a href="#" class="dismiss_preview cancel"></a>
+</div>
+</script>
+
+
+<script id="video_local_preview_subtemplate" type="text/x-handlebars-template">
+<div id="video_preview_container">
+<div class="video_preview" class="local">
+<div id="video_preview_loading">Loading preview</div>
+<div id="video_preview">
+<video id="video_local_preview" class="video-js vjs-default-skin" controls width="{{width}}" height="{{height}}" data-setup="{}"></video>
+</div>
+</div>
+<a href="#" class="dismiss_preview cancel"></a>
+</div>
+</script>
+
+<script id="video_preview_subtemplate" type="text/x-handlebars-template">
+<div id="video_preview_container">
+<div class="video_preview">
+<div id="video_preview_loading">Loading preview</div>
+<div id="video_preview">{{#if content}}
+<div style="{{#if width}}width:{{width}}px;{{/if}}{{#if height}}height:{{height}}px;{{else}}height:375px;{{/if}}">
+{{#if safe}}
+<div id="video_preview_post_preview" class="retro_video_preview" data-id="post_preview" style="width:100%;height:100%;">
+<div class="retro_thumbnail" style="background-image: url('http://assets.tumblr.com/images/black_100.png');"></div>
+<div class="retro_fuzz"></div>
+<div class="safety_glass"></div>
+<div class="big_play_button">
+<span>Play</span>
+</div>
+</div>
+<div id="watch_video_post_preview" class="video" data-id="post_preview" style="display:none;">
+<div id="video_embed_post_preview" class="video_embed"></div>
+</div>
+<input type="hidden" id="video_code_post_preview" value="{{content}}"/>
+{{else}}
+{{{content}}}
+{{/if}}
+</div>
+{{/if}}</div>
+</div>
+<a href="#" class="dismiss_preview cancel"></a>
+</div>
+</script>
+
+<script id="video_upload_list_subtemplate" type="text/x-handlebars-template">
+<div class="upload_container">
+<div id="file_list" class="{{className}}">
+<span class="title">{{name}}</span>
+{{#if prettySize}} -
+<span class="size">{{prettySize}}</span>
+{{else}}
+<div class="iframe_progress"></div>
+{{/if}}
+<span class="status_icon"></span>
+<a href="#" class="cancel"></a>
+<div class="progress_background">
+<div class="progress_bar"></div>
+</div>
+<div class="processing">Processing</div>
+</div>
+</div>
+</script>
+
+<script id="tinymce_image_popover" type="text/x-handlebars-template">
+<div class="popover popover_gradient popover_form">
+<div class="popover_inner">
+<form id="insert_image_form">
+<div class="input_group_wrapper">
+<input class="image_src" name="src" type="text" placeholder="Image URL" />
+<input class="image_alt" name="alt" type="text" placeholder="Description (optional)" />
+</div>
+<button type="submit" class="chrome" data-updatelabel="Update">Insert</button>
+</form>
+</div>
+</div>
+</script>
+
+<script id="tinymce_link_popover" type="text/x-handlebars-template">
+<div class="popover popover_gradient popover_form">
+<div class="popover_inner">
+<form id="link_form">
+<div class="input_group_wrapper">
+<input class="link_url" name="url" type="text" placeholder="Link URL" />
+<input class="link_title" name="title" type="text" placeholder="Title (optional)" />
+</div>
+<label class="checkbox_label"><input class="link_target" name="target" type="checkbox" value="" /> Open link in a new window</label>
+<button type="submit" class="chrome" data-updatelabel="Update">Insert</button>
+</form>
+</div>
+</div>
+</script>
+
+<script id="tinymce_source_editor" type="text/x-handlebars-template">
+<div id="source_editor" data-ace="http://assets.tumblr.com/javascript/ace-0.2.1a/src/ace.js" data-mode="http://assets.tumblr.com/javascript/ace-0.2.1a/src/mode-html.js">
+<div data-token="source-editor-plexi" class="plexi active show"></div>
+<div id="ace_source_editor" data-mode="ace/mode/html"></div>
+</div>
+</script>
+ 
+
+<script type="text/javascript" src="http://assets.tumblr.com/assets/scripts/follow_list.js?ddef3dfe0b3554b3eee36af890dd4d1d"></script>
+<script type="text/javascript" src="http://assets.tumblr.com/assets/scripts/related_tags.js?e36cfbfd2d97cca369860342555f78b7"></script>
+<script type="text/javascript" src="http://assets.tumblr.com/assets/scripts/radar.js?17521262c4f3eaaa0113a7dbe82f4a3c"></script>
+<script type="text/javascript" src="http://assets.tumblr.com/assets/scripts/audio_player.js?35bbb177c3b103ed62461d85c1e03667"></script>
+<script type="text/javascript" src="http://assets.tumblr.com/assets/scripts/dashboard_ask.js?7fc582a983edf56413ce0282c261a430"></script>
+<script type="text/javascript" src="http://assets.tumblr.com/assets/scripts/posting.js?0c8cb48a9c886f22127c5c09dbb62b1c"></script>
+
+<script>
+if (jQuery('#search_query').val()) new Tumblr.TagFieldView();
+new Tumblr.SearchPopover({ 'promo' : false });
+Tumblr.auto_paginate = true;
+Tumblr.enable_dashboard_key_commands = true;
+Tumblr.animate_scroll = true;
+Tumblr.KeyCommands = new Tumblr.KeyCommandsConstructor();
+start_processing_image_queue();
+var default_search_text = 'Search Tumblr';
+new Tumblr.Elevator;
+var next_page = document.getElementById('next_page_link') ? document.getElementById('next_page_link').href : false;
+Tumblr.AutoPaginator.start();
+</script>
+</body>
+</html>
+

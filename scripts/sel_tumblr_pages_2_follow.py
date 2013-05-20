@@ -1,0 +1,22 @@
+f = open("blogs_2_tumbl","r")
+g = open("sel_blogs2tumblr_out","w")
+g.write('')
+g.close()
+g = open("sel_blogs2tumblr_out","a")
+
+for urls in f:
+    g.write("        try:"+"\n")
+    g.write("            sel.open(\""+urls[:-1].replace("http://","")+"\")"+"\n")
+    g.write("            sel.wait_for_page_to_load(\"30000\")"+"\n")
+    g.write("            sel.click(\"link=Follow\")"+"\n")
+    g.write("            sel.open(\""+urls[:-1].replace("http://","")+"Ask\")"+"\n")
+    g.write("            sel.wait_for_page_to_load(\"30000\")"+"\n")
+    g.write("            sel.click(\"id=question\")"+"\n")
+    g.write("            sel.type(\"id=question\", \"can we be friends?\")"+"\n")
+    g.write("            sel.click(\"id=ask_button\")"+"\n")
+    g.write("            sel.wait_for_page_to_load(\"30000\")"+"\n")
+    g.write("        except Exception, err:"+"\n")
+    g.write("            print Exception, err"+"\n")
+    g.write("            pass"+"\n")
+    g.write("        time.sleep(24)"+"\n")
+

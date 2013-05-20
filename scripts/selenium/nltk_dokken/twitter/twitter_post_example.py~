@@ -1,0 +1,17 @@
+import twitter
+from twitter import Twitter
+from twitter import oauth
+
+TOKEN = "1219034994-UU6fd8lmiO9WMXuJ3wJyBwsEW3pllr5deJsv1Yz"
+TOKEN_KEY = "m8OhrVTEmQUVaA2Y3SnIUvYpftU3KLneFYaM0w978eo"
+
+
+CON_SEC_KEY = "pG5rPkXCCD0XxkVQ8TQXxw"
+CON_SEC = "h8nD6gfEKJyAyR4KvrwiDq21Nu1IfwLegaVjAexGHY"
+
+
+
+twitter = Twitter(auth=OAuth(TOKEN,TOKEN_KEY,CON_SEC,CON_SEC_KEY))
+twitter.statuses.update(status="I'm tweeting from Python!")
+
+

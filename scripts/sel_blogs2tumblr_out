@@ -1,0 +1,518 @@
+        try:
+            sel.open("ruineshumaines.tumblr.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("ruineshumaines.tumblr.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("jeffdtaylor.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("jeffdtaylor.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("champagneproblems.tumblr.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("champagneproblems.tumblr.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("showslow.tumblr.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("showslow.tumblr.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("blog.jacobvanloon.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("blog.jacobvanloon.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("arpeggia.tumblr.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("arpeggia.tumblr.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("tylervarsell.tumblr.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("tylervarsell.tumblr.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("blackcontemporaryart.tumblr.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("blackcontemporaryart.tumblr.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("artsatlas.tumblr.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("artsatlas.tumblr.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("rery.tumblr.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("rery.tumblr.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("futureshipwreck.tumblr.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("futureshipwreck.tumblr.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("jenna.tumblr.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("jenna.tumblr.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("atavus.tumblr.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("atavus.tumblr.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("ryandonato.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("ryandonato.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("anniewerner.tumblr.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("anniewerner.tumblr.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("www.cavetocanvas.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("www.cavetocanvas.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("www.valentineuhovski.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("www.valentineuhovski.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("anniewerner.tumblr.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("anniewerner.tumblr.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("exhibition-ism.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("exhibition-ism.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("thisbelongsinamuseum.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("thisbelongsinamuseum.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("anniewerner.tumblr.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("anniewerner.tumblr.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("tumblropenarts.tumblr.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("tumblropenarts.tumblr.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("creativetime.tumblr.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("creativetime.tumblr.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("artruby.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("artruby.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("devidsketchbook.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("devidsketchbook.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("deadrabbitohno.tumblr.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("deadrabbitohno.tumblr.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("slowartday.tumblr.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("slowartday.tumblr.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("likeafieldmouse.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("likeafieldmouse.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("blue-voids.tumblr.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("blue-voids.tumblr.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("darksilenceinsuburbia.tumblr.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("darksilenceinsuburbia.tumblr.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("artchipel.tumblr.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("artchipel.tumblr.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("yama-bato.tumblr.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("yama-bato.tumblr.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("visual-poetry.tumblr.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("visual-poetry.tumblr.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("areaofinterest.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("areaofinterest.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("theartofanimation.tumblr.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("theartofanimation.tumblr.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("frenchtwist.tumblr.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("frenchtwist.tumblr.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)
+        try:
+            sel.open("samanthakeelysmith.tumblr.com/")
+            sel.wait_for_page_to_load("30000")
+            sel.click("link=Follow")
+            sel.open("samanthakeelysmith.tumblr.com/Ask")
+            sel.wait_for_page_to_load("30000")
+            sel.click("id=question")
+            sel.type("id=question", "can we be friends?")
+            sel.click("id=ask_button")
+            sel.wait_for_page_to_load("30000")
+        except Exception, err:
+            print Exception, err
+            pass
+        time.sleep(24)

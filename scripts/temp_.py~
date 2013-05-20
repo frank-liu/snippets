@@ -1,0 +1,30 @@
+import re
+import time
+f = open("temp_links","w")
+f.write("")
+f.close()
+f = open("temp_links","a")
+g = open("James Munsch.html","r")
+a = []
+
+for lines in g:
+    lines = lines.replace("\n\n","\n")
+    lines = lines.replace("\n\n","\n")
+    lines = lines.replace("\n\n","\n")
+
+    a.append(lines)
+b = []
+print len(a)
+for i in a:
+    if "vanity" in i:
+        b.append(i)
+
+print len(b)
+time.sleep(3)
+
+c = b[0].split(",")
+
+for items in c:
+    if "uri" in items:
+        print items
+
